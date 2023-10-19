@@ -1,3 +1,4 @@
+
 .login-container {
     max-width: 600px;
     margin: 10px auto;
@@ -7,6 +8,7 @@
     background-color: lineal-gradient(#62bef8, #dbf0fe);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
 
 h2 {
     text-align: center;
