@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
 import { AnadirAdminComponent } from './anadir-admin/anadir-admin.component';
 import { AnadirMantenimientoComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
+import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AnadirMantenimientoComponent } from './anadir-mantenimiento/anadir-mant
     LoginComponent,
     RegistroUsuariosComponent,
     AnadirAdminComponent,
-    AnadirMantenimientoComponent
+    AnadirMantenimientoComponent,
+    ModificarAdminComponent
   ],
   imports: [
     BrowserModule,
