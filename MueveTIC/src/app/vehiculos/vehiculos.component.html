@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tu Aplicación</title>
+</head>
+<body>
+  <div class="header">
+    <h1>Tu Aplicación</h1>
+  </div>
+  <div class="app-container">
+    <div class="menu">
+      <!-- Menú con enlaces a las opciones -->
+      <ul>
+        <li><a routerLink="/reservas">Reservas</a></li>
+        <li><a routerLink="/vehiculos" class="active-link">Vehículos</a></li>
+        <li><a routerLink="/usuarios" >Usuarios</a></li>
+      </ul>
+    </div>
+    <div class="content">
+        <div class="sidebar">
+            <!-- Aquí se mostrará la lista de vehículos cuando estés en /vehiculos -->
+          </div>
+      <!-- Área de contenido donde se cargarán los componentes -->
+      <router-outlet></router-outlet>
+    </div>
+    
+  </div>
+</body>
+</html>
