@@ -27,8 +27,7 @@
   }
   
   .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"] {
+  .form-group input[type="email"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -36,19 +35,24 @@
     border-radius: 5px;
   }
   
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #329cf3;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  .boton-container {
+    display: flex;
+    gap: 10px; /* Espacio de 10 píxeles entre los botones */
   }
   
-  button:hover {
-    background-color: #2059ad;
+  .boton {
+    width: 100%;
+      padding: 10px;
+      background-color: #329cf3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
   }
+  
+  /* Otras reglas de estilo, como colores, tamaños, etc. */
+  
+  
   
   /* Estilos específicos para los campos */
   
@@ -56,9 +60,8 @@
   #apellidos,
   #dni,
   #ciudad,
-  #email,
-  #contrasena,
-  #repetirContrasena {
+  #email
+  {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
