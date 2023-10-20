@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,3 +11,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'MueveTIC';
 }
+
