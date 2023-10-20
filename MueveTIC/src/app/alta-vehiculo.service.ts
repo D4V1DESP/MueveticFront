@@ -12,7 +12,7 @@ export class AltaVehiculoService {
   constructor(private client : HttpClient) { }
 
   enviarVehiculo(valor: any) {
-    return this.client.post<any>('http://localhost:8081/vehiculo/alta', { valor });
+    return this.client.post('http://localhost:8081/vehiculos/alta',  valor );
   }
   
 

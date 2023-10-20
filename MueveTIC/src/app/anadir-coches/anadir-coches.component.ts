@@ -12,20 +12,20 @@ import { AltaVehiculoService } from '../alta-vehiculo.service';
 
 export class AnadirCochesComponent {
   constructor(private AltaVehiculoService: AltaVehiculoService) { }
-  coche: Coche={
-    n_plazas: '4',
-    matricula: '12345678hj',
-    tipo: 'coche',
-    modelo: 'honda',
-    bateria: 100,
-    estado: 'libre',
-    direccion: 'calle de la pantomima'
-  }
+  
   onClickEnviar():void {
-    
-    this.AltaVehiculoService.enviarVehiculo(this.coche).subscribe(
+    let vehiculo={
+    nPlazas: "4",
+    matricula: "12345678hj",
+    tipo: "Coche",
+    modelo: "honda",
+    bateria: "100",
+    estado: "libre",
+    direccion: "calle de la pantomima"}
+     
+    this.AltaVehiculoService.enviarVehiculo(vehiculo).subscribe(
       response=>{
-        console.log('Datos enviados con éxito:', response.data);
+        console.log('Datos enviados con éxito:', response);
       },
       error =>{
         console.error('Error al enviar datos:', error);
