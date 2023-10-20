@@ -1,0 +1,28 @@
+<div class="registro-container">
+  
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="manData.nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" id="apellidos" name="apellidos" [(ngModel)]="manData.apellidos" required>
+    </div>
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input type="text" id="dni" name="dni" [(ngModel)]="manData.dni" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="manData.email" required>
+    </div>
+    <div class="form-group">
+      <label for="ciudad">Ciudad</label>
+      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="manData.ciudad" required>
+    </div>
+    
+    <div class="boton-container">
+      <button class="boton">Añadir</button>
+      <button (click)="limpiarCampos()" class="boton">Limpiar</button>
+    </div>
+    

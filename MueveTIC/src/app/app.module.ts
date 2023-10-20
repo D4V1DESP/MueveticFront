@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
+import { AnadirAdminComponent } from './anadir-admin/anadir-admin.component';
+import { AnadirMantenimientoComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroUsuariosComponent
+    RegistroUsuariosComponent,
+    AnadirAdminComponent,
+    AnadirMantenimientoComponent
   ],
   imports: [
     BrowserModule,
@@ -24,3 +28,4 @@ import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios
 })
 export class AppModule { }
 export class RegistroUsuariosModule { }
+export class AnadirUsuarioModule { }
