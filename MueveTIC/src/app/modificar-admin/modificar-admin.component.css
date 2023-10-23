@@ -1,7 +1,8 @@
 /* Estilos para el formulario de registro */
 
 .registro-container {
-    max-width: 400px;
+    width: 350px;
+    height: 650px;
     margin: 10px auto;
     padding: 40px;
     border: 1px solid #ccc;
@@ -27,28 +28,51 @@
   }
   
   .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"] {
+  .form-group input[type="email"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #c56767;
     border-radius: 5px;
   }
   
-  button {
-    width: 100%;
-    padding: 10px;
+  .container {
+    position: relative;
+}
+
+.boton, .boton1 {
+    width: 27%;
     background-color: #329cf3;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
+    margin: 10px;
+    padding: 10px;
+}
+
+.boton {
+    float: left;
+}
+
+.boton1 {
+    float: right;
+}
+
+.alert {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+     /* Ajusta el fondo del alert según tus necesidades */
+    color: rgb(0, 0, 0);
+}
+
+
+
   
-  button:hover {
-    background-color: #2059ad;
-  }
+  /* Otras reglas de estilo, como colores, tamaños, etc. */
+  
+  
   
   /* Estilos específicos para los campos */
   
@@ -56,9 +80,8 @@
   #apellidos,
   #dni,
   #ciudad,
-  #email,
-  #contrasena,
-  #repetirContrasena {
+  #email
+  {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
