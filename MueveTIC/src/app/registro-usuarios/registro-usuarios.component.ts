@@ -25,24 +25,12 @@ export class RegistroUsuariosComponent {
   submitRegistro() {
 
      const email =document.getElementById('email');
-     if (email?.nodeValue == null) {
+     if (email == null) {
        console.log('El email no puede estar vacio');
        return;
      }
-    let userData={
-      
-      email: email?.nodeValue,
-      nombre: '',
-      apellidos: '',
-      dni: '',
-      contrasena: '',
-      repetirContrasena: '',
-      activo: true,
-      ciudad: '',
-      tipo: 'admin'
-    }
 
-    this.registroUsuariosService.enviarUsuario(userData).subscribe(
+    this.registroUsuariosService.enviarUsuario(this.userData).subscribe(
       response=>{
         console.log('Los datos han sido enviados correctamente',response);
         
