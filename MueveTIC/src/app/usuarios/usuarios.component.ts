@@ -1,5 +1,7 @@
-import { Component} from '@angular/core';
-import { AccountService } from '../account.service'; // Asegúrate de que la ruta sea correcta
+import { Component, OnInit} from '@angular/core';
+import { UsuarioService } from '../usuario.service'; // Asegúrate de que la ruta sea correcta
+import { Usuario } from '../usuario';
+
 
 @Component({
   selector: 'app-usuarios',
@@ -7,6 +9,17 @@ import { AccountService } from '../account.service'; // Asegúrate de que la rut
   styleUrls: ['./usuarios.component.css']
 })
 
-export class UsuariosComponent{
-  
+export class UsuariosComponent implements OnInit{
+  usuarios : Usuario[]
+  constructor(private usuarioServicio:UsuarioService) {}
+
+  ngOnInit(): void {
+      this.obtenerUsuarios();
+      
+  }
+  private obtenerUsuarios(){
+    this.usuarioServicio.obtenerInformacionUsuarios().subscribe(data => {
+      this.usuarios = data;
+    });
+  }
 }

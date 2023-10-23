@@ -33,7 +33,13 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{usuario.dni}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellidos}}</td>
+            <td>{{usuario.ciudad}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
         </tbody>
       </table>
       <!-- Área de contenido donde se cargarán los componentes -->
