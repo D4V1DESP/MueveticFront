@@ -6,17 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <h2>Añadir Coches</h2>
+  <div class="añadir-coche-container">
+      <h2>Añadir Coches</h2>
+      
+      <form>
+        
+            
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+          </div>
+        
         <!--form (submit)="onClickEnviar()">
           < Agrega campos de formulario relacionados con el coche aquí >
           <button type="submit">Enviar</button>
         </form -->
         <button (click)=onClickEnviar() >Enviar</button>
-      </div> 
+    
+      <div>
+        <span id="mensajeResultado" style="display: none;">oculto</span>
+      </div>
+      </form>
+  </div> 
+       
       
 </body>
-</html>
-
+ 
   
   
