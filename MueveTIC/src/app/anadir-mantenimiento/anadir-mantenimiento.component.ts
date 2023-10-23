@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-anadir-mantenimiento',
   templateUrl: './anadir-mantenimiento.component.html',
-  styleUrls: ['./anadir-mantenimiento.component.css']
+  styleUrls: ['./anadir-mantenimiento.component.css'],
 })
-export class AnadirMantenimientoComponent {
-  manData = {
-    nombre: '',
-    apellidos: '',
-    dni: '',
-    ciudad: '',
-    email: '',
-    exp:''
+
+export class AnadirManComponent {
+  
+    manData = {
+      nombre: '',
+      apellidos: '',
+      dni: '',
+      ciudad: '',
+      email: '',
+      exp:''
     }
   limpiarCampos() {
     this.manData = {

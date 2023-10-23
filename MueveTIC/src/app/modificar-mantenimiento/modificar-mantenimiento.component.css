@@ -1,0 +1,94 @@
+/* Estilos para el formulario de registro */
+
+.registro-container {
+    width: 350px;
+    height: 650px;
+    margin: 10px auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #62bef8, #dbf0fe);
+    background-color: #62bef8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    margin: 10px 0;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #c56767;
+    border-radius: 5px;
+  }
+  
+  .container {
+    position: relative;
+}
+
+.boton, .boton1 {
+    width: 27%;
+    background-color: #329cf3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+}
+
+.boton {
+    float: left;
+}
+
+.boton1 {
+    float: right;
+}
+
+.alert {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+     /* Ajusta el fondo del alert según tus necesidades */
+    color: rgb(0, 0, 0);
+}
+
+
+
+  
+  /* Otras reglas de estilo, como colores, tamaños, etc. */
+  
+  
+  
+  /* Estilos específicos para los campos */
+  
+  #nombre,
+  #apellidos,
+  #dni,
+  #ciudad,
+  #email,
+  #exp
+  {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Puedes agregar más estilos personalizados según sea necesario */
+  

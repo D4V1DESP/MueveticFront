@@ -2,21 +2,22 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-modificar-admin',
-  templateUrl: './modificar-admin.component.html',
-  styleUrls: ['./modificar-admin.component.css']
+  selector: 'app-modificar-mantenimiento',
+  templateUrl: './modificar-mantenimiento.component.html',
+  styleUrls: ['./modificar-mantenimiento.component.css']
 })
-export class ModificarAdminComponent {
+export class ModificarManComponent {
   openAlert: boolean = false;
   openAlert2: boolean = false;
   alertaAbierta: string | null = null;
 
-  adminData = {
+  manData = {
     nombre: '',
     apellidos: '',
     dni: '',
     ciudad: '',
-    email: ''
+    email: '',
+    exp:''
   }
   imprimirTexto() {
     this.openAlert = true;
@@ -28,12 +29,14 @@ export class ModificarAdminComponent {
     this.alertaAbierta = alerta;
   }
   limpiarCampos() {
-    this.adminData = {
+    this.manData = {
       nombre: '',
       apellidos: '',
       dni: '',
       ciudad: '',
-      email: ''
+      email: '',
+      exp:''
     };
   }
 }
+

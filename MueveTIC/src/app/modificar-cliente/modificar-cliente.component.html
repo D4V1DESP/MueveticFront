@@ -1,16 +1,16 @@
-<div class="registro-container">
-    <h2>Modificar Administradores</h2>
+<div class="client-container">
+    <h2>Modificar usuario cliente</h2>
     <div class="form-group">
       <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" [(ngModel)]="adminData.nombre" required>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="clientData.nombre" required>
     </div>
     <div class="form-group">
       <label for="apellidos">Apellidos</label>
-      <input type="text" id="apellidos" name="apellidos" [(ngModel)]="adminData.apellidos" required>
+      <input type="text" id="apellidos" name="apellidos" [(ngModel)]="clientData.apellidos" required>
     </div>
     <div class="form-group">
       <label for="dni">DNI</label>
-      <input type="text" id="dni" name="dni" [(ngModel)]="adminData.dni" required>
+      <input type="text" id="dni" name="dni" [(ngModel)]="clientData.dni" required>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
@@ -18,19 +18,23 @@
     </div>
     <div class="form-group">
       <label for="ciudad">Ciudad</label>
-      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="adminData.ciudad" required>
+      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="clientData.ciudad" required>
     </div>
+    <div class="form-group">
+        <label for="exp">Contraseña</label>
+        <input type="contrasena" disabled id="contrasena" name="contrasena" [(ngModel)]="clientData.contrasena" required>
+      </div>
     
     <div class="container" (click)="mostrarAlerta('alerta1')">
         <button class="boton">Modificar</button>
     </div>
     <div class="alert alert-primary" *ngIf="alertaAbierta === 'alerta1'">
-        <strong>¡Éxito! </strong>Datos del administrador modificados correctamente.
+        <strong>¡Éxito! </strong>Datos del usuario de mantenimiento modificados correctamente.
    </div>
     <div class="container" (click)="mostrarAlerta('alerta2')">
         <button (click)="limpiarCampos()" class="boton1">Limpiar</button>
     </div>
     <div class="alert alert-primary" *ngIf="alertaAbierta === 'alerta2'">
-        <strong>¡Éxito! </strong>Limpia de los datos de administrador correcta.
+        <strong>¡Éxito! </strong>Limpia de los datos del usuario de mantenimiento correcta.
     </div>
     

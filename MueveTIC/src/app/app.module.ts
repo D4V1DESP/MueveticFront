@@ -9,8 +9,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
 import { AnadirAdminComponent } from './anadir-admin/anadir-admin.component';
-import { AnadirMantenimientoComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
+import { AnadirManComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
 import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
+import { ModificarManComponent } from './modificar-mantenimiento/modificar-mantenimiento.component';
+import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,10 @@ import { ModificarAdminComponent } from './modificar-admin/modificar-admin.compo
     LoginComponent,
     RegistroUsuariosComponent,
     AnadirAdminComponent,
-    AnadirMantenimientoComponent,
-    ModificarAdminComponent
+    AnadirManComponent,
+    ModificarAdminComponent,
+    ModificarManComponent,
+    ModificarClienteComponent
   ],
   imports: [
     BrowserModule,
