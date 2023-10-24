@@ -12,6 +12,8 @@ export class UsuariosComponent implements OnInit {
   administradores: Usuario[] = [];
   clientes: Usuario[] = [];
   mantenimiento: Usuario[] = [];
+  isMouseOver: boolean = false; // Variable para controlar el paso del ratón
+  selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
 
   constructor(private usuarioServicio: UsuarioService) {}
 
@@ -37,5 +39,22 @@ export class UsuariosComponent implements OnInit {
     this.usuarioServicio.obtenerDatosMantenimiento().subscribe((data: Usuario[]) => {
       this.mantenimiento = data;
     });
+  }
+  eliminarUsuario(usuario: Usuario) {
+    // Lógica para eliminar el usuario (puedes implementarla)
+    console.log('Eliminar usuario:', usuario);
+  }
+
+  modificarUsuario(usuario: Usuario) {
+    // Lógica para modificar el usuario (puedes implementarla)
+    console.log('Modificar usuario:', usuario);
+  }
+
+  toggleRow(index: number) {
+    this.selectedRowIndex = index;
+  }
+
+  isRowSelected(index: number) {
+    return index === this.selectedRowIndex;
   }
 }
