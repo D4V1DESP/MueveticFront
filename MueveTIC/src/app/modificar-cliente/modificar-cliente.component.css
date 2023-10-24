@@ -35,6 +35,13 @@
     border: 1px solid #c56767;
     border-radius: 5px;
   }
+  .form-group input[type="contrasena"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #c56767;
+    border-radius: 5px;
+  }
   
   .container {
     position: relative;

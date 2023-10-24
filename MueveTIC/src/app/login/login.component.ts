@@ -14,5 +14,6 @@ export class LoginComponent {
   onLogin(){
     console.log('email:', this.email);
   }
+  
 }
 
