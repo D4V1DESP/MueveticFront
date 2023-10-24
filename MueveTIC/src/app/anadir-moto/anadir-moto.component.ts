@@ -3,18 +3,16 @@ import { AltaVehiculoService } from '../alta-vehiculo.service';
 
 
 @Component({
-  selector: 'app-anadir-coches',
-  templateUrl: './anadir-coches.component.html',
-  styleUrls: ['./anadir-coches.component.css']
+  selector: 'app-anadir-moto',
+  templateUrl: './anadir-moto.component.html',
+  styleUrls: ['./anadir-moto.component.css']
 })
-
-export class AnadirCochesComponent {
-
+export class AnadirMotoComponent {
   constructor(private AltaVehiculoService: AltaVehiculoService) { }
-  coche={
-    nPlazas:"",
+  moto={
+    casco:false,
     matricula:"",
-    tipo: "Coche",
+    tipo: "Moto",
     modelo: "",
     bateria: "100",
     estado: "disponible",
@@ -26,12 +24,12 @@ export class AnadirCochesComponent {
   onClickEnviar():void {
     
     const mensajeResultado = document.getElementById("mensajeResultado"); 
-    this.AltaVehiculoService.enviarVehiculo(this.coche).subscribe(
+    this.AltaVehiculoService.enviarVehiculo(this.moto).subscribe(
       response=>{
         console.log('Datos enviados con éxito:', response);
         if(mensajeResultado){
           mensajeResultado.style.display="inline";
-          mensajeResultado.innerText="Coche añadido con exito"
+          mensajeResultado.innerText="Moto añadida con exito"
         }
       },
       error =>{
@@ -45,6 +43,4 @@ export class AnadirCochesComponent {
     )
     
   }
-  
-  
 }

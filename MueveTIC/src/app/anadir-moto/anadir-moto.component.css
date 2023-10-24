@@ -1,5 +1,4 @@
-
-.anadir-coche-container {
+.anadir-moto-container {
     max-width: 400px;
     margin: 10px auto;
     padding: 40px;
@@ -53,7 +52,7 @@
   
   #matricula,
   #modelo,
-  #nPlazas,
+  #color,
   #direccion {
     width: 100%;
     padding: 10px;
