@@ -64,20 +64,20 @@ body {
 }
 
 
-/* Estilo para la tabla de vehículos */
-.tabla_usuarios {
+/* Estilo para la tabla de usuarios */
+.tabla {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
 }
 
-.tabla_usuarios th, .tabla_usuarios td {
+.tabla th, .tabla td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
 }
 
-.tabla_usuarios th {
+.tabla th {
   background-color: #f0f0f0;
   font-weight: bold;
 }

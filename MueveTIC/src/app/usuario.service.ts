@@ -7,13 +7,20 @@ import { Usuario } from './usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private baseURL = "http://localhost:4200/usuarios";
+  private baseURLAdmin = "http://localhost:8080/users/administradores";
+  private baseURLCliente = "http://localhost:8080/users/cliente";
+  private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
 
-  constructor(private httpService: HttpClient) { }
+  constructor(private httpService: HttpClient) {}
 
-  obtenerInformacionUsuarios(): Observable<Usuario[]> {
-    return this.httpService.get<Usuario[]>(`${this.baseURL}`);
- }
+  obtenerDatosAdministradores(): Observable<Usuario[]> {
+    return this.httpService.get<Usuario[]>(this.baseURLAdmin);
+  }
 
- 
+  obtenerDatosClientes(): Observable<Usuario[]> {
+    return this.httpService.get<Usuario[]>(this.baseURLCliente);
+  }
+  obtenerDatosMantenimiento(): Observable<Usuario[]> {
+    return this.httpService.get<Usuario[]>(this.baseURLMantenimiento);
+  }
 }

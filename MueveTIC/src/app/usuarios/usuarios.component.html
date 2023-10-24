@@ -20,8 +20,12 @@
         <li><a routerLink="/usuarios" class="active-link">Usuarios</a></li>
       </ul>
     </div>
+    
     <div class="content">
-      <table class="tabla_usuarios">
+      <div class="header1">
+        <h1>Administradores</h1>
+      </div>
+      <table class="tabla">
         <thead>
           <tr id="header-row">
             <th>DNI</th>
@@ -33,13 +37,64 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let usuario of usuarios">
-            <td>{{usuario.dni}}</td>
-            <td>{{usuario.email}}</td>
-            <td>{{usuario.nombre}}</td>
-            <td>{{usuario.apellidos}}</td>
-            <td>{{usuario.ciudad}}</td>
+          <tr *ngFor="let administrador of administradores">
+            <td>{{administrador.dni}}</td>
+            <td>{{administrador.email}}</td>
+            <td>{{administrador.nombre}}</td>
+            <td>{{administrador.apellidos}}</td>
+            <td>{{administrador.ciudad}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
+        </tbody>
+      </table>
+      <div class="header2">
+        <h1>Personal de Mantenimiento</h1>
+      </div>
+      <table class="tabla">
+        <thead>
+          <tr id="header-row">
+            <th>DNI</th>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Ciudad</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let mantenimiento of mantenimiento">
+            <td>{{mantenimiento.dni}}</td>
+            <td>{{mantenimiento.email}}</td>
+            <td>{{mantenimiento.nombre}}</td>
+            <td>{{mantenimiento.apellidos}}</td>
+            <td>{{mantenimiento.ciudad}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
+        </tbody>
+      </table>
+      <div class="header3">
+        <h1>Clientes</h1>
+      </div>
+      <table class="tabla">
+        <thead>
+          <tr id="header-row">
+            <th>DNI</th>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Ciudad</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.dni}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.apellidos}}</td>
+            <td>{{cliente.ciudad}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
         </tbody>
       </table>
       <!-- Área de contenido donde se cargarán los componentes -->
