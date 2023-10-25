@@ -23,4 +23,19 @@ export class UsuarioService {
   obtenerDatosMantenimiento(): Observable<Usuario[]> {
     return this.httpService.get<Usuario[]>(this.baseURLMantenimiento);
   }
+
+  obtenerAdminPorEmail(email: string): Observable<Usuario> {
+    const url = `${this.baseURLAdmin}/${email}`;
+    return this.httpService.get<Usuario>(url);
+  }
+  obtenerClientePorEmail(email: string): Observable<Usuario> {
+    const url = `${this.baseURLCliente}/${email}`;
+    return this.httpService.get<Usuario>(url);
+  }
+  obtenerMantenimientoPorEmail(email: string): Observable<Usuario> {
+    const url = `${this.baseURLMantenimiento}/${email}`;
+    return this.httpService.get<Usuario>(url);
+  }
+  
+  
 }

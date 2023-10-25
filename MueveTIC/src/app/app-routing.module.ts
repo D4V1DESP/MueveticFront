@@ -14,12 +14,15 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Ruta por defecto
   { path: 'login', component: LoginComponent }, // Ruta para el componente de login
   { path: 'registro-usuarios', component: RegistroUsuariosComponent },
+  
   { path: 'reservas', component: ReservasComponent },
   { path: 'vehiculos', component: VehiculosComponent },
   { path: 'usuarios', component: UsuariosComponent },
-  { path: 'modificar-admin/:id', component: ModificarAdminComponent },
+
   { path: 'anadir-admin', component: AnadirAdminComponent},
   { path: 'anadir-mantenimiento', component: AnadirMantenimientoComponent},
+
+  { path: 'modificar-admin/:email', component: ModificarAdminComponent },
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
   

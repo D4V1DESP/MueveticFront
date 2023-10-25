@@ -1,29 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
+import { UsuarioService } from '../usuario.service';
+import { Usuario } from '../usuario';
 
 @Component({
   selector: 'app-modificar-admin',
   templateUrl: './modificar-admin.component.html',
   styleUrls: ['./modificar-admin.component.css']
 })
-export class ModificarAdminComponent {
-  openAlert: boolean = false;
-  openAlert2: boolean = false;
-  alertaAbierta: string | null = null;
 
-  adminData = {
-    nombre: '',
-    apellidos: '',
-    dni: '',
-    ciudad: '',
-    email: ''
+export class ModificarAdminComponent implements OnInit {
+  adminData: Usuario = new Usuario(); // Objeto para almacenar los datos del administrador
+  alertaAbierta: string = ''; // Variable para gestionar alertas
+
+  constructor(
+    private route: ActivatedRoute,
+    private usuarioServicio: UsuarioService
+  ) {}
+
+  ngOnInit(): void {
+    const email = this.route.snapshot.paramMap.get('email');
+
+    if (email) {
+      this.usuarioServicio.obtenerAdminPorEmail(email).subscribe((admin: Usuario) => {
+        this.adminData = admin;
+      });
+    }
   }
-  imprimirTexto() {
-    this.openAlert = true;
-  }
-  imprimirTexto2() {
-    this.openAlert2 = true;
-  }
+
   mostrarAlerta(alerta: string) {
+    // Lógica para mostrar alertas
     this.alertaAbierta = alerta;
   }
 }

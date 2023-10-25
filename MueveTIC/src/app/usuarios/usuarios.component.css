@@ -75,6 +75,10 @@ body {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tabla th {

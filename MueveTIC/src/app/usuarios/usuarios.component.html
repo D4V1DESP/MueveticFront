@@ -50,7 +50,7 @@
               <button (click)="eliminarUsuario(administrador)" [hidden]="!isRowSelected(i)">
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-admin/' + administrador.id" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-admin/' + administrador.email" [hidden]="!isRowSelected(i)">
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -69,16 +69,27 @@
             <th>Apellidos</th>
             <th>Ciudad</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+            
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let mantenimiento of mantenimiento" [ngClass]="{'table-row': isMouseOver}">
+          <tr *ngFor="let mantenimiento of mantenimiento; let i = index" [ngClass]="{'table-row': i === selectedRowIndex}"
+        (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{mantenimiento.dni}}</td>
             <td>{{mantenimiento.email}}</td>
             <td>{{mantenimiento.nombre}}</td>
             <td>{{mantenimiento.apellidos}}</td>
             <td>{{mantenimiento.ciudad}}</td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
+            <td>
+              <!-- Botones de eliminar y modificar en la fila -->
+              <button (click)="eliminarUsuario(mantenimiento)" [hidden]="!isRowSelected(i)">
+                <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
+              </button>
+              <button [routerLink]="'/modificar-admin/' + mantenimiento.email" [hidden]="!isRowSelected(i)">
+                <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -97,13 +108,23 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let cliente of clientes" [ngClass]="{'table-row': isMouseOver}">
+          <tr *ngFor="let cliente of clientes; let i = index" [ngClass]="{'table-row': i === selectedRowIndex}"
+        (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{cliente.dni}}</td>
             <td>{{cliente.email}}</td>
             <td>{{cliente.nombre}}</td>
             <td>{{cliente.apellidos}}</td>
             <td>{{cliente.ciudad}}</td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
+            <td>
+              <!-- Botones de eliminar y modificar en la fila -->
+              <button (click)="eliminarUsuario(cliente)" [hidden]="!isRowSelected(i)">
+                <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
+              </button>
+              <button [routerLink]="'/modificar-admin/' + cliente.email" [hidden]="!isRowSelected(i)">
+                <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
