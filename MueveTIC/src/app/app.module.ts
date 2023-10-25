@@ -13,6 +13,7 @@ import { AnadirManComponent } from './anadir-mantenimiento/anadir-mantenimiento.
 import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
 import { ModificarManComponent } from './modificar-mantenimiento/modificar-mantenimiento.component';
 import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
+import{HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente
     BrowserModule,
     FormsModule,  
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

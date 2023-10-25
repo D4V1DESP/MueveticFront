@@ -1,5 +1,6 @@
-<div class="registro-container">
-  
+<div class="admin-container">
+  <h2>Añadir usuario administrador</h2>
+  <form (submit)="submitRegistro()">
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input type="text" id="nombre" name="nombre" [(ngModel)]="adminData.nombre" required>
@@ -17,17 +18,21 @@
       <input type="email" id="email" name="email" [(ngModel)]="adminData.email" required>
     </div>
     <div class="form-group">
-      <label for="ciudad">Ciudad</label>
-      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="adminData.ciudad" required>
-    </div>
-    
+      <label for="contrasena">Contraseña</label>
+      <input type="password" id="contrasena" name="contrasena" [(ngModel)]="adminData.contrasena" required>
+      </div>
+      <div class="form-group">
+      <label for="repetirContrasena">Repetir Contraseña</label>
+      <input type="password" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="adminData.repetirContrasena" required>
+      </div>
     <div class="boton-container">
       <button class="boton">Añadir</button>
       <button (click)="limpiarCampos()" class="boton">Limpiar</button>
     </div>
-    
-    
-   
-  
+    <div>
+<span id="mensajeResultado" style="display: none;">oculto</span>
+
+    </div>
+  </form>
 </div>
 
