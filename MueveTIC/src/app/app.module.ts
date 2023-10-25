@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -20,14 +21,16 @@ import { ModificarAdminComponent } from './modificar-admin/modificar-admin.compo
     RegistroUsuariosComponent,
     AnadirAdminComponent,
     AnadirMantenimientoComponent,
-    ModificarAdminComponent
+    ModificarAdminComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,  
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
