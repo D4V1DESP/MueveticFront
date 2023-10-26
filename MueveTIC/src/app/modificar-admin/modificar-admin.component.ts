@@ -11,14 +11,10 @@ import { Usuario } from '../usuario';
 
 export class ModificarAdminComponent implements OnInit {
   adminData: Usuario = new Usuario(); // Objeto para almacenar los datos del administrador
-  alertaAbierta: string = ''; // Variable para gestionar alertas
-  adminData = {
-    nombre: '',
-    apellidos: '',
-    dni: '',
-    ciudad: '',
-    email: ''
-  }
+  openAlert: boolean = false;
+  openAlert2: boolean = false;
+  alertaAbierta: string | null = null;
+
   constructor(
     private route: ActivatedRoute,
     private usuarioServicio: UsuarioService
@@ -34,8 +30,23 @@ export class ModificarAdminComponent implements OnInit {
     }
   }
 
+ 
+  imprimirTexto() {
+    this.openAlert = true;
+  }
+  imprimirTexto2() {
+    this.openAlert2 = true;
+  }
   mostrarAlerta(alerta: string) {
-    // Lógica para mostrar alertas
     this.alertaAbierta = alerta;
+  }
+  limpiarCampos() {
+    this.adminData = {
+      nombre: '',
+      apellidos: '',
+      dni: '',
+      ciudad: '',
+      email: ''
+    };
   }
 }
