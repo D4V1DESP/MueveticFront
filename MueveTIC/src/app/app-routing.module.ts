@@ -15,6 +15,7 @@ import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.compo
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Ruta por defecto
   { path: 'login', component: LoginComponent }, // Ruta para el componente de login

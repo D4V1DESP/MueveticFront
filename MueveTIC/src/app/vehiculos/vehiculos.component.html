@@ -17,13 +17,86 @@
       <ul>
         <li><a routerLink="/reservas">Reservas</a></li>
         <li><a routerLink="/vehiculos" class="active-link">Vehículos</a></li>
-        <li><a routerLink="/usuarios" >Usuarios</a></li>
+        <li><a routerLink="/usuarios">Usuarios</a></li>
       </ul>
     </div>
+    
     <div class="content">
-        <div class="sidebar">
-            <!-- Aquí se mostrará la lista de vehículos cuando estés en /vehiculos -->
-          </div>
+      <div class="header1">
+        <h1>Coches</h1>
+      </div>
+      <table class="tabla">
+        <thead>
+          <tr id="header-row">
+            <th>Matricula</th>
+            <th>Direccion</th>
+            <th>Modelo</th>
+            <th>Bateria</th>
+            <th>Estado</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let coche of listaCoches">
+            <td>{{coche.matricula}}</td>
+            <td>{{coche.direccion}}</td>
+            <td>{{coche.modelo}}</td>
+            <td>{{coche.bateria}}</td>
+            <td>{{coche.estado}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
+        </tbody>
+      </table>
+      <div class="header2">
+        <h1>Motos</h1>
+      </div>
+      <table class="tabla">
+        <thead>
+          <tr id="header-row">
+            <th>Matricula</th>
+            <th>Direccion</th>
+            <th>Modelo</th>
+            <th>Bateria</th>
+            <th>Estado</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let moto of listaMotos">
+            <td>{{moto.matricula}}</td>
+            <td>{{moto.direccion}}</td>
+            <td>{{moto.modelo}}</td>
+            <td>{{moto.bateria}}</td>
+            <td>{{moto.estado}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
+        </tbody>
+      </table>
+      <div class="header3">
+        <h1>Patinetes</h1>
+      </div>
+      <table class="tabla">
+        <thead>
+          <tr id="header-row">
+            <th>Matricula</th>
+            <th>Direccion</th>
+            <th>Modelo</th>
+            <th>Bateria</th>
+            <th>Estado</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let patinete of listaPatinetes">
+            <td>{{patinete.matricula}}</td>
+            <td>{{patinete.direccion}}</td>
+            <td>{{patinete.modelo}}</td>
+            <td>{{patinete.bateria}}</td>
+            <td>{{patinete.estado}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
+        </tbody>
+      </table>
       <!-- Área de contenido donde se cargarán los componentes -->
       <router-outlet></router-outlet>
     </div>

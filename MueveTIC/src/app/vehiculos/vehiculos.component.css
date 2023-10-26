@@ -1,56 +1,83 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  }
-  
-  .header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .app-container {
-    display: flex;
-  }
-  
-  .menu {
-    background-color: #333;
-    color: #fff;
-    width: 200px;
-    padding: 20px;
-  }
-  
-  .menu ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .menu li {
-    margin-bottom: 10px;
-  }
-  
-  .menu a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  .menu a:hover {
-    color: #ff6600;
-  }
-  
-  .content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-  }
-  .active-link {
-    background-color: #ff6600;
-    color: #fff;
-    font-weight: bold;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.app-container {
+  display: flex;
+}
+
+.menu {
+  background-color: #333;
+  color: #fff;
+  width: 200px;
+  padding: 20px;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #ff6600;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.active-link {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+}
+/* Estilo para la columna derecha (sidebar) con 7 columnas */
+.sidebar {
+display: flex;
+flex-direction: column; /* Mostrar como columnas */
+background-color: #f0f0f0;
+padding: 20px;
+border-left: 1px solid #ccc; /* Línea divisoria */
+overflow-y: auto; /* Agregar barra de desplazamiento si es necesario */
+}
+
+
+/* Estilo para la tabla de usuarios */
+.tabla {
+width: 100%;
+border-collapse: collapse;
+background-color: #fff;
+}
+
+.tabla th, .tabla td {
+border: 1px solid #ccc;
+padding: 10px;
+text-align: center;
+}
+
+.tabla th {
+background-color: #f0f0f0;
+font-weight: bold;
+}
