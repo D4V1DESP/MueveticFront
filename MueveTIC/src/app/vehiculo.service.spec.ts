@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AltaVehiculoService } from './alta-vehiculo.service';
+import { AltaVehiculoService } from './vehiculo.service';
 
 describe('AltaVehiculoService', () => {
   let service: AltaVehiculoService;

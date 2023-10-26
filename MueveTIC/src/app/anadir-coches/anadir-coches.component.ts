@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AltaVehiculoService } from '../alta-vehiculo.service';
+import { AltaVehiculoService } from '../vehiculo.service';
 
 
 @Component({
@@ -9,6 +9,7 @@ import { AltaVehiculoService } from '../alta-vehiculo.service';
 })
 
 export class AnadirCochesComponent {
+   regex = /^[0-9]{4}[a-zA-Z]{3}/
 
   constructor(private AltaVehiculoService: AltaVehiculoService) { }
   coche={
@@ -23,27 +24,41 @@ export class AnadirCochesComponent {
   
 
 
-  onClickEnviar():void {
+  onClickEnviar():void {    
+    if(this.coche.matricula==="" || this.coche.nPlazas==="" || this.coche.direccion==="" || this.coche.modelo===""){
+      this.mostrarLabelMensaje("Ningún campo debe estar vacío")     
+      return;
+    }
     
-    const mensajeResultado = document.getElementById("mensajeResultado"); 
+    if(!this.regex.test(this.coche.matricula)){ 
+      this.mostrarLabelMensaje("Formato de matricula erroneo, el formato debe ser 3333LLL")     
+      return;
+    }
     this.AltaVehiculoService.enviarVehiculo(this.coche).subscribe(
       response=>{
         console.log('Datos enviados con éxito:', response);
-        if(mensajeResultado){
-          mensajeResultado.style.display="inline";
-          mensajeResultado.innerText="Coche añadido con exito"
-        }
+        this.mostrarLabelMensaje("Coche añadido con exito")
+        
       },
       error =>{
         console.error('Error al enviar datos:', error);
-        if(mensajeResultado && error.status=='409'){
-          mensajeResultado.style.display= "inline";
-          mensajeResultado.innerText="Matricula ya registrada"
+        if(error.status=='409'){
+          this.mostrarLabelMensaje("Matricula ya registrada")
         }
+        else
+          this.mostrarLabelMensaje("Error en el envio")
         
       }
     )
     
+  }
+  mostrarLabelMensaje(mensaje:string) {
+    const mensajeResultado = document.getElementById("mensajeResultado");
+    if(mensajeResultado){
+      mensajeResultado.style.display="none";
+      setTimeout(function() {mensajeResultado.style.display = "block"},200);
+      mensajeResultado.innerText=mensaje;
+    }
   }
   
   
