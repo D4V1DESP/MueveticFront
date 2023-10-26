@@ -12,7 +12,13 @@ import { Usuario } from '../usuario';
 export class ModificarAdminComponent implements OnInit {
   adminData: Usuario = new Usuario(); // Objeto para almacenar los datos del administrador
   alertaAbierta: string = ''; // Variable para gestionar alertas
-
+  adminData = {
+    nombre: '',
+    apellidos: '',
+    dni: '',
+    ciudad: '',
+    email: ''
+  }
   constructor(
     private route: ActivatedRoute,
     private usuarioServicio: UsuarioService

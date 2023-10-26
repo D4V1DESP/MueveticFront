@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,5 +14,6 @@ export class LoginComponent {
   onLogin(){
     console.log('email:', this.email);
   }
+  
 }
 

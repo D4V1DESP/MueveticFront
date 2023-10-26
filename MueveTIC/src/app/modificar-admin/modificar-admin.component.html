@@ -31,7 +31,7 @@
     <strong>¡Éxito! </strong>Datos del administrador modificados correctamente.
   </div>
   <div class="container" (click)="mostrarAlerta('alerta2')">
-    <button class="boton1">Limpiar</button>
+    <button (click)="limpiarCampos()" class="boton1">Limpiar</button>
   </div>
   <div class="alert alert-primary" *ngIf="alertaAbierta === 'alerta2'">
     <strong>¡Éxito! </strong>Limpieza de los datos del administrador realizada correctamente.

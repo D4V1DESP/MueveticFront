@@ -9,8 +9,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
 import { AnadirAdminComponent } from './anadir-admin/anadir-admin.component';
-import { AnadirMantenimientoComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
+import { AnadirManComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
 import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
+import { ModificarManComponent } from './modificar-mantenimiento/modificar-mantenimiento.component';
+import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
 
 import { ReservasComponent } from './reservas/reservas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
@@ -22,8 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegistroUsuariosComponent,
     AnadirAdminComponent,
-    AnadirMantenimientoComponent,
+    AnadirManComponent,
     ModificarAdminComponent,
+    ModificarManComponent,
+    ModificarClienteComponent,
     ReservasComponent,
     VehiculosComponent,
     UsuariosComponent
