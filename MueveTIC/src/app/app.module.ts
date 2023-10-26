@@ -12,6 +12,11 @@ import { AnadirAdminComponent } from './anadir-admin/anadir-admin.component';
 import { AnadirMantenimientoComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
 import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
 
+import { ReservasComponent } from './reservas/reservas.component';
+import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +24,16 @@ import { ModificarAdminComponent } from './modificar-admin/modificar-admin.compo
     RegistroUsuariosComponent,
     AnadirAdminComponent,
     AnadirMantenimientoComponent,
-    ModificarAdminComponent
+    ModificarAdminComponent,
+    ReservasComponent,
+    VehiculosComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,  
     AppRoutingModule,
-    FormsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
