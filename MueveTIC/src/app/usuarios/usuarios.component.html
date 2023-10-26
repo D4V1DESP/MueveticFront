@@ -86,7 +86,7 @@
               <button (click)="eliminarUsuario(mantenimiento)" [hidden]="!isRowSelected(i)">
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-admin/' + mantenimiento.email" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-mantenimiento/' + mantenimiento.email" [hidden]="!isRowSelected(i)">
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -121,7 +121,7 @@
               <button (click)="eliminarUsuario(cliente)" [hidden]="!isRowSelected(i)">
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-admin/' + cliente.email" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-cliente/' + cliente.email" [hidden]="!isRowSelected(i)">
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -129,7 +129,7 @@
         </tbody>
       </table>
       <!-- Área de contenido donde se cargarán los componentes -->
-      <router-outlet></router-outlet>
+      
     </div>
     
   </div>

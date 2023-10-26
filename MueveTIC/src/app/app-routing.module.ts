@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
@@ -8,6 +9,8 @@ import { ReservasComponent } from './reservas/reservas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
+import { ModificarManComponent } from './modificar-mantenimiento/modificar-mantenimiento.component';
+import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
 import { AnadirAdminComponent } from './anadir-admin/anadir-admin.component';
 import { AnadirManComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
 import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
@@ -32,6 +35,8 @@ const routes: Routes = [
   { path: 'anadir-moto', component: AnadirMotoComponent },
 
   { path: 'modificar-admin/:email', component: ModificarAdminComponent },
+  { path : 'modificar-mantenimiento/:email', component: ModificarManComponent },
+  { path : 'modificar-cliente/:email', component: ModificarClienteComponent },
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
   

@@ -6,3 +6,9 @@ export class Usuario {
     ciudad: string;
 
 }
+export class Mantenimiento extends Usuario{
+    exp: string;
+}
+export class Cliente extends Usuario{
+    contrasena: string;
+}

@@ -15,16 +15,13 @@
   <div class="form-group">
     <label for="email">Email</label>
     <input type="email" id="email" name="email" [(ngModel)]="adminData.email" disabled>
-
-
   </div>
   <div class="form-group">
     <label for="ciudad">Ciudad</label>
     <input type="text" id="ciudad" name="ciudad" [(ngModel)]="adminData.ciudad" required>
   </div>
-
   <div class="container" (click)="mostrarAlerta('alerta1')">
-    <button class="boton">Modificar</button>
+    <button (click)="modificarAdmin(adminData.email)" class="boton">Modificar</button>
     
   </div>
   <div class="alert alert-primary" *ngIf="alertaAbierta === 'alerta1'">

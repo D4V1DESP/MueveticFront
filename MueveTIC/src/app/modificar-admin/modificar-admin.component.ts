@@ -28,9 +28,9 @@ export class ModificarAdminComponent implements OnInit {
         this.adminData = admin;
       });
     }
+
   }
 
- 
   imprimirTexto() {
     this.openAlert = true;
   }
@@ -40,6 +40,34 @@ export class ModificarAdminComponent implements OnInit {
   mostrarAlerta(alerta: string) {
     this.alertaAbierta = alerta;
   }
+  modificarAdmin(email: string) {
+    // Primero, obtén el administrador a modificar
+    this.usuarioServicio.obtenerAdminPorEmail(email).subscribe((admin: Usuario) => {
+      if (admin) {
+        // Luego, modifica los datos del administrador
+        this.adminData = admin;
+        
+        // Ahora, actualiza los datos del administrador en el servidor
+        this.usuarioServicio.modificarDatosAdministrador(this.adminData).subscribe(
+          (dato: any) => {
+            if (dato.statusCode === 200) {
+              this.mostrarAlerta('exito');
+            } else {
+              this.mostrarAlerta('error');
+            }
+          },
+          (error) => {
+            console.error('Error al modificar el administrador:', error);
+            this.mostrarAlerta('error');
+          }
+        );
+      } else {
+        console.error('No se pudo obtener el administrador.');
+        this.mostrarAlerta('error');
+      }
+    });
+  }
+  
   limpiarCampos() {
     this.adminData = {
       nombre: '',

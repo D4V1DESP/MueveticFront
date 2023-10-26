@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario } from './usuario';
+import { Usuario, Cliente, Mantenimiento } from './usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -17,24 +17,29 @@ export class UsuarioService {
     return this.httpService.get<Usuario[]>(this.baseURLAdmin);
   }
 
-  obtenerDatosClientes(): Observable<Usuario[]> {
-    return this.httpService.get<Usuario[]>(this.baseURLCliente);
+  obtenerDatosClientes(): Observable<Cliente[]> {
+    return this.httpService.get<Cliente[]>(this.baseURLCliente);
   }
-  obtenerDatosMantenimiento(): Observable<Usuario[]> {
-    return this.httpService.get<Usuario[]>(this.baseURLMantenimiento);
+  obtenerDatosMantenimiento(): Observable<Mantenimiento[]> {
+    return this.httpService.get<Mantenimiento[]>(this.baseURLMantenimiento);
   }
 
   obtenerAdminPorEmail(email: string): Observable<Usuario> {
     const url = `${this.baseURLAdmin}/${email}`;
     return this.httpService.get<Usuario>(url);
   }
-  obtenerClientePorEmail(email: string): Observable<Usuario> {
+  obtenerClientePorEmail(email: string): Observable<Cliente> {
     const url = `${this.baseURLCliente}/${email}`;
-    return this.httpService.get<Usuario>(url);
+    return this.httpService.get<Cliente>(url);
   }
-  obtenerMantenimientoPorEmail(email: string): Observable<Usuario> {
+  obtenerMantenimientoPorEmail(email: string): Observable<Mantenimiento> {
     const url = `${this.baseURLMantenimiento}/${email}`;
-    return this.httpService.get<Usuario>(url);
+    return this.httpService.get<Mantenimiento>(url);
+  }
+
+  modificarDatosAdministrador(admin: Usuario): Observable<Usuario> {
+    const url = `${this.baseURLAdmin}/${admin.email}`;
+    return this.httpService.put<Usuario>(url, admin);
   }
   
   
