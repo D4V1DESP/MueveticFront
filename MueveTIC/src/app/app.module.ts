@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -17,11 +18,18 @@ import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente
 import { ReservasComponent } from './reservas/reservas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HttpClientModule } from '@angular/common/http';import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
+import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    AnadirCochesComponent,
+    AnadirPatineteComponent,
+    AnadirMotoComponent,
     RegistroUsuariosComponent,
     AnadirAdminComponent,
     AnadirManComponent,
@@ -34,9 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    FormsModule,  
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

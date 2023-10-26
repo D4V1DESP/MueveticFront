@@ -10,6 +10,10 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
 import { AnadirAdminComponent } from './anadir-admin/anadir-admin.component';
 import { AnadirManComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
+import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
+import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.component';
+import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Ruta por defecto
@@ -22,6 +26,9 @@ const routes: Routes = [
 
   { path: 'anadir-admin', component: AnadirAdminComponent},
   { path: 'anadir-mantenimiento', component: AnadirManComponent},
+  { path: 'anadir-coche', component: AnadirCochesComponent },
+  { path: 'anadir-patinete', component: AnadirPatineteComponent },
+  { path: 'anadir-moto', component: AnadirMotoComponent },
 
   { path: 'modificar-admin/:email', component: ModificarAdminComponent },
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
@@ -33,4 +40,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes),FormsModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  
+}
+
