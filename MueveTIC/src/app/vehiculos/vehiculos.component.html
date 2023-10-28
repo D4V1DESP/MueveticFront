@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,16 +32,26 @@
             <th>Modelo</th>
             <th>Bateria</th>
             <th>Estado</th>
+            <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let coche of listaCoches">
+          <tr *ngFor="let coche of listaCoches;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+          (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{coche.matricula}}</td>
             <td>{{coche.direccion}}</td>
             <td>{{coche.modelo}}</td>
             <td>{{coche.bateria}}</td>
             <td>{{coche.estado}}</td>
+            <td>
+              <button (click)="confirmarEliminarVehiculo(coche)">
+                <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
+              </button>
+              <button [routerLink]="'/modificar-coche/' + coche.matricula" >
+                <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
+              </button>
+            </td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
           </tr>
         </tbody>
@@ -58,16 +67,26 @@
             <th>Modelo</th>
             <th>Bateria</th>
             <th>Estado</th>
+            <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let moto of listaMotos">
+          <tr *ngFor="let moto of listaMotos;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+          (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{moto.matricula}}</td>
             <td>{{moto.direccion}}</td>
             <td>{{moto.modelo}}</td>
             <td>{{moto.bateria}}</td>
             <td>{{moto.estado}}</td>
+            <td>
+              <button (click)="confirmarEliminarVehiculo(moto)">
+                <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
+              </button>
+              <button [routerLink]="'/modificar-moto/' + moto.matricula" >
+                <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
+              </button>
+            </td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
           </tr>
         </tbody>
@@ -83,17 +102,27 @@
             <th>Modelo</th>
             <th>Bateria</th>
             <th>Estado</th>
+            <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let patinete of listaPatinetes">
+          <tr *ngFor="let patinete of listaPatinetes; let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+          (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{patinete.matricula}}</td>
             <td>{{patinete.direccion}}</td>
             <td>{{patinete.modelo}}</td>
             <td>{{patinete.bateria}}</td>
             <td>{{patinete.estado}}</td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
+            <td>
+              <button (click)="confirmarEliminarVehiculo(patinete)">
+                <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
+              </button>
+              <button [routerLink]="'/modificar-patinete/' + patinete.matricula" >
+                <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
