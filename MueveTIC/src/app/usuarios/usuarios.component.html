@@ -4,23 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <title>Tu Aplicación</title>
 </head>
 <body>
-  <div class="header">
-    <h1>Tu Aplicación</h1>
-  </div>
-  <div class="app-container">
-    <div class="menu">
-      <!-- Menú con enlaces a las opciones -->
-      <ul>
+  <header class="main-header">
+    <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+    <input type="checkbox" id="btn-nav">
+    <div class="titulo">
+      <h1>Espacio de gestion de usuarios</h1>
+    </div>
+    <nav>
+      <ul class="navigation">
         <li><a routerLink="/reservas">Reservas</a></li>
-        <li><a routerLink="/vehiculos">Vehículos</a></li>
+        <li><a routerLink="/vehiculos">Vehiculos</a></li>
         <li><a routerLink="/usuarios" class="active-link">Usuarios</a></li>
       </ul>
-    </div>
-    
+    </nav>
+  
+  </header>
     <div class="content">
       <div class="header1">
         <h1>Administradores</h1>
@@ -33,6 +34,7 @@
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Ciudad</th>
+            <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
         </thead>
@@ -47,10 +49,10 @@
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
-              <button (click)="eliminarUsuario(administrador)" [hidden]="!isRowSelected(i)">
+              <button (click)="eliminarUsuario(administrador)">
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-admin/' + administrador.email" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-admin/' + administrador.email">
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -68,6 +70,7 @@
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Ciudad</th>
+            <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
             
           </tr>
@@ -83,10 +86,10 @@
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
-              <button (click)="eliminarUsuario(mantenimiento)" [hidden]="!isRowSelected(i)">
+              <button (click)="eliminarUsuario(mantenimiento)" >
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-admin/' + mantenimiento.email" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-admin/' + mantenimiento.email">
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -104,6 +107,7 @@
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Ciudad</th>
+            <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
         </thead>
@@ -118,10 +122,10 @@
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
-              <button (click)="eliminarUsuario(cliente)" [hidden]="!isRowSelected(i)">
+              <button (click)="eliminarUsuario(cliente)">
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-admin/' + cliente.email" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-admin/' + cliente.email" >
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -130,8 +134,6 @@
       </table>
       <!-- Área de contenido donde se cargarán los componentes -->
       <router-outlet></router-outlet>
-    </div>
-    
-  </div>
+    </div> 
 </body>
 </html>

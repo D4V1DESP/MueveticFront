@@ -2,23 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Tu Aplicación</title>
 </head>
 <body>
-  <div class="header">
-    <h1>Tu Aplicación</h1>
-  </div>
-  <div class="app-container">
-    <div class="menu">
-      <!-- Menú con enlaces a las opciones -->
-      <ul>
-        <li><a routerLink="/reservas">Reservas</a></li>
-        <li><a routerLink="/vehiculos" class="active-link">Vehículos</a></li>
-        <li><a routerLink="/usuarios">Usuarios</a></li>
-      </ul>
+  <header class="main-header">
+    <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+    <input type="checkbox" id="btn-nav">
+    <div class="titulo">
+      <h1>Espacio de gestion de vehiculos</h1>
     </div>
+    <nav>
+      <ul class="navigation">
+        <li><a routerLink="/reservas">Reservas</a></li>
+        <li><a routerLink="/vehiculos"class="active-link">Vehiculos</a></li>
+        <li><a routerLink="/usuarios" >Usuarios</a></li>
+      </ul>
+    </nav>
+  
+  </header>
+  <div class="app-container">
+    
     
     <div class="content">
       <div class="header1">
