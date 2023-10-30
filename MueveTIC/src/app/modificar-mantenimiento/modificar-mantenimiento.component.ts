@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ModificarUsuarioService } from '../modificar-usuario.service';
 
 @Component({
   selector: 'app-modificar-mantenimiento',
@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./modificar-mantenimiento.component.css']
 })
 export class ModificarManComponent {
+  constructor(private modificarUsuarioService: ModificarUsuarioService){
+
+  }
   openAlert: boolean = false;
   openAlert2: boolean = false;
   alertaAbierta: string | null = null;
