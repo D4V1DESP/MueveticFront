@@ -4,6 +4,7 @@ export interface Vehiculo{
     modelo : string;
     bateria : string;
     estado : string;
+    tipo : string
 }
 
 

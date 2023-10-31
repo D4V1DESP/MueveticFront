@@ -7,6 +7,7 @@ import { Usuario, Cliente, Mantenimiento } from './usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  private URLLogin="http://localhost:8080/users/login";
   private baseURLAdmin = "http://localhost:8080/users/administradores";
   private baseURLCliente = "http://localhost:8080/users/cliente";
   private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
@@ -40,6 +41,9 @@ export class UsuarioService {
   modificarDatosAdministrador(admin: Usuario): Observable<Usuario> {
     const url = `${this.baseURLAdmin}/${admin.email}`;
     return this.httpService.put<Usuario>(url, admin);
+  }
+  userLogin(usuario: any){
+    return this.httpService.post(this.URLLogin,usuario);
   }
   
   
