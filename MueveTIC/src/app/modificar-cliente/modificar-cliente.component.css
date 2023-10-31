@@ -1,8 +1,7 @@
 /* Estilos para el formulario de registro */
 
 .client-container {
-    width: 350px;
-    height: 650px;
+    width: 400px;
     margin: 10px auto;
     padding: 40px;
     border: 1px solid #ccc;
@@ -27,6 +26,7 @@
     margin-bottom: 10px;
   }
   
+  .form-group input[type="date"],
   .form-group input[type="text"],
   .form-group input[type="email"] {
     width: 100%;
@@ -49,13 +49,13 @@
 
 .boton, .boton1 {
     width: 27%;
+    padding: 10px;
     background-color: #329cf3;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px;
-    padding: 10px;
+    
 }
 
 .boton {
@@ -75,12 +75,6 @@
 }
 
 
-
-  
-  /* Otras reglas de estilo, como colores, tamaños, etc. */
-  
-  
-  
   /* Estilos específicos para los campos */
   
   #nombre,

@@ -9,11 +9,11 @@ export class Administrador extends Usuario{
     ciudad: string;
 }
 export class Mantenimiento extends Usuario{
-    exp: string;
+    experiencia: string;
     ciudad: string
 }
 export class Cliente extends Usuario{
     carnet: string;
-    fecha_nacimiento: string;
+    fecha: string;
     telefono: string;
 }

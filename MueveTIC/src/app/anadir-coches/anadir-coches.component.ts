@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AltaVehiculoService } from '../vehiculo.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,9 +10,8 @@ import { AltaVehiculoService } from '../vehiculo.service';
 })
 
 export class AnadirCochesComponent {
-   regex = /^[0-9]{4}[a-zA-Z]{3}/
 
-  constructor(private AltaVehiculoService: AltaVehiculoService) { }
+  constructor(private AltaVehiculoService: AltaVehiculoService,private router: Router) { }
   coche={
     nPlazas:"",
     matricula:"",
@@ -29,8 +29,12 @@ export class AnadirCochesComponent {
       this.mostrarLabelMensaje("Ningún campo debe estar vacío")     
       return;
     }
-    
-    if(!this.regex.test(this.coche.matricula)){ 
+    if(!/^[0-9]{1}/.test(this.coche.nPlazas)){ 
+      this.mostrarLabelMensaje("Porfavor solo introduzca numeros en el campo plazas")     
+      return;
+    }
+
+    if(!/^[0-9]{4}[a-zA-Z]{3}/.test(this.coche.matricula)){ 
       this.mostrarLabelMensaje("Formato de matricula erroneo, el formato debe ser 3333LLL")     
       return;
     }
@@ -38,6 +42,7 @@ export class AnadirCochesComponent {
       response=>{
         console.log('Datos enviados con éxito:', response);
         this.mostrarLabelMensaje("Coche añadido con exito")
+        this.router.navigate(['/vehiculos']);
         
       },
       error =>{

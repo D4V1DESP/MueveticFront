@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AltaVehiculoService } from '../vehiculo.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { AltaVehiculoService } from '../vehiculo.service';
 })
 export class AnadirMotoComponent {
   regex = /^[0-9]{4}[a-zA-Z]{3}/
-  constructor(private AltaVehiculoService: AltaVehiculoService) { }
+  constructor(private AltaVehiculoService: AltaVehiculoService,private router: Router) { }
   moto={
     casco:false,
     matricula:"",
@@ -36,6 +37,7 @@ export class AnadirMotoComponent {
       response=>{
         console.log('Datos enviados con éxito:', response);
         this.mostrarLabelMensaje("Moto añadida con exito")
+        this.router.navigate(['/vehiculos']);
         
       },
       error =>{

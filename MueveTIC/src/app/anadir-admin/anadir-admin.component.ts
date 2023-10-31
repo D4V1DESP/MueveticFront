@@ -46,8 +46,7 @@ export class AnadirAdminComponent {
         },
         error=>{
           console.error('Error al enviar los datos',error);
-  
-      })
+        })
   if (this.adminData.contrasena.length < 8 ||
     !/[0-9]/.test(this.adminData.contrasena) || // al menos un número
     !/[A-Z]/.test(this.adminData.contrasena) || // al menos una letra mayúscula

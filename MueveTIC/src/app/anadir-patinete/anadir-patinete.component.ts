@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AltaVehiculoService } from '../vehiculo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-anadir-patinete',
@@ -8,7 +9,7 @@ import { AltaVehiculoService } from '../vehiculo.service';
 })
 export class AnadirPatineteComponent {
 
-    constructor(private AltaVehiculoService: AltaVehiculoService) { }
+    constructor(private AltaVehiculoService: AltaVehiculoService,private router: Router) { }
     regex = /^[0-9]{4}[a-zA-Z]{3}/
     patinete={
       color:"",
@@ -34,7 +35,9 @@ export class AnadirPatineteComponent {
       this.AltaVehiculoService.enviarVehiculo(this.patinete).subscribe(
         response=>{
           console.log('Datos enviados con éxito:', response);
+          this.router.navigate(['/vehiculos']);
           this.mostrarLabelMensaje("Patinete añadida con exito")
+          
         },
         error =>{
           console.error('Error al enviar datos:', error);

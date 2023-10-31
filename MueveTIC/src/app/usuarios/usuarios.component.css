@@ -25,6 +25,7 @@ body {
   height: 50px;
 }
 
+
 .content {
   
   flex-grow: 1;
@@ -138,6 +139,16 @@ nav {
 .table-row:hover {
   background-color: lightgray;
   cursor: pointer;
+}
+
+.anadir-button {
+  padding: 5px;
+  background-color: #329cf3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 :root {

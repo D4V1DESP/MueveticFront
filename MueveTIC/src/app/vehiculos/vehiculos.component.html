@@ -21,13 +21,14 @@
     </nav>
   
   </header>
-  <div class="app-container">
-    
-    
+  <div class="app-container">  
     <div class="content">
       <div class="header1">
-        <h1>Coches</h1>
-      </div>
+        <h1>Coches
+        <button class="anadir-button" [routerLink]="'/anadir-coche'" text-align="right">
+          <i class="fa fa-plus"></i>
+        </button> </h1>             
+      </div>      
       <table class="tabla">
         <thead>
           <tr id="header-row">
@@ -61,7 +62,9 @@
         </tbody>
       </table>
       <div class="header2">
-        <h1>Motos</h1>
+        <h1>Motos<button class="anadir-button" [routerLink]="'/anadir-moto'" text-align="right">
+          <i class="fa fa-plus"></i>
+        </button> </h1> 
       </div>
       <table class="tabla">
         <thead>
@@ -96,7 +99,9 @@
         </tbody>
       </table>
       <div class="header3">
-        <h1>Patinetes</h1>
+        <h1>Patinetes<button class="anadir-button" [routerLink]="'/anadir-patinete'" text-align="right">
+          <i class="fa fa-plus"></i>
+        </button> </h1> 
       </div>
       <table class="tabla">
         <thead>
