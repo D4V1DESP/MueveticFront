@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AltaVehiculoService } from '../alta-vehiculo.service';
+import { AltaVehiculoService } from '../vehiculo.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,7 +9,8 @@ import { AltaVehiculoService } from '../alta-vehiculo.service';
   styleUrls: ['./anadir-moto.component.css']
 })
 export class AnadirMotoComponent {
-  constructor(private AltaVehiculoService: AltaVehiculoService) { }
+  regex = /^[0-9]{4}[a-zA-Z]{3}/
+  constructor(private AltaVehiculoService: AltaVehiculoService,private router: Router) { }
   moto={
     casco:false,
     matricula:"",
@@ -23,24 +25,39 @@ export class AnadirMotoComponent {
 
   onClickEnviar():void {
     
-    const mensajeResultado = document.getElementById("mensajeResultado"); 
+    if(this.moto.matricula==="" || this.moto.modelo==="" || this.moto.direccion==="" ){
+      this.mostrarLabelMensaje("Ningún campo debe estar vacío")     
+      return;
+    }
+    if(!this.regex.test(this.moto.matricula)){ 
+      this.mostrarLabelMensaje("Formato de matricula erroneo, el formato debe ser 3333LLL")     
+      return;
+    }
     this.AltaVehiculoService.enviarVehiculo(this.moto).subscribe(
       response=>{
         console.log('Datos enviados con éxito:', response);
-        if(mensajeResultado){
-          mensajeResultado.style.display="inline";
-          mensajeResultado.innerText="Moto añadida con exito"
-        }
+        this.mostrarLabelMensaje("Moto añadida con exito")
+        this.router.navigate(['/vehiculos']);
+        
       },
       error =>{
         console.error('Error al enviar datos:', error);
-        if(mensajeResultado && error.status=='409'){
-          mensajeResultado.style.display= "inline";
-          mensajeResultado.innerText="Matricula ya registrada"
+
+        if(error.status=='409'){
+          this.mostrarLabelMensaje("Matricula ya registrada")
         }
-        
+        else
+        this.mostrarLabelMensaje("Error en el envio")
       }
     )
     
+  }
+  mostrarLabelMensaje(mensaje:string) {
+    const mensajeResultado = document.getElementById("mensajeResultado");
+    if(mensajeResultado){
+      mensajeResultado.style.display="none";
+      setTimeout(function() {mensajeResultado.style.display = "block"},200);
+      mensajeResultado.innerText=mensaje;
+    }
   }
 }

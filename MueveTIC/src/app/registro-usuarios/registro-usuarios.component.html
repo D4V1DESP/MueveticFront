@@ -15,12 +15,25 @@
         <input type="text" id="dni" name="dni" [(ngModel)]="userData.dni" required>
       </div>
       <div class="form-group">
-        <label for="ciudad">ciudad</label>
-        <input type="text" id="ciudad" name="ciudad" [(ngModel)]="userData.ciudad" required>
+        <label for="fechaNan">Fecha de Nacimiento</label>
+        <input type="date" id="fechaNan" name="fechaNan" [(ngModel)]="userData.fecha" required>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" [(ngModel)]="userData.email" required>
+      </div>
+      <div class="form-group">
+        <label for="carnet">Tipo de carnet</label>
+        <select type="carnet" id="carnet" name="carnet" [(ngModel)]="userData.carnet" required>
+          <option value="coche">Coche</option>
+          <option value="moto">Moto</option>
+          <option value="ambos">Ambos</option>
+          <option value="ninguno">Ninguno</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Telefono</label>
+        <input type="telefono" id="telefono" name="telefono" [(ngModel)]="userData.telefono" required>
       </div>
       <div class="form-group">
         <label for="contrasena">Contraseña</label>

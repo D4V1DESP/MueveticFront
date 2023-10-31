@@ -1,8 +1,7 @@
 /* Estilos para el formulario de registro */
 
 .registro-container {
-    width: 350px;
-    height: 650px;
+    width: 400px;
     margin: 10px auto;
     padding: 40px;
     border: 1px solid #ccc;
@@ -47,7 +46,6 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px;
     padding: 10px;
 }
 

@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <label for="nPlazas">Numero de plazas</label>
-          <input type="text" id="nPlazas" name="nPlazas" [(ngModel)]="coche.nPlazas" required>
+          <input type="number" id="nPlazas"  name="nPlazas" [(ngModel)]="coche.nPlazas" required>
         </div>
         <div class="form-group">
           <label for="direccion">Direccion</label>
@@ -29,6 +29,14 @@
        
       
 </body>
- 
+
+
+<script>
+  const inputNumerico = document.getElementById("nPlazas");
+  
+  inputNumerico.addEventListener("keydown", function(e) {
+    e.preventDefault(); // Evita la entrada de texto
+  });
+</script>
   
   

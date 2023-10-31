@@ -68,7 +68,7 @@ export class ModificarManComponent implements OnInit {
       dni: '',
       ciudad: '',
       email: '',
-      exp:''
+      experiencia:''
     };
   }
 }

@@ -66,7 +66,7 @@ export class ModificarClienteComponent implements OnInit {
       dni: '',
       email: '',
       carnet: '',
-      fecha_nacimiento: '',
+      fecha: '',
       telefono: ''
 
       
