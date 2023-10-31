@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
 import { UsuarioService } from '../usuario.service';
-import { Usuario, Mantenimiento } from '../usuario';
+import {Mantenimiento } from '../usuario';
 
 @Component({
   selector: 'app-modificar-mantenimiento',
@@ -24,8 +24,8 @@ export class ModificarManComponent implements OnInit {
     const email = this.route.snapshot.paramMap.get('email');
 
     if (email) {
-      this.usuarioServicio.obtenerMantenimientoPorEmail(email).subscribe((man: Usuario) => {
-        this.manData = man as Mantenimiento;
+      this.usuarioServicio.obtenerMantenimientoPorEmail(email).subscribe((man: Mantenimiento) => {
+        this.manData = man;
       });
     }
   }

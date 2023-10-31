@@ -24,8 +24,8 @@ export class ModificarClienteComponent implements OnInit {
     const email = this.route.snapshot.paramMap.get('email');
 
     if (email) {
-      this.usuarioServicio.obtenerClientePorEmail(email).subscribe((cliente: Usuario) => {
-        this.clienteData = cliente as Cliente;
+      this.usuarioServicio.obtenerClientePorEmail(email).subscribe((cliente: Cliente) => {
+        this.clienteData = cliente;
       });
     }
   }

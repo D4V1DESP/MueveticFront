@@ -24,9 +24,8 @@
         <label for="exp">Experiencia</label>
         <input type="text" id="exp" name="exp" [(ngModel)]="manData.exp" required>
       </div>
-    
     <div class="container" (click)="mostrarAlerta('alerta1')">
-        <button class="boton">Modificar</button>
+        <button (click)="modificarMantenimiento(manData.email)" class="boton">Modificar</button>
     </div>
     <div class="alert alert-primary" *ngIf="alertaAbierta === 'alerta1'">
         <strong>¡Éxito! </strong>Datos del usuario de mantenimiento modificados correctamente.

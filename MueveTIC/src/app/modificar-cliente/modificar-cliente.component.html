@@ -29,7 +29,7 @@
         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" [(ngModel)]="clienteData.fecha_nacimiento" required>
     </div>
       <div class="container" (click)="mostrarAlerta('alerta1')">
-        <button class="boton">Modificar</button>
+        <button (click)="modificarCliente(clienteData.email)" class="boton">Modificar</button>
     </div>
     <div class="alert alert-primary" *ngIf="alertaAbierta === 'alerta1'">
         <strong>¡Éxito! </strong>Datos del usuario de mantenimiento modificados correctamente.
