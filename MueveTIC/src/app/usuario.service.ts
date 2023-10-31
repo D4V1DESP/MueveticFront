@@ -25,6 +25,7 @@ export class UsuarioService {
     return this.httpService.get<Mantenimiento[]>(this.baseURLMantenimiento);
   }
 
+
   obtenerAdminPorEmail(email: string): Observable<Administrador> {
     const url = `${this.baseURLAdmin}/${email}`;
     return this.httpService.get<Administrador>(url);
@@ -38,10 +39,21 @@ export class UsuarioService {
     return this.httpService.get<Mantenimiento>(url);
   }
 
-  modificarDatosAdministrador(admin: Usuario): Observable<Usuario> {
+
+  modificarDatosAdministrador(admin: Administrador): Observable<Administrador> {
     const url = `${this.baseURLAdmin}/${admin.email}`;
-    return this.httpService.put<Usuario>(url, admin);
+    return this.httpService.put<Administrador>(url, admin);
   }
+  modificarDatosCliente(cliente: Cliente): Observable<Cliente> {
+    const url = `${this.baseURLCliente}/${cliente.email}`;
+    return this.httpService.put<Cliente>(url, cliente);
+  }
+  modificarDatosMantenimiento(mantenimiento: Mantenimiento): Observable<Mantenimiento> {
+    const url = `${this.baseURLMantenimiento}/${mantenimiento.email}`;
+    return this.httpService.put<Mantenimiento>(url, mantenimiento);
+  }
+
+
   userLogin(usuario: any){
     return this.httpService.post(this.URLLogin,usuario);
   }

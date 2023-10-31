@@ -39,6 +39,26 @@ export class ModificarClienteComponent implements OnInit {
   mostrarAlerta(alerta: string) {
     this.alertaAbierta = alerta;
   }
+  modificarCliente(email: string) {
+    if (this.clienteData) {
+      this.usuarioServicio.modificarDatosCliente(this.clienteData).subscribe(
+        (response: any) => {
+          if (response.statusCode === 200) {
+            this.mostrarAlerta('exito');
+          } else {
+            this.mostrarAlerta('error');
+          }
+        },
+        (error) => {
+          console.error('Error al modificar el cliente:', error);
+          this.mostrarAlerta('error');
+        }
+      );
+    } else {
+      console.error('No se pudo obtener el cliente.');
+      this.mostrarAlerta('error');
+    }
+  }
   limpiarCampos() {
     this.clienteData = {
       nombre: '',

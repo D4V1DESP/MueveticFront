@@ -39,6 +39,28 @@ export class ModificarManComponent implements OnInit {
   mostrarAlerta(alerta: string) {
     this.alertaAbierta = alerta;
   }
+
+  modificarMantenimiento(email: string) {
+    if (this.manData) {
+      this.usuarioServicio.modificarDatosMantenimiento(this.manData).subscribe(
+        (response: any) => {
+          if (response.statusCode === 200) {
+            this.mostrarAlerta('exito');
+          } else {
+            this.mostrarAlerta('error');
+          }
+        },
+        (error) => {
+          console.error('Error al modificar el mantenimiento:', error);
+          this.mostrarAlerta('error');
+        }
+      );
+    } else {
+      console.error('No se pudo obtener el mantenimiento.');
+      this.mostrarAlerta('error');
+    }
+  }
+
   limpiarCampos() {
     this.manData = {
       nombre: '',
