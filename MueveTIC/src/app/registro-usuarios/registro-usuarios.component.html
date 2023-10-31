@@ -15,7 +15,7 @@
         <input type="text" id="dni" name="dni" [(ngModel)]="userData.dni" required>
       </div>
       <div class="form-group">
-        <label for="ciudad">Ciudad</label>
+        <label for="ciudad">ciudad</label>
         <input type="text" id="ciudad" name="ciudad" [(ngModel)]="userData.ciudad" required>
       </div>
       <div class="form-group">
@@ -24,13 +24,16 @@
       </div>
       <div class="form-group">
         <label for="contrasena">Contraseña</label>
-        <input type="contrasena" id="contrasena" name="contrasena" [(ngModel)]="userData.contrasena" required>
+        <input type="password" id="contrasena" name="contrasena" [(ngModel)]="userData.contrasena" required>
         </div>
         <div class="form-group">
         <label for="repetirContrasena">Repetir Contraseña</label>
-        <input type="repetirContrasena" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="userData.repetirContrasena" required>
+        <input type="password" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="userData.repetirContrasena" required>
         </div>
       <button type="submit">Registrarse</button>
+      
+      <span id="mensaje" style="display: none;">oculto</span>
+    
     </form>
   </div>
   
