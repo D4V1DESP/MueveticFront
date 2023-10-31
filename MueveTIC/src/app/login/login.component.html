@@ -1,12 +1,20 @@
-<p>login works!</p>
-
-<nav>
-    <ul>
-      <li>
-        <a routerLink="/anadir-coche">
-          añadir coches        
-        </a>
-      </li>
-    </ul>
-</nav>
-  
+<div class="login-container">
+  <h2>Iniciar sesión</h2>
+  <form>
+    <div class="form-group">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="usuario.email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <div class="forgot-password">
+        <a href="#">¿Has olvidado la contraseña?</a>
+      </div>
+      <input type="password" id="password" name="password" [(ngModel)]="usuario.contrasena" required>
+    </div>
+    <button type="submit" (click)="onLogin()">Iniciar sesión</button>
+  </form>
+  <div class="signup-text">
+    No tienes cuenta todavía? <a href="/registro-usuarios">Sign up</a>
+  </div>
+</div>

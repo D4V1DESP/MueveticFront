@@ -1,14 +1,15 @@
 export interface Vehiculo{
-    matricula:string;
-    tipo:string;
-    modelo:string;
-    bateria:number;
-    estado:string;
-    direccion:string;
+    matricula : string;
+    direccion : string;
+    modelo : string;
+    bateria : string;
+    estado : string;
+    tipo : string
 }
 
+
 export interface Coche extends Vehiculo{
-    n_plazas:string;
+    nPlazas:string;
 }
 
 export interface Moto extends Vehiculo{

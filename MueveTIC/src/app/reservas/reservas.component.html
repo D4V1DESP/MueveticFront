@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tu Aplicación</title>
+</head>
+<body>
+  <header class="main-header">
+    <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+    <input type="checkbox" id="btn-nav">
+    <div class="titulo">
+      <h1>Espacio de gestion de reservas</h1>
+    </div>
+    <nav>
+      <ul class="navigation">
+        <li><a routerLink="/reservas" class="active-link">Reservas</a></li>
+        <li><a routerLink="/vehiculos">Vehiculos</a></li>
+        <li><a routerLink="/usuarios" >Usuarios</a></li>
+      </ul>
+    </nav>
+  
+  </header>
+  <div class="app-container">
+    <div class="content">
+      <!-- Área de contenido donde se cargarán los componentes -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</body>
+</html>

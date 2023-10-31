@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Vehiculo } from './vehiculos';
-import { NgModule } from '@angular/core'
 
 @Injectable({
   providedIn: 'root'
