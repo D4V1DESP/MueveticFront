@@ -44,9 +44,12 @@ export class ModificarClienteComponent implements OnInit {
       nombre: '',
       apellidos: '',
       dni: '',
-      ciudad: '',
       email: '',
-      contrasena:''
+      carnet: '',
+      fecha_nacimiento: '',
+      telefono: ''
+
+      
     };
   }
 }

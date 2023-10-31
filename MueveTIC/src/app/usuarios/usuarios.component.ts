@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
-import { Usuario, Mantenimiento, Cliente} from '../usuario';
+import { Usuario, Mantenimiento, Cliente, Administrador} from '../usuario';
 
 @Component({
   selector: 'app-usuarios',
@@ -9,9 +9,9 @@ import { Usuario, Mantenimiento, Cliente} from '../usuario';
 })
 
 export class UsuariosComponent implements OnInit {
-  administradores: Usuario[] = [];
-  clientes: Usuario[] = [] as Cliente[];
-  mantenimiento: Usuario [] = [] as Mantenimiento[];
+  administradores: Administrador[] = [];
+  clientes: Cliente[] = [];
+  mantenimiento: Mantenimiento [] = [];
   isMouseOver: boolean = false; // Variable para controlar el paso del ratón
   selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
 
@@ -24,7 +24,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   private obtenerAdministradores() {
-    this.usuarioServicio.obtenerDatosAdministradores().subscribe((data: Usuario[]) => {
+    this.usuarioServicio.obtenerDatosAdministradores().subscribe((data: Administrador[]) => {
       this.administradores = data;
     });
   }

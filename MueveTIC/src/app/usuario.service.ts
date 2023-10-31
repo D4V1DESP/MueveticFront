@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario, Cliente, Mantenimiento } from './usuario';
+import { Usuario, Cliente, Mantenimiento, Administrador } from './usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class UsuarioService {
 
   constructor(private httpService: HttpClient) {}
 
-  obtenerDatosAdministradores(): Observable<Usuario[]> {
-    return this.httpService.get<Usuario[]>(this.baseURLAdmin);
+  obtenerDatosAdministradores(): Observable<Administrador[]> {
+    return this.httpService.get<Administrador[]>(this.baseURLAdmin);
   }
 
   obtenerDatosClientes(): Observable<Cliente[]> {
@@ -25,9 +25,9 @@ export class UsuarioService {
     return this.httpService.get<Mantenimiento[]>(this.baseURLMantenimiento);
   }
 
-  obtenerAdminPorEmail(email: string): Observable<Usuario> {
+  obtenerAdminPorEmail(email: string): Observable<Administrador> {
     const url = `${this.baseURLAdmin}/${email}`;
-    return this.httpService.get<Usuario>(url);
+    return this.httpService.get<Administrador>(url);
   }
   obtenerClientePorEmail(email: string): Observable<Cliente> {
     const url = `${this.baseURLCliente}/${email}`;

@@ -67,7 +67,8 @@ export class AnadirAdminComponent {
     !this.adminData.dni ||
     !this.adminData.email ||
     !this.adminData.contrasena ||
-    !this.adminData.repetirContrasena
+    !this.adminData.repetirContrasena ||
+    !this.adminData.ciudad
   ) {
     this.mostrarLabelMensaje("Todos los campos son obligatorios");
     return; // Detener el proceso de envío

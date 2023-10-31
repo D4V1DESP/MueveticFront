@@ -46,6 +46,7 @@
             <td>{{administrador.nombre}}</td>
             <td>{{administrador.apellidos}}</td>
             <td>{{administrador.ciudad}}</td>
+            
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
@@ -83,13 +84,14 @@
             <td>{{mantenimiento.nombre}}</td>
             <td>{{mantenimiento.apellidos}}</td>
             <td>{{mantenimiento.ciudad}}</td>
+            
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
               <button (click)="eliminarUsuario(mantenimiento)" >
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-mantenimiento/' + mantenimiento.email" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-mantenimiento/' + mantenimiento.email">
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -106,7 +108,7 @@
             <th>Email</th>
             <th>Nombre</th>
             <th>Apellidos</th>
-            <th>Ciudad</th>
+            <th>Carnet</th>
             <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
@@ -118,14 +120,15 @@
             <td>{{cliente.email}}</td>
             <td>{{cliente.nombre}}</td>
             <td>{{cliente.apellidos}}</td>
-            <td>{{cliente.ciudad}}</td>
+            <td>{{cliente.carnet}}</td>
+            
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
               <button (click)="eliminarUsuario(cliente)">
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
-              <button [routerLink]="'/modificar-cliente/' + cliente.email" [hidden]="!isRowSelected(i)">
+              <button [routerLink]="'/modificar-cliente/' + cliente.email">
                 <i class="fa fa-edit"></i> <!-- Ícono de modificar -->
               </button>
             </td>
@@ -136,6 +139,5 @@
       
     </div>
     
-  </div>
 </body>
 </html>

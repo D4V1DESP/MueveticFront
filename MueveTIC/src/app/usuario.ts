@@ -3,12 +3,17 @@ export class Usuario {
     email: string;
     nombre: string;
     apellidos: string;
-    ciudad: string;
 
+}
+export class Administrador extends Usuario{
+    ciudad: string;
 }
 export class Mantenimiento extends Usuario{
     exp: string;
+    ciudad: string
 }
 export class Cliente extends Usuario{
-    contrasena: string;
+    carnet: string;
+    fecha_nacimiento: string;
+    telefono: string;
 }

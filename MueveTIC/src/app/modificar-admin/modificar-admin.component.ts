@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
 import { UsuarioService } from '../usuario.service';
-import { Usuario } from '../usuario';
+import { Administrador, Usuario } from '../usuario';
 
 @Component({
   selector: 'app-modificar-admin',
@@ -10,7 +10,7 @@ import { Usuario } from '../usuario';
 })
 
 export class ModificarAdminComponent implements OnInit {
-  adminData: Usuario = new Usuario(); // Objeto para almacenar los datos del administrador
+  adminData: Administrador = new Administrador(); // Objeto para almacenar los datos del administrador
   openAlert: boolean = false;
   openAlert2: boolean = false;
   alertaAbierta: string | null = null;
@@ -24,7 +24,7 @@ export class ModificarAdminComponent implements OnInit {
     const email = this.route.snapshot.paramMap.get('email');
 
     if (email) {
-      this.usuarioServicio.obtenerAdminPorEmail(email).subscribe((admin: Usuario) => {
+      this.usuarioServicio.obtenerAdminPorEmail(email).subscribe((admin: Administrador) => {
         this.adminData = admin;
       });
     }
@@ -34,6 +34,7 @@ export class ModificarAdminComponent implements OnInit {
   imprimirTexto() {
     this.openAlert = true;
   }
+
   imprimirTexto2() {
     this.openAlert2 = true;
   }
