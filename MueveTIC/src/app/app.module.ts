@@ -12,7 +12,7 @@ import { AnadirManComponent } from './anadir-mantenimiento/anadir-mantenimiento.
 import { ModificarAdminComponent } from './modificar-admin/modificar-admin.component';
 import { ModificarManComponent } from './modificar-mantenimiento/modificar-mantenimiento.component';
 import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
-import { AnadirMantenimientoComponent } from './anadir-mantenimiento/anadir-mantenimiento.component';
+
 
 import { ReservasComponent } from './reservas/reservas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
@@ -37,7 +37,6 @@ import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
     ModificarClienteComponent,
     ReservasComponent,
     VehiculosComponent,
-    AnadirMantenimientoComponent,
     UsuariosComponent
   ],
   imports: [
@@ -50,5 +49,3 @@ import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class RegistroUsuariosModule { }
-export class AnadirUsuarioModule { }

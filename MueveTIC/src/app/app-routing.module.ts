@@ -3,10 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
-
-import { LoginComponent } from './login/login.component';
-import { AppComponent } from './app.component';
-import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
