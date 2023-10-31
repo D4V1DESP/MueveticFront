@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AnadirUsuarioService } from '../anadir-usuario.service';
-
+import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-anadir-mantenimiento',
   templateUrl: './anadir-mantenimiento.component.html',
@@ -8,7 +8,7 @@ import { AnadirUsuarioService } from '../anadir-usuario.service';
 })
 
 export class AnadirManComponent {
-  constructor(private anadirUsuarioService: AnadirUsuarioService){
+  constructor(private usuarioService: UsuarioService, private router : Router){
 
   }
     manData = {
@@ -40,8 +40,9 @@ export class AnadirManComponent {
   submitRegistro() {
     // Aquí puedes implementar la lógica para procesar los datos del formulario, como la validación y el envío al servidor.
     console.log('Datos del formulario:', this.manData);
-    this.anadirUsuarioService.anadirUsuario(this.manData).subscribe(
+    this.usuarioService.anadirUsuario(this.manData).subscribe(
       response=>{
+        this.router.navigate(['/usuarios'])
         console.log('Los datos han sido enviados correctamente',response);
         this.mostrarLabelMensaje("Usuario añadido")
         

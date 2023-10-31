@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
+import { ActivatedRoute, Router } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
 import { UsuarioService } from '../usuario.service';
 import { Usuario, Cliente } from '../usuario';
 
@@ -17,7 +17,8 @@ export class ModificarClienteComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private usuarioServicio: UsuarioService
+    private usuarioServicio: UsuarioService,
+    private router : Router
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +40,29 @@ export class ModificarClienteComponent implements OnInit {
   mostrarAlerta(alerta: string) {
     this.alertaAbierta = alerta;
   }
+  modificarCliente(email: string) {
+    if (this.clienteData) {
+      this.usuarioServicio.modificarDatosCliente(this.clienteData).subscribe(
+        (response: any) => {
+          this.router.navigate(['/usuarios']);
+          if (response.statusCode === 200) {
+            this.mostrarAlerta('exito');
+            
+          } else {
+            this.mostrarAlerta('error');
+          }
+        },
+        (error) => {
+          console.error('Error al modificar el administrador:', error);
+          this.mostrarAlerta('error');
+        }
+      );
+    } else {
+      console.error('No se pudo obtener el administrador.');
+      this.mostrarAlerta('error');
+    }
+  }
+
   limpiarCampos() {
     this.clienteData = {
       nombre: '',

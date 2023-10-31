@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RegistroUsuariosService } from '../registro-usuarios.service';
+import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro-usuarios.component.css']
 })
 export class RegistroUsuariosComponent {
-  constructor(private registroUsuariosService: RegistroUsuariosService,private router: Router) {
+  constructor(private usuarioService: UsuarioService, private router: Router) {
     
   }
   userData = {
@@ -71,7 +71,7 @@ export class RegistroUsuariosComponent {
     }
 
     this.userData.carnet=this.userData.carnet.charAt(0)
-    this.registroUsuariosService.enviarUsuario(this.userData).subscribe(
+    this.usuarioService.anadirUsuario(this.userData).subscribe(
       response=>{
         console.log('Los datos han sido enviados correctamente',response);
         this.mostrarLabelMensaje("Usuario registrado correctamente");

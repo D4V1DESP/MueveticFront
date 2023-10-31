@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { AnadirUsuarioService } from '../anadir-usuario.service';
-
+import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-anadir-admin',
   templateUrl: './anadir-admin.component.html',
   styleUrls: ['./anadir-admin.component.css']
 })
 export class AnadirAdminComponent {
-  constructor(private anadirUsuarioService: AnadirUsuarioService){
+  constructor(private usuarioService: UsuarioService, private router : Router){
     
   }
   
@@ -39,8 +39,9 @@ export class AnadirAdminComponent {
     submitRegistro() {
       // Aquí puedes implementar la lógica para procesar los datos del formulario, como la validación y el envío al servidor.
       console.log('Datos del formulario:', this.adminData);
-      this.anadirUsuarioService.anadirUsuario(this.adminData).subscribe(
+      this.usuarioService.anadirUsuario(this.adminData).subscribe(
         response=>{
+          this.router.navigate(['/usuarios'])
           console.log('Los datos han sido enviados correctamente',response);
           
         },

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
+import { ActivatedRoute, Router } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
 import { UsuarioService } from '../usuario.service';
 import { Administrador} from '../usuario';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modificar-admin',
