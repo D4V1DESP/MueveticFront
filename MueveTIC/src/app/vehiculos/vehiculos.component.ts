@@ -8,6 +8,7 @@ import { Vehiculo } from '../vehiculos';
   templateUrl: './vehiculos.component.html',
   styleUrls: ['./vehiculos.component.css']
 })
+
 export class VehiculosComponent implements OnInit {
   listaCoches : Vehiculo []
   listaMotos : Vehiculo []
@@ -82,5 +83,6 @@ export class VehiculosComponent implements OnInit {
     if (indiceAEliminar !== -1) {
         lista.splice(indiceAEliminar, 1);
     } 
-}
+  }
+  
 }
