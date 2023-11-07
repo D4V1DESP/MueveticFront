@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario, Cliente, Mantenimiento, Administrador } from './usuario';
+import { Cliente, Mantenimiento, Administrador } from './usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,14 @@ export class UsuarioService {
   private baseURLAdmin = "http://localhost:8080/users/administradores";
   private baseURLCliente = "http://localhost:8080/users/cliente";
   private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
+  private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
+  private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser"
 
   constructor(private httpService: HttpClient) {}
+
+  anadirUsuario(valor:any){
+    return this.httpService.post(this.baseUrlAnadirusuario, valor);
+  }
 
   obtenerDatosAdministradores(): Observable<Administrador[]> {
     return this.httpService.get<Administrador[]>(this.baseURLAdmin);
@@ -39,24 +45,20 @@ export class UsuarioService {
     return this.httpService.get<Mantenimiento>(url);
   }
 
-
   modificarDatosAdministrador(admin: Administrador): Observable<Administrador> {
-    const url = `${this.baseURLAdmin}/${admin.email}`;
-    return this.httpService.put<Administrador>(url, admin);
-  }
-  modificarDatosCliente(cliente: Cliente): Observable<Cliente> {
-    const url = `${this.baseURLCliente}/${cliente.email}`;
-    return this.httpService.put<Cliente>(url, cliente);
-  }
-  modificarDatosMantenimiento(mantenimiento: Mantenimiento): Observable<Mantenimiento> {
-    const url = `${this.baseURLMantenimiento}/${mantenimiento.email}`;
-    return this.httpService.put<Mantenimiento>(url, mantenimiento);
+    return this.httpService.post<Administrador>(this.baseUrlActualizarUsuario, admin);
   }
 
 
   userLogin(usuario: any){
     return this.httpService.post(this.URLLogin,usuario);
   }
-  
+  modificarDatosCliente(cliente : Cliente) : Observable<Cliente>{
+    return this.httpService.post<Cliente>(this.baseUrlActualizarUsuario, cliente)
+  }
+
+  modificarDatosMantenimiento(mantenimiento : Mantenimiento) : Observable<Mantenimiento>{
+    return this.httpService.post<Mantenimiento>(this.baseUrlActualizarUsuario, mantenimiento)
+  }
   
 }

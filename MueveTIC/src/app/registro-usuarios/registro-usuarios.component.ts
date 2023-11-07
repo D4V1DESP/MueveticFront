@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RegistroUsuariosService } from '../registro-usuarios.service';
+import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 
 
@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro-usuarios.component.css']
 })
 export class RegistroUsuariosComponent {
-  constructor(private registroUsuariosService: RegistroUsuariosService,private router: Router) {
-    
+  constructor(
+    private usuarioService: UsuarioService, 
+    private router: Router) {
+
   }
   userData = {
     email: '',
@@ -24,29 +26,51 @@ export class RegistroUsuariosComponent {
     activo: true,
     fecha: '',
     carnet: "",
-    telefono:"",
+    telefono: "",
     tipo: "cliente"
   }
 
   submitRegistro() {
-    
-    if (this.userData.email == "" || this.userData.nombre == "" ||
-      this.userData.apellidos == "" || this.userData.dni == "" || 
-      this.userData.contrasena == "" || this.userData.repetirContrasena == "" || 
-      this.userData.fecha == "" || this.userData.telefono == "") {
-        this.mostrarLabelMensaje("Ningun campo debe estar vacio");
-       return; //aborta la funcion submitRegistro
+
+    if (
+      
+      !this.userData.nombre ||
+      !this.userData.apellidos ||
+      !this.userData.dni ||
+      !this.userData.fecha ||
+      !this.userData.email ||
+      !this.userData.carnet ||
+      !this.userData.telefono ||
+      !this.userData.contrasena ||
+      !this.userData.repetirContrasena
+      ) {
+      this.mostrarLabelMensaje("Ningun campo debe estar vacio");
+      return; //aborta la funcion submitRegistro
     }
-    if (!/^(\d{8})([A-Z])$/.test(this.userData.dni)) {
+
+    if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.userData.nombre)) {
+      console.log('El nombre solo puede contener letras.');
+      this.mostrarLabelMensaje("El nombre solo puede contener letras");
+      return;
+    }
+  
+    if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.userData.apellidos)) {
+      console.log('Los apellidos solo pueden contener letras.');
+      this.mostrarLabelMensaje("Los apellidos solo pueden contener letras");
+      return;
+    }
+
+    const formatoDNI = /^\d{8}[a-zA-Z]$/;
+    if (!formatoDNI.test(this.userData.dni)) {
       console.log('El DNI no es válido. Formato del DNI es incorrecto.');
       this.mostrarLabelMensaje('El DNI no es válido. Formato del DNI es incorrecto.')
       return; // Aborta la función submitRegistro
     }
 
     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(this.userData.email)) {
-        console.log('El email no es válido. Debe tener un formato de email correcto.');
-        this.mostrarLabelMensaje("El email no es válido. Debe tener un formato de email correcto.")
-        return; // Aborta la función submitRegistro
+      console.log('El email no es válido. Debe tener un formato de email correcto.');
+      this.mostrarLabelMensaje("El email no es válido. Debe tener un formato de email correcto.")
+      return; // Aborta la función submitRegistro
     }
 
     if (!/^\d{9}$/.test(this.userData.telefono)) {
@@ -69,30 +93,29 @@ export class RegistroUsuariosComponent {
       this.mostrarLabelMensaje('Las contraseñas no coinciden.')
       return;
     }
-
-    this.userData.carnet=this.userData.carnet.charAt(0)
-    this.registroUsuariosService.enviarUsuario(this.userData).subscribe(
-      response=>{
-        console.log('Los datos han sido enviados correctamente',response);
+    this.userData.carnet = this.userData.carnet.charAt(0)
+    this.usuarioService.anadirUsuario(this.userData).subscribe(
+      response => {
+        console.log('Los datos han sido enviados correctamente', response);
         this.mostrarLabelMensaje("Usuario registrado correctamente");
         this.router.navigate(['/login']);
 
       },
-      error=>{
-        console.error('Error al enviar los datos',error);
+      error => {
+        console.error('Error al enviar los datos', error);
         console.log(this.userData)
-        if(error.status=='409'){
+        if (error.status == '409') {
           this.mostrarLabelMensaje("Usuario ya esta registrado");
         }
-    })
-    
-    };
-    mostrarLabelMensaje(mensaje:string) {
-      const mensajeResultado = document.getElementById('mensaje');
-      if(mensajeResultado){
-        mensajeResultado.style.display="none";
-        setTimeout(function() {mensajeResultado.style.display = "block"},200);
-        mensajeResultado.innerText=mensaje;
-      }
+      })
+
+  };
+  mostrarLabelMensaje(mensaje: string) {
+    const mensajeResultado = document.getElementById('mensaje');
+    if (mensajeResultado) {
+      mensajeResultado.style.display = "none";
+      setTimeout(function () { mensajeResultado.style.display = "block" }, 200);
+      mensajeResultado.innerText = mensaje;
     }
+  }
 }
