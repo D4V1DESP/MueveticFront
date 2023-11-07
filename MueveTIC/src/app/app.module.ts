@@ -13,7 +13,6 @@ import { ModificarAdminComponent } from './modificar-admin/modificar-admin.compo
 import { ModificarManComponent } from './modificar-mantenimiento/modificar-mantenimiento.component';
 import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
 
-
 import { ReservasComponent } from './reservas/reservas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -21,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
 import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.component';
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
+import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
     ModificarClienteComponent,
     ReservasComponent,
     VehiculosComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UsuariosClienteComponent
   ],
   imports: [
     BrowserModule,

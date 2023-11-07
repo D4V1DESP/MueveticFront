@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Tu Aplicación</title>
+</head>
+<body>
+  <header class="main-header">
+    <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+    <input type="checkbox" id="btn-nav">
+    <div class="titulo">
+      <h1>Espacio de reserva de vehiculos</h1>
+    </div>
+    <nav>
+      <ul class="navigation">
+        <li><a routerLink="/reservas">Reservas</a></li>
+        <li><a routerLink="/vehiculos"class="active-link">Vehiculos</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="app-container">  
+    <div class="content">
+      <div class="header1">
+        <h1>Coches
+         </h1>             
+      </div>      
+      <table class="tabla">
+        <caption></caption>
+        <thead>
+          <tr id="header-row">
+            <th>Matricula</th>
+            <th>Direccion</th>
+            <th>Modelo</th>
+            <th>Bateria</th>
+            <th>Estado</th>
+            <th>Acción</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let coche of listaCoches;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+          (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+            <td>{{coche.matricula}}</td>
+            <td>{{coche.direccion}}</td>
+            <td>{{coche.modelo}}</td>
+            <td>{{coche.bateria}}</td>
+            <td>{{coche.estado}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+            <td>
+                <!-- Botones de eliminar y modificar en la fila -->
+                <button ><!-- (click)="eliminarUsuario(coie)"> -->
+                  <i>Reserva</i> <!-- Ícono de eliminar -->
+                </button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <div class="header2">
+        <h1>Motos </h1> 
+      </div>
+      <table class="tabla">
+        <caption></caption>
+        <thead>
+          <tr id="header-row">
+            <th>Matricula</th>
+            <th>Direccion</th>
+            <th>Modelo</th>
+            <th>Bateria</th>
+            <th>Estado</th>
+            <th>Acción</th>
+            
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+           
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let moto of listaMotos;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+          (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+            <td>{{moto.matricula}}</td>
+            <td>{{moto.direccion}}</td>
+            <td>{{moto.modelo}}</td>
+            <td>{{moto.bateria}}</td>
+            <td>{{moto.estado}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+            <td>
+                <!-- Botones de eliminar y modificar en la fila -->
+                <button ><!-- (click)="eliminarUsuario(motos)"> -->
+                  <i>Reserva</i> <!-- Ícono de eliminar -->
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="header3">
+        <h1>Patinetes </h1> 
+      </div>
+      <table class="tabla">
+        <caption></caption>
+        <thead>
+          <tr id="header-row">
+            <th>Matricula</th>
+            <th>Direccion</th>
+            <th>Modelo</th>
+            <th>Bateria</th>
+            <th>Estado</th>
+            <th>Acción</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let patinete of listaPatinetes; let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+          (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+            <td>{{patinete.matricula}}</td>
+            <td>{{patinete.direccion}}</td>
+            <td>{{patinete.modelo}}</td>
+            <td>{{patinete.bateria}}</td>
+            <td>{{patinete.estado}}</td>
+            <!-- Agrega más columnas para cada campo de tu tabla -->
+            <td>
+                <!-- Botones de eliminar y modificar en la fila -->
+                <button ><!-- (click)="eliminarUsuario(patinete)"> -->
+                  <i>Reserva</i> <!-- Ícono de eliminar -->
+                </button>
+            </td>
+    
+          </tr>
+        </tbody>
+      </table>
+      <!-- Área de contenido donde se cargarán los componentes -->
+    </div>
+  </div>
+</body>
+</html>
