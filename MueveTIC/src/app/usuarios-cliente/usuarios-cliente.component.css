@@ -1,6 +1,16 @@
+span {
+  font-family: verdana, geneva, sans-serif;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 * {
     padding: 0;
     margin: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
   }
   
   
@@ -8,10 +18,11 @@
     height: 100%;
     width: 100%;
     overflow: hidden; /* Para evitar barras de desplazamiento innecesarias */
+
   }
   
   body {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Rooto', 'sans-serif';
     margin-top: 0px;
     padding: 0px;
   }
@@ -20,7 +31,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    background:linear-gradient(to right, #329cf3, #98e0ed ) ;
+    background:linear-gradient(to right, #84d1a3, #effaf3 ) ;
     width: 100%;
     height: 50px;
   }
@@ -38,6 +49,35 @@
     margin-left: 60px;
     margin-top:10px
   }
+  .dashboard{
+    display: flex;
+    width: 100%;
+  }
+  
+  .main-skills{
+    display: flex;
+    margin-top: 20px;
+  }
+  .main-skills .card{
+    width: 25%;
+    margin: 10px;
+    background: #fff;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+  .main-skills .card h3{
+    margin: 10px;
+    text-transform: capitalize;
+  }
+  .main-skills .card p{
+    font-size: 12px;
+  }
+  .main-skills .card i{
+    font-size: 22px;
+    padding: 10px;
+  }
   
   
   nav {
@@ -47,11 +87,14 @@
     width: 200px;
     top: 50px;
     height: calc(100vh - 50px);
-    background:linear-gradient(to bottom, #329cf3, #98e0ed ) ;
+    background:linear-gradient(to bottom, #84d1a3, #effaf3 ) ;
     transform: translateX(-100%);
     transition: 0.4s ease;
   }
-  
+  .logout{
+    position: absolute;
+    bottom: 0;
+  }
   
   .navigation li {
     list-style: none;
@@ -98,7 +141,7 @@
   
   
   .active-link {
-    background-color: #98e0ed;
+    background-color: #d8f3df;
     color: #fff;
     font-weight: bold;
   }
@@ -114,34 +157,53 @@
   }
   
   /* Estilo para la tabla de usuarios */
-  .tabla {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-  }
-  
-  .tabla th, .tabla td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    width: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .tabla th {
-    background-color: #f0f0f0;
+  .tabla thead tr{
+    color: #fff;
+    background: #34AF6D;
+    text-align: left;
     font-weight: bold;
   }
-  
-  .table-row:hover {
-    background-color: lightgray;
+  .tabla{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .tabla th,
+  .tabla td{
+    padding: 12px 15px;
+  }
+  .tabla tbody tr{
+    border-bottom: 1px solid #ddd;
+  }
+  .tabla tbody tr:nth-of-type(odd){
+    background: #f3f3f3;
+  }
+  .tabla tbody tr.active{
+    font-weight: bold;
+    color: #4AD489;
+  }
+  .tabla tbody tr:last-of-type{
+    border-bottom: 2px solid #4AD489;
+  }
+  .tabla button{
+    padding: 6px 20px;
+    border-radius: 10px;
     cursor: pointer;
+    background: transparent;
+    border: 1px solid #4AD489;
+  }
+  .tabla button:hover{
+    background: #4AD489;
+    color: #fff;
+    transition: 0.5rem;
   }
   .anadir-button {
     padding: 5px;
-    background-color: #329cf3;
+    background-color: #84d1a3;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -151,4 +213,4 @@
   :root {
     --main-color: #fff;
   }
-  
+ 

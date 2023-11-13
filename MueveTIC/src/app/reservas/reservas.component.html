@@ -1,11 +1,14 @@
 
-<!DOCTYPE html>
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Tu Aplicación</title>
+  <link rel="stylesheet" href="reservas.component.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
 <body>
   <header class="main-header">
@@ -16,9 +19,26 @@
     </div>
     <nav>
       <ul class="navigation">
-        <li><a routerLink="/reservas" class="active-link">Reservas</a></li>
-        <li><a routerLink="/vehiculos">Vehiculos</a></li>
-        <li><a routerLink="/usuarios" >Usuarios</a></li>
+        <li><a href="#"><a routerLink="/reservas">
+          <i class="fas fa-tasks"></i>
+          <span class="nav-item"> Reservas</span>
+        </a>
+        </a></li>
+        <li><a href="#"><a routerLink="/vehiculos">
+          <i class="fas fa-solid fa-car"></i>
+          <span class="nav-item"> Vehiculos</span>
+        </a>
+        </a></li>
+        
+        <li><a href="#"><a routerLink="/usuarios">
+          <i class="fas fa-user"></i>
+          <span class="nav-item"> Usuarios</span>
+        </a>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-user-cog"></i>
+          <span class="nav-item"> Configuracion</span>
+        </a></li>
       </ul>
     </nav>
   

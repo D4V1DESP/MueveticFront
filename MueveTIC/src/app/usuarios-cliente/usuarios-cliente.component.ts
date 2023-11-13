@@ -45,30 +45,6 @@ export class UsuariosClienteComponent implements OnInit {
         this.listaPatinetes = respuesta;
       });
     }
-    eliminarVehiculo(vehiculo: Vehiculo) {
-      
-      console.log('Eliminar vehiculo:', vehiculo);
-      this.vehiculoService.eliminarVehiculo(vehiculo).subscribe(
-        response=>{
-          console.log('Datos enviados con éxito:', response);
-          if (vehiculo.tipo === "Patinete"){
-            this.eliminarElementoDeLista(this.listaPatinetes,vehiculo)
-          }else if(vehiculo.tipo === "Coche"){
-            this.eliminarElementoDeLista(this.listaCoches,vehiculo)
-          }else{
-            this.eliminarElementoDeLista(this.listaMotos,vehiculo)
-          }
-        },
-        error =>{
-          console.error('Error al enviar datos:', error);
-        }
-      )
-    }
-    confirmarEliminarVehiculo(vehiculo: Vehiculo){
-      if (window.confirm('¿Estás seguro de que deseas eliminar el vehiculo con matricula '+vehiculo.matricula+'?')) {
-        this.eliminarVehiculo(vehiculo)
-      }
-    }
     
     toggleRow(index: number) {
       this.selectedRowIndex = index;
@@ -76,12 +52,6 @@ export class UsuariosClienteComponent implements OnInit {
     isRowSelected(index: number) {
       return index === this.selectedRowIndex;
     }
-    eliminarElementoDeLista(lista: Vehiculo[], vehiculoAEliminar: Vehiculo): void {
-      const indiceAEliminar = lista.findIndex(vehiculo => vehiculo.matricula === vehiculoAEliminar.matricula);
-  
-      if (indiceAEliminar !== -1) {
-          lista.splice(indiceAEliminar, 1);
-      } 
-    }
+    
 
 }
