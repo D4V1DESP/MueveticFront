@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { VehiculoService } from '../vehiculos.service';
-import { Vehiculo } from '../vehiculos';
+import { VehiculoService } from '../vehiculo.service';
+import { Vehiculo } from '../vehiculo';
 import { OnInit } from '@angular/core';
 
 @Component({
@@ -18,33 +18,42 @@ export class UsuariosClienteComponent implements OnInit {
     constructor (private vehiculoService : VehiculoService){}
   
       ngOnInit() : void{
-        this.obtenerVehiculos();
+        this.obtenerVehiculosDisponibles();
       }
   
-    obtenerVehiculos(){
-      
-      this.obtenerCoches();
-      this.obtenerMotos();
-      this.obtenerPatinetes();
+    obtenerVehiculosDisponibles(){
+      this.vehiculoService.obtenerListaCochesDisponibles().subscribe(respuesta => {
+        this.listaCoches = respuesta;
+      });
+      this.vehiculoService.obtenerListaMotosDisponibles().subscribe(respuesta => {
+        this.listaMotos = respuesta;
+      });
+      this.vehiculoService.obtenerListaPatinetesDisponibles().subscribe(respuesta => {
+        this.listaPatinetes = respuesta;
+      });
+      //this.obtenerCoches();
+      //this.obtenerMotos();
+      //this.obtenerPatinetes();
     }
-  
-    obtenerCoches(){
+  /*
+    private obtenerCoches(){
       this.vehiculoService.obtenerListaVehiculos('/coches').subscribe(respuesta => {
         this.listaCoches = respuesta;
       });
     }
   
-    obtenerMotos(){
+    private obtenerMotos(){
       this.vehiculoService.obtenerListaVehiculos('/motos').subscribe(respuesta => {
         this.listaMotos = respuesta;
       });
     }
   
-    obtenerPatinetes(){
+    private obtenerPatinetes(){
       this.vehiculoService.obtenerListaVehiculos('/patinetes').subscribe(respuesta => {
         this.listaPatinetes = respuesta;
       });
     }
+    */
     eliminarVehiculo(vehiculo: Vehiculo) {
       
       console.log('Eliminar vehiculo:', vehiculo);

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Aplicación</title>
+</head>
+
+<body>
+    <header class="main-header">
+        <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+        <input type="checkbox" id="btn-nav">
+        <div class="titulo">
+            <h1>Espacio de reserva de vehiculos</h1>
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a routerLink="/reservas-cliente" class="active-link">Reservas</a></li>
+                <li><a routerLink="/vehiculos-cliente">Vehiculos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Pestañas de navegación -->
+    <div class="tabs">
+        <div class="tab" id="available-tab" (click)="navegarAVehiculos()">Coches Disponibles</div>
+        <div class="tab" id="current-tab" (click)="mostrarReservaActualTab()">Reserva Actual</div>
+        <div class="tab" id="history-tab">Historial de Reservas</div>
+    </div>
+
+
+
+</body>
+
+</html>
