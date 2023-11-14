@@ -15,7 +15,7 @@ import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
 import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.component';
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
-
+import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
 
 
 const routes: Routes = [
@@ -36,7 +36,8 @@ const routes: Routes = [
   { path: 'modificar-admin/:email', component: ModificarAdminComponent },
   { path : 'modificar-mantenimiento/:email', component: ModificarManComponent },
   { path : 'modificar-cliente/:email', component: ModificarClienteComponent },
-  { path : 'usuarios-cliente', component: UsuariosClienteComponent },
+  { path : 'vehiculos-cliente', component: UsuariosClienteComponent },
+  { path : 'reservas-cliente', component: VehiculosClienteComponent},
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
   

@@ -28,7 +28,7 @@
         <label for = "fecha_nacimiento">Fecha de nacimiento</label>
         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" [(ngModel)]="clienteData.fecha" required>
     </div>
-    <div class="container" (click)="mostrarAlerta('alerta1')">
+      <div class="container" (click)="mostrarAlerta('alerta1')">
         <button (click)="modificarCliente(clienteData.email)" class="boton">Modificar</button>
     </div>
     <div class="alert alert-primary" *ngIf="alertaAbierta === 'alerta1'">

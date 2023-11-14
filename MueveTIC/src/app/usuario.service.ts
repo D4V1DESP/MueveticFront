@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente, Mantenimiento, Administrador } from './usuario';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,7 @@ export class UsuarioService {
     return this.httpService.get<Mantenimiento[]>(this.baseURLMantenimiento);
   }
 
+
   obtenerAdminPorEmail(email: string): Observable<Administrador> {
     const url = `${this.baseURLAdmin}/${email}`;
     return this.httpService.get<Administrador>(url);
@@ -47,6 +49,8 @@ export class UsuarioService {
   modificarDatosAdministrador(admin: Administrador): Observable<Administrador> {
     return this.httpService.post<Administrador>(this.baseUrlActualizarUsuario, admin);
   }
+
+
   userLogin(usuario: any){
     return this.httpService.post(this.URLLogin,usuario);
   }
