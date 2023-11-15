@@ -21,6 +21,7 @@ import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
 import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.component';
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
+import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.co
     ReservasComponent,
     VehiculosComponent,
     UsuariosComponent,
-    UsuariosClienteComponent
+    UsuariosClienteComponent,
+    ReservasClienteComponent
   ],
   imports: [
     BrowserModule,
