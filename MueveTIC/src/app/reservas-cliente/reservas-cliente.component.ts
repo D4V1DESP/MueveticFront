@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
-import { Vehiculo } from '../vehiculos';
+import { Vehiculo } from '../vehiculo';
 import { OnInit } from '@angular/core';
 
 @Component({
