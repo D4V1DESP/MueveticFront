@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AltaVehiculoService } from '../vehiculo.service';
+import { VehiculoService } from '../vehiculo.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AnadirPatineteComponent {
 
-    constructor(private AltaVehiculoService: AltaVehiculoService,private router: Router) { }
+    constructor(private VehiculoService: VehiculoService,private router: Router) { }
     regex = /^[0-9]{4}[a-zA-Z]{3}/
     patinete={
       color:"",
@@ -32,14 +32,13 @@ export class AnadirPatineteComponent {
       this.mostrarLabelMensaje("Formato de matricula erroneo, el formato debe ser 3333LLL")     
       return;
     }
-      this.AltaVehiculoService.enviarVehiculo(this.patinete).subscribe(
-        response=>{
+      this.VehiculoService.enviarVehiculo(this.patinete).subscribe(
+        (response: any) => {
           console.log('Datos enviados con éxito:', response);
           this.router.navigate(['/vehiculos']);
           this.mostrarLabelMensaje("Patinete añadida con exito")
-          
         },
-        error =>{
+        (error: any) =>{
           console.error('Error al enviar datos:', error);
           if(error.status=='409'){
             this.mostrarLabelMensaje("Matricula ya registrada")

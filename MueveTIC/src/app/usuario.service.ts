@@ -3,16 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente, Mantenimiento, Administrador } from './usuario';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+  private USER_token = 'loggedUser';
   private URLLogin="http://localhost:8080/users/login";
   private baseURLAdmin = "http://localhost:8080/users/administradores";
   private baseURLCliente = "http://localhost:8080/users/cliente";
   private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
   private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
   private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser"
+  
 
   constructor(private httpService: HttpClient) {}
 
@@ -31,6 +34,7 @@ export class UsuarioService {
     return this.httpService.get<Mantenimiento[]>(this.baseURLMantenimiento);
   }
 
+
   obtenerAdminPorEmail(email: string): Observable<Administrador> {
     const url = `${this.baseURLAdmin}/${email}`;
     return this.httpService.get<Administrador>(url);
@@ -47,6 +51,8 @@ export class UsuarioService {
   modificarDatosAdministrador(admin: Administrador): Observable<Administrador> {
     return this.httpService.post<Administrador>(this.baseUrlActualizarUsuario, admin);
   }
+
+
   userLogin(usuario: any){
     return this.httpService.post(this.URLLogin,usuario);
   }
@@ -57,5 +63,20 @@ export class UsuarioService {
   modificarDatosMantenimiento(mantenimiento : Mantenimiento) : Observable<Mantenimiento>{
     return this.httpService.post<Mantenimiento>(this.baseUrlActualizarUsuario, mantenimiento)
   }
-  
+
+  saveLoggedUser(user: any): void {
+    // Almacenar información del usuario en sessionStorage
+    sessionStorage.setItem(this.USER_token, JSON.stringify(user));
+  }
+
+  getLoggedUser(): any {
+    // Obtener información del usuario desde sessionStorage
+    const userString = sessionStorage.getItem(this.USER_token);
+    return userString ? JSON.parse(userString) : null;
+  }
+
+  clearLoggedUser(): void {
+    // Eliminar la información del usuario al cerrar sesión
+    sessionStorage.removeItem(this.USER_token);
+  }
 }

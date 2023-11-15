@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AltaVehiculoService } from '../vehiculo.service';
+import { VehiculoService } from '../vehiculo.service';
 import { Router } from '@angular/router';
 
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class AnadirCochesComponent {
 
-  constructor(private AltaVehiculoService: AltaVehiculoService,private router: Router) { }
+  constructor(private VehiculoService: VehiculoService,private router: Router) { }
   coche={
     nPlazas:"",
     matricula:"",
@@ -38,7 +38,7 @@ export class AnadirCochesComponent {
       this.mostrarLabelMensaje("Formato de matricula erroneo, el formato debe ser 3333LLL")     
       return;
     }
-    this.AltaVehiculoService.enviarVehiculo(this.coche).subscribe(
+    this.VehiculoService.enviarVehiculo(this.coche).subscribe(
       response=>{
         console.log('Datos enviados con éxito:', response);
         this.mostrarLabelMensaje("Coche añadido con exito")
