@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { VehiculoService } from '../vehiculo.service';
-import { Vehiculo } from '../vehiculo';
-import { OnInit } from '@angular/core';
+import { Vehiculo, Coche, Moto, Patinete } from '../vehiculo';
+import { OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios-cliente',
@@ -9,13 +10,14 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./usuarios-cliente.component.css']
 })
 export class UsuariosClienteComponent implements OnInit {
+
     listaCoches : Vehiculo []
     listaMotos : Vehiculo []
     listaPatinetes : Vehiculo []
     isMouseOver: boolean = false; // Variable para controlar el paso del ratón
     selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
   
-    constructor (private vehiculoService : VehiculoService){}
+    constructor (private vehiculoService : VehiculoService, private router: Router){}
   
       ngOnInit() : void{
         this.obtenerVehiculosDisponibles();
@@ -31,60 +33,18 @@ export class UsuariosClienteComponent implements OnInit {
       this.vehiculoService.obtenerListaPatinetesDisponibles().subscribe(respuesta => {
         this.listaPatinetes = respuesta;
       });
-      //this.obtenerCoches();
-      //this.obtenerMotos();
-      //this.obtenerPatinetes();
     }
-  /*
-    private obtenerCoches(){
-      this.vehiculoService.obtenerListaVehiculos('/coches').subscribe(respuesta => {
-        this.listaCoches = respuesta;
+
+    reservarVehiculo(vehiculo: any){
+     this.vehiculoService.reservarVehiculo(vehiculo).subscribe(respuesta => {
+        console.log(vehiculo);
+        this.router.navigate(['/reservas-cliente']);
       });
     }
-  
-    private obtenerMotos(){
-      this.vehiculoService.obtenerListaVehiculos('/motos').subscribe(respuesta => {
-        this.listaMotos = respuesta;
-      });
-    }
-  
-    private obtenerPatinetes(){
-      this.vehiculoService.obtenerListaVehiculos('/patinetes').subscribe(respuesta => {
-        this.listaPatinetes = respuesta;
-      });
-    }
-    */
-    eliminarVehiculo(vehiculo: Vehiculo) {
-      
-      console.log('Eliminar vehiculo:', vehiculo);
-      this.vehiculoService.eliminarVehiculo(vehiculo).subscribe(
-        response=>{
-          console.log('Datos enviados con éxito:', response);
-          if (vehiculo.tipo === "Patinete"){
-            this.eliminarElementoDeLista(this.listaPatinetes,vehiculo)
-          }else if(vehiculo.tipo === "Coche"){
-            this.eliminarElementoDeLista(this.listaCoches,vehiculo)
-          }else{
-            this.eliminarElementoDeLista(this.listaMotos,vehiculo)
-          }
-        },
-        error =>{
-          console.error('Error al enviar datos:', error);
-        }
-      )
-    }
-    confirmarEliminarVehiculo(vehiculo: Vehiculo){
-      if (window.confirm('¿Estás seguro de que deseas eliminar el vehiculo con matricula '+vehiculo.matricula+'?')) {
-        this.eliminarVehiculo(vehiculo)
-      }
-    }
-    
     toggleRow(index: number) {
       this.selectedRowIndex = index;
     }
     isRowSelected(index: number) {
       return index === this.selectedRowIndex;
     }
-    
-
 }
