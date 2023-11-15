@@ -22,7 +22,6 @@ import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.compo
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
-import { ReservaClienteComponent } from './reserva-cliente/reserva-cliente.component';
 
 
 @NgModule({
@@ -43,7 +42,6 @@ import { ReservaClienteComponent } from './reserva-cliente/reserva-cliente.compo
     UsuariosComponent,
     UsuariosClienteComponent,
     VehiculosClienteComponent,
-    ReservaClienteComponent
  
   ],
   imports: [

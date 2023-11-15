@@ -8,12 +8,14 @@ import { Cliente, Mantenimiento, Administrador } from './usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  private USER_token = 'loggedUser';
   private URLLogin="http://localhost:8080/users/login";
   private baseURLAdmin = "http://localhost:8080/users/administradores";
   private baseURLCliente = "http://localhost:8080/users/cliente";
   private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
   private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
   private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser"
+  
 
   constructor(private httpService: HttpClient) {}
 
@@ -61,5 +63,20 @@ export class UsuarioService {
   modificarDatosMantenimiento(mantenimiento : Mantenimiento) : Observable<Mantenimiento>{
     return this.httpService.post<Mantenimiento>(this.baseUrlActualizarUsuario, mantenimiento)
   }
-  
+
+  saveLoggedUser(user: any): void {
+    // Almacenar información del usuario en sessionStorage
+    sessionStorage.setItem(this.USER_token, JSON.stringify(user));
+  }
+
+  getLoggedUser(): any {
+    // Obtener información del usuario desde sessionStorage
+    const userString = sessionStorage.getItem(this.USER_token);
+    return userString ? JSON.parse(userString) : null;
+  }
+
+  clearLoggedUser(): void {
+    // Eliminar la información del usuario al cerrar sesión
+    sessionStorage.removeItem(this.USER_token);
+  }
 }

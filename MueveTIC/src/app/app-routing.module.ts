@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'modificar-admin/:email', component: ModificarAdminComponent },
   { path : 'modificar-mantenimiento/:email', component: ModificarManComponent },
   { path : 'modificar-cliente/:email', component: ModificarClienteComponent },
-  { path : 'vehiculos-cliente', component: UsuariosClienteComponent },
+  { path : 'usuarios-cliente', component: UsuariosClienteComponent },
   { path : 'reservas-cliente', component: VehiculosClienteComponent},
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
