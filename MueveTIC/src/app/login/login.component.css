@@ -1,4 +1,4 @@
-
+/* Código CSS para el componente login 
 .login-container {
     max-width: 600px;
     margin: 10px auto;
@@ -51,11 +51,11 @@ h2 {
 
 .forgot-password {
     text-align: right;
-    margin-top: -20px; /* Ajusta la posición vertical según sea necesario */
+    margin-top: -20px; /* Ajusta la posición vertical según sea necesario 
 }
 
 .forgot-password a {
-    color: #329cf3;
+    color: #34AF6D;
     text-decoration: none;
 }
 
@@ -74,4 +74,170 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+
+    &:after{
+        content: '';
+        position:fixed;
+        inset: 0;
+        background-color: #34AF6D;
+        width: 60%;
+        height: 100vh;
+        clip-path: polygon(0 100%, 0 0, 100% 0, 70% 100%);
+        z-index: -1;
+    }
+}
+.login-card{
+    background-color: #d8f3df;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 50px -30px black;
+    width: 1200px;
+    border-radius: 30px;
+    overflow:visible;
+    display: grid;
+    grid-template-columns: auto auto;
+
+    a{
+        
+        color:#34AF6D;
+    }
+    .column {
+        padding: 4rem;
+    
+        &:last-child {
+            background: url('../../assets/fondo.jpg') center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+
+            &:after{
+                content: '';
+                position: absolute;
+               
+            }
+            *{
+                z-index: 1;
+            }
+            a{
+                display: inline-block;
+                padding: 12px 30px;
+                font-size: 16px;
+                border:2px solid #34AF6D;
+                color: black;
+                border-radius: 50px;
+                cursor:pointer;
+                transition: all .3s;
+                font-weight: 600;
+
+                &:hover{
+                    background-color: #34AF6D;
+                    color: white;
+
+                }
+
+            }
+        }
+
+    }
+    h1{
+        margin-bottom: 15px;
+    }
+    .form-group{
+        width: 100%;
+        max-height: 40%;
+        border: none;
+        background-color: #effaf3;
+        padding: 10px 20px;
+        font-size:18px;
+        border-radius: 50px;
+        transition:box-shadow .2s;
+
+        &:focus{
+            outline: none;
+            box-shadow: 0 0 0 2px #34AF6D;
+        }
+    }
+   
+    input[type=checkbox]{
+        accent-color: #34AF6D;
+        width:16px ;
+        height: 16px;
+    }
+    form{
+        margin-top: 3rem;
+
+        &>*{
+            margin-top: 1rem ;
+        }
+        button{
+            background-color: #34AF6D;
+            color: white;
+            border:none;
+            padding: 20px 40px;
+            border-radius:50px ;
+            cursor:pointer;
+            font-weight: 600;
+            transition: all .2s;
+            font-size: 18px;
+        
+
+            &:active{
+                scale: .95;
+                background-color: darken(#34AF6D, 10%);
+            }
+
+        }
+
+        
+    }
+
+    
+    
+}
+
+.flex{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media(max-width: 992px){
+    .login-card{
+        display: block;
+        width: 500px;
+        text-align: center;
+
+        .column{
+            &:last-child{
+                display: flex;
+            }
+        }
+        
+    }
+    .flex{
+        flex-direction: column;
+        gap: 1rem;
+
+    }
+
+    
+    
 }
