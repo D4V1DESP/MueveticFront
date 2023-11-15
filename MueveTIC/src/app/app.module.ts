@@ -24,6 +24,7 @@ import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.co
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
 
+import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente
     UsuariosClienteComponent,
     PaginaBienvenidaComponent,
     VehiculosClienteComponent,
- 
+    ReservasClienteComponent
   ],
   imports: [
     BrowserModule,
