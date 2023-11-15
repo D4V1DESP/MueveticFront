@@ -17,8 +17,8 @@ export class LoginComponent {
 
 
   onLogin(){
-    /*console.log('email:', this.usuario.email);
-    console.log('contraseña:', this.usuario.contrasena);*/
+    console.log('email:', this.usuario.email);
+    console.log('contraseña:', this.usuario.contrasena);
     this.UsuarioService.userLogin(this.usuario).subscribe(
       response=>{
         console.log('Datos enviados con éxito:', response);
