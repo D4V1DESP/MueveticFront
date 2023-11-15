@@ -19,8 +19,9 @@ export class VehiculoService {
   eliminarVehiculo(vehiculo:Vehiculo){
     return this.HttpClient.post("http://localhost:8080/vehiculos/eliminar", vehiculo)
   }
-
-
+  reservarVehiculo(vehiculo:any){
+    return this.HttpClient.post("http://localhost:8080/vehiculos/reservar", vehiculo)
+  }
   // Obtener lista de vehículos disponibles
   obtenerListaCochesDisponibles() : Observable<any>{
     return this.HttpClient.get<any>("http://localhost:8080/vehiculos/coches/disponibles")
