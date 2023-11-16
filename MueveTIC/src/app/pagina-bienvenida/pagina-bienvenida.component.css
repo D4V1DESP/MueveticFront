@@ -57,7 +57,6 @@
 
     background: url('../../assets/fondo.jpg') center;
     background-size: cover;
-    display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
