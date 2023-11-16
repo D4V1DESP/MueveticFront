@@ -42,8 +42,14 @@ export class UsuariosClienteComponent implements OnInit {
     }
 
     reservarVehiculo(vehiculo: any){
-     this.vehiculoService.reservarVehiculo(vehiculo).subscribe(respuesta => {
-        console.log(vehiculo);
+      let reserva = {
+        matricula: vehiculo.matricula,
+        email: this.UsuarioService.getLoggedUser().email,
+        
+      }
+      console.log(reserva);
+     this.vehiculoService.reservarVehiculo(reserva).subscribe(respuesta => {
+        
         this.router.navigate(['/reservas-cliente']);
       });
     }
