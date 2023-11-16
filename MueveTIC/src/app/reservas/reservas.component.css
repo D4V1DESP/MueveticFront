@@ -14,7 +14,6 @@ body, html {
 }
 
 body {
-  font-family: 'Roboto', 'sans-serif';
   margin-top: 0px;
   padding: 0px;
 }
@@ -48,7 +47,6 @@ nav {
   left: 0;
   top: 0;
   width: 200px;
-  top: 50px;
   height: calc(100vh - 50px);
   background:linear-gradient(to bottom, #329cf3, #98e0ed ) ;
   transform: translateX(-100%);

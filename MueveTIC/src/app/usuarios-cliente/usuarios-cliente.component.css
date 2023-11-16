@@ -22,7 +22,7 @@ span {
   }
   
   body {
-    font-family: 'Rooto', 'sans-serif';
+    /*font-family: 'Rooto', 'sans-serif';*/
     margin-top: 0px;
     padding: 0px;
   }
@@ -85,7 +85,7 @@ span {
     left: 0;
     top: 0;
     width: 200px;
-    top: 50px;
+    /*top: 50px;*/
     height: calc(100vh - 50px);
     background:linear-gradient(to bottom, #84d1a3, #effaf3 ) ;
     transform: translateX(-100%);
