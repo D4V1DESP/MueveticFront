@@ -10,7 +10,7 @@
     </head>
     <body>
       <header class="main-header">
-        <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+        <label for="btn-nav" class="btn-nav"><em class="fa fa-bars"></em></label>
         <input type="checkbox" id="btn-nav">
         <div class="titulo">
           <h1>Espacio de consulta de reservas</h1>
@@ -18,16 +18,16 @@
         <nav>
           <ul class="navigation">
             <li><a href="#"><a routerLink="/usuarios-cliente">
-              <i class="fas fa-tasks"></i>
+              <em class="fas fa-tasks"></em>
               <span class="nav-item"> Reservar</span>
             </a>
             </a></li>
             <li><a href="#"><a routerLink="/configuracion"></a> <!-- cuando exista la pagina configuracion -->
-              <i class="fas fa-user-cog"></i>
+              <em class="fas fa-user-cog"></em>
               <span class="nav-item"> Configuración</span>
             </a></li>
             <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
-              <i class="fas fa-sign-out-alt"></i>
+              <em class="fas fa-sign-out-alt"></em>
               <span class="nav-item"> Cerrar sesión</span>
             </a></li>
           </ul>
@@ -42,17 +42,17 @@
                 <img src="https://www.debrecen.hu/assets/img/frontend/e-car-icon.png" alt="">
               </div>
               <div class="card">
-                <i class="fa-solid fa-car"></i>
-                <h3> Nuestros coches</h3>
+                <em class="fa-solid fa-car"></em>
+                <h2> Nuestros coches</h2>
                 <p> todos nuestros coches son electricos.</p>
               </div>
               <div class="card">
-                <i class="fa-solid fa-motorcycle"></i>
+                <em class="fa-solid fa-motorcycle"></em>
                 <h3> Nuestras motos</h3>
                 <p> todas nuestras motos son electricas.</p>
               </div>
               <div class="card">
-                <i class="fa-solid fa-motorcycle"></i>
+                <em class="fa-solid fa-motorcycle"></em>
                 <h3> Nuestros patines</h3>
                 <p> todas nuestros patines son electricas.</p>
               </div>
@@ -64,7 +64,8 @@
               <h1>Reserva actual
                </h1>  
                <div *ngIf="esTablaVacia()">
-                  <p>No tienes ninguna reserva activa en este momento. <a href="/usuarios-cliente">Realizar una reserva.</a></p> 
+                  <p>No tienes ninguna reserva activa en este momento. 
+                    <a href="/usuarios-cliente">Realizar una reserva.</a></p> 
                 </div>           
             </div>
           
@@ -90,8 +91,8 @@
                   <!-- Agrega más columnas para cada campo de tu tabla -->
                  <td>
                       <!-- Botones de eliminar y modificar en la fila -->
-                      <button ><!-- (click)="eliminarUsuario(coie)"> -->
-                        <i>Reserva</i> <!-- Ícono de eliminar -->
+                      <button >
+                        <em>Reserva</em> <!-- Ícono de eliminar -->
                       </button>
                  </td>                  
                 </tr>

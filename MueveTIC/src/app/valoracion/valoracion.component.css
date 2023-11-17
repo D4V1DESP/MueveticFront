@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.valoracion {
+  position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+.valoracion input {
+  position: absolute;
+  top: -100px;
+}
+
+.card {
+  width: 20%; 
+  height: auto;
+  margin: 10px;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.valoracion label {
+  float: none;
+  color: #333;
+  width: 23px;
+  font-size: 25px;
+  cursor: pointer;
+  position: relative; 
+  margin-right:15px;
+  margin-bottom: 10px;
+}
+
+.valoracion label:hover,
+.valoracion label:hover ~ label,
+.valoracion input:checked ~ label {
+  color: #ffc107;
+}
+
+.valoracion label:hover:before,
+.valoracion label:hover ~ label:before,
+.valoracion input:checked ~ label:before {
+  content: "\2605";
+  color: #ffc107;
+  position: absolute;
+  font-size: 50px;
+  top: -25px; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.estrellas {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.input[type="radio"] {
+  display: none;
+}
+
+.label {
+  cursor: pointer;
+  font-size: 30px;
+  color: #ddd;
+}
+
+
+.botones {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+button.mandar-valoracion {
+  background-color: #4CAF50;
+  color: #fff;
+}
+.comentario {
+  position: relative;
+  margin: 10px 0;
+}
+
+#comentario {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+#comentario::placeholder {
+  color: #999; 
+}
+
+#comentario:focus::placeholder {
+  color: transparent; 
+}
+
