@@ -45,17 +45,17 @@
               <img src="https://www.debrecen.hu/assets/img/frontend/e-car-icon.png" alt="">
             </div>
             <div class="card">
-              <i class="fa-solid fa-car"></i>
+              <i class="fa fa-car"></i>
               <h3> Nuestros coches</h3>
               <p> todos nuestros coches son electricos.</p>
             </div>
             <div class="card">
-              <i class="fa-solid fa-motorcycle"></i>
+              <i class="fa fa-motorcycle"></i>
               <h3> Nuestras motos</h3>
               <p> todas nuestras motos son electricas.</p>
             </div>
             <div class="card">
-              <i class="fa-solid fa-motorcycle"></i>
+              <i class="fa fa-motorcycle"></i>
               <h3> Nuestros patines</h3>
               <p> todas nuestros patines son electricas.</p>
             </div>
@@ -90,11 +90,12 @@
                     <td>{{reserva.cliente}}</td>
                     <td>{{reserva.estado}}</td>
                     <td>{{reserva.fecha}}</td>
-                    <!-- Agrega más columnas para cada campo de tu tabla -->
                     <td>
-                      <!-- Botones de eliminar y modificar en la fila -->
                       <button (click)="cancelarReserva(reserva)">
-                        <i>Cancelar Reserva</i> <!-- Ícono de eliminar -->
+                        <i class="fas fa-times"></i>
+                      </button>
+                      <button (click)="finalizarReserva(reserva)">
+                        <i class="fa fa-check"></i>
                       </button>
                     </td>
                   </tr>
@@ -104,9 +105,6 @@
             </div>
           </div>
         </div>
-        
-        
-        
       <div class="header2">
         <h1>Historial de reservas
         </h1>
@@ -115,14 +113,22 @@
         <caption></caption>
         <thead>
           <tr id="header-row">
-            <th>Fecha</th>
             <th>Matricula</th>
-            <th>Modelo</th>
+            <th>Fecha</th>
             <th>Estado</th>
+            <th>Valoración</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
         </thead>
         <tbody id="table-body">
+          <tr *ngFor="let reserva of listaReservasCompleta;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+                    (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+            <td>{{reserva.vehiculo}}</td>
+            <td>{{reserva.fecha}}</td>
+            <td>{{reserva.estado}}</td>
+            <td>{{reserva.valoracion === -1 ? 'Sin valoración' : reserva.valoracion}}</td>
+                    <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
         </tbody>
       </table>
     </div>

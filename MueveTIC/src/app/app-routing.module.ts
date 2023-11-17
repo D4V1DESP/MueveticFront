@@ -18,14 +18,15 @@ import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.co
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
 
-import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
+
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/pagina-bienvenida', pathMatch: 'full' }, // Ruta por defecto
-  { path: 'login', component: LoginComponent }, // Ruta para el componente de login
+  { path: '', redirectTo: '/pagina-bienvenida', pathMatch: 'full' },
+  // Ruta por defecto
+  { path: 'login', component: LoginComponent },
   { path: 'registro-usuarios', component: RegistroUsuariosComponent },
-  
+
   { path: 'reservas', component: ReservasComponent },
   { path: 'vehiculos', component: VehiculosComponent },
   { path: 'usuarios', component: UsuariosComponent },
@@ -42,17 +43,17 @@ const routes: Routes = [
   { path : 'usuarios-cliente', component: UsuariosClienteComponent },
   { path : 'pagina-bienvenida', component: PaginaBienvenidaComponent},
   { path : 'reservas-cliente', component: ReservasClienteComponent},
-  { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
+  // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),FormsModule],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
-  
+
 }
 

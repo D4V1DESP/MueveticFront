@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
-import { Vehiculo } from '../vehiculo';
-import { OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 
 @Component({
@@ -15,8 +13,9 @@ export class ReservasClienteComponent {
   isMouseOver: boolean = false; // Variable para controlar el paso del ratón
   selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
   miTabla: any[] = [];
-  listaCoches: Vehiculo[];
   listaReservas: Reserva[] = [];
+  listaReservasCompleta: Reserva[];
+  reservaActiva: Reserva | undefined;
   
 
   constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService) {
@@ -33,7 +32,12 @@ obtenerReservas() {
   this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
     respuesta => {
       if (Array.isArray(respuesta)) {
-        this.listaReservas = respuesta;
+        this.listaReservasCompleta = respuesta;
+        this.reservaActiva=this.listaReservasCompleta.find(reserva => reserva.estado === 'reservado');
+        if (this.reservaActiva!==undefined){
+          this.listaReservas.push(this.reservaActiva);
+        }
+
       } else {
         this.listaReservas = [];
       }
@@ -47,15 +51,19 @@ obtenerReservas() {
   );
 }
   cancelarReserva(reserva: Reserva) {
-    this.ReservaService.cancelarReserva(reserva).subscribe(
-      respuesta => {
-        console.log('Reserva cancelada correctamente:', respuesta);
-      },
-      error => {
-        console.error('Error al cancelar reserva:',reserva, error);
-      }
-    );
-
+    if (window.confirm('¿Estás seguro de que deseas cancelar tu reserva?')) {
+      this.ReservaService.cancelarReserva(reserva).subscribe(
+        respuesta => {
+          console.log('Reserva cancelada correctamente:', respuesta);
+        },
+        error => {
+          console.error('Error al cancelar reserva:',reserva, error);
+        }
+      );
+    }
+  }
+  finalizarReserva(reserva: Reserva) {
+    //TODO metodo de finalizar reserva
   }
   
   esTablaVacia(): boolean {
