@@ -22,6 +22,9 @@ import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.compo
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
+import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
+
+import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida
     VehiculosComponent,
     UsuariosComponent,
     UsuariosClienteComponent,
-    PaginaBienvenidaComponent
+    PaginaBienvenidaComponent,
+    VehiculosClienteComponent,
+    ReservasClienteComponent
   ],
   imports: [
     BrowserModule,

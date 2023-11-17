@@ -201,6 +201,14 @@ span {
     color: #fff;
     transition: 0.5rem;
   }
+  .image{
+    margin-left: 1000px;
+    transform: scale(0.5); 
+    transform-origin: top left;
+    float: right;
+    clear: right;
+    order:2;
+    }
   .anadir-button {
     padding: 5px;
     background-color: #84d1a3;

@@ -15,7 +15,7 @@
     <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
     <input type="checkbox" id="btn-nav">
     <div class="titulo">
-      <h1>Espacio de gestion de reservas</h1>
+      <h1>Espacio de consulta de reservas</h1>
     </div>
     <nav>
       <ul class="navigation">
@@ -39,6 +39,10 @@
           <i class="fas fa-user-cog"></i>
           <span class="nav-item"> Configuracion</span>
         </a></li>
+        <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item"> Cerrar sesión</span>
+        </a></li>
       </ul>
     </nav>
   
@@ -46,6 +50,26 @@
   <div class="app-container">
     <div class="content">
       <!-- Área de contenido donde se cargarán los componentes -->
+      <div class="header1">
+        <h1>Reservas</h1>             
+      </div>      
+      <table class="tabla">
+        <caption></caption>
+        <thead>
+          <tr id="header-row">
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Direccion</th>
+            <th>Modelo</th>
+            <th>Bateria</th>
+            <th>Estado</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          
+        </tbody>
+      </table>
       <router-outlet></router-outlet>
     </div>
   </div>
