@@ -17,15 +17,45 @@ export class ReservasClienteComponent {
   miTabla: any[] = [];
   listaCoches: Vehiculo[];
   listaReservas: Reserva[] = [];
+  
 
-  constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService) { }
+  constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService) {
+    this.listaReservas = [];
+  }
+  
   ngOnInit() : void{
     this.obtenerReservas();
   }
-  obtenerReservas(){
-    this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(respuesta => {
-      this.listaReservas = [respuesta]; // Wrap respuesta in an array
-    });
+  loading: boolean = true;
+
+obtenerReservas() {
+  this.loading = true;
+  this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
+    respuesta => {
+      if (Array.isArray(respuesta)) {
+        this.listaReservas = respuesta;
+      } else {
+        this.listaReservas = [];
+      }
+      this.loading = false;
+    },
+    error => {
+      console.error('Error al obtener reservas:', error);
+      this.listaReservas = [];
+      this.loading = false;
+    }
+  );
+}
+  cancelarReserva(reserva: Reserva) {
+    this.ReservaService.cancelarReserva(reserva).subscribe(
+      respuesta => {
+        console.log('Reserva cancelada correctamente:', respuesta);
+      },
+      error => {
+        console.error('Error al cancelar reserva:',reserva, error);
+      }
+    );
+
   }
   
   esTablaVacia(): boolean {
