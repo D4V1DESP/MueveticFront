@@ -28,24 +28,23 @@ export class ReservasClienteComponent {
   }
   loading: boolean = true;
 
-obtenerReservas() {
-  this.loading = true;
-  this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
-    respuesta => {
-      if (Array.isArray(respuesta)) {
-        this.listaReservas = respuesta;
-      } else {
+  obtenerReservas() {
+    this.loading = true;
+    this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
+      respuesta => {
+        console.log('Respuesta del servidor:', respuesta);
+        this.listaReservas = Array.isArray(respuesta) ? respuesta : [respuesta as Reserva];
+        this.loading = false;
+      },
+      error => {
+        console.error('Error al obtener reservas:', error);
         this.listaReservas = [];
+        this.loading = false;
       }
-      this.loading = false;
-    },
-    error => {
-      console.error('Error al obtener reservas:', error);
-      this.listaReservas = [];
-      this.loading = false;
-    }
-  );
-}
+    );
+  }
+  
+  
   cancelarReserva(reserva: Reserva) {
     this.ReservaService.cancelarReserva(reserva).subscribe(
       respuesta => {

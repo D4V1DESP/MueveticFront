@@ -10,7 +10,7 @@ export class ReservaService {
   ObtenerReservaActiva(email: string) {
     return this.httpClient.get<Reserva>(`http://localhost:8080/reservas/reservaActiva/${email}`);
   }
-  cancelarReserva(reserva: Reserva) {
-    return this.httpClient.put<Reserva>(`http://localhost:8080/reservas/usersCancel`, reserva);
+  cancelarReserva(reserva: Reserva) {   
+    return this.httpClient.post<Reserva>(`http://localhost:8080/reservas/usersCancel`, reserva);
   }
 }
