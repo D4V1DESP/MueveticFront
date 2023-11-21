@@ -81,7 +81,6 @@ span {
     nav {
       position: absolute;
       left: 0;
-      top: 0;
       width: 200px;
       top: 50px;
       height: calc(100vh - 50px);

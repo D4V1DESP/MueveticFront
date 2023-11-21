@@ -59,15 +59,21 @@
           <tr id="header-row">
             <th>Usuario</th>
             <th>Fecha</th>
-            <th>Direccion</th>
-            <th>Modelo</th>
-            <th>Bateria</th>
             <th>Estado</th>
+            <th>Vehiculo</th>
+            <th>Valoracion</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
           </tr>
         </thead>
         <tbody id="table-body">
-          
+          <tr *ngFor="let reserva of listaReservas;  let i = index ">
+            <td>{{reserva.cliente}}</td>
+            <td>{{reserva.fecha}}</td>
+            <td>{{reserva.estado}}</td>
+            <td>{{reserva.vehiculo}}</td>
+            <td>{{reserva.valoracion === -1 ? 'Sin valoración' : reserva.valoracion}}</td>
+
+          </tr>
         </tbody>
       </table>
       <router-outlet></router-outlet>

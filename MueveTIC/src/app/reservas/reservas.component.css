@@ -45,7 +45,7 @@ body {
 nav {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 50;
   width: 200px;
   height: calc(100vh - 50px);
   background:linear-gradient(to bottom, #329cf3, #98e0ed ) ;

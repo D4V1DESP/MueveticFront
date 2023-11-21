@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'anadir-patinete', component: AnadirPatineteComponent },
   { path: 'anadir-moto', component: AnadirMotoComponent },
 
-  { path: 'modificar-admin/:email', component: ModificarAdminComponent },
+  { path : 'modificar-admin/:email', component: ModificarAdminComponent },
   { path : 'modificar-mantenimiento/:email', component: ModificarManComponent },
   { path : 'modificar-cliente/:email', component: ModificarClienteComponent },
   { path : 'usuarios-cliente', component: UsuariosClienteComponent },

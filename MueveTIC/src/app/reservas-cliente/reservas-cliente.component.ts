@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
 import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservas-cliente',
@@ -18,7 +19,7 @@ export class ReservasClienteComponent {
   reservaActiva: Reserva | undefined;
   
 
-  constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService) {
+  constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService, private router: Router) {
     this.listaReservas = [];
   }
   
@@ -63,7 +64,12 @@ obtenerReservas() {
     }
   }
   finalizarReserva(reserva: Reserva) {
+
     //TODO metodo de finalizar reserva
+    if (window.confirm('¿Pasar a la ventana de valoración y facturar la reserva?')){
+      this.router.navigate(['/rutavaloracion']);
+    }
+
   }
   
   esTablaVacia(): boolean {
