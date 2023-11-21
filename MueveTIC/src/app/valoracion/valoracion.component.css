@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 .valoracion {
-  position: relative;
+    position: relative;
     overflow: hidden;
     flex-direction: column;
     display: flex; 
@@ -16,10 +16,11 @@ input { display: none; }
 }
 
 .card {
+  background-color: #d8f3df;
+  font-family: 'Roboto', sans-serif;
   width: 20%; 
   height: auto;
   margin: 10px;
-  background: #fff;
   text-align: center;
   border-radius: 20px;
   padding: 10px;
@@ -53,7 +54,7 @@ button {
 }
 
 button.mandar-valoracion {
-  background-color: #4CAF50;
+  background-color: #34AF6D;
   color: #fff;
 }
 .comentario {
@@ -89,7 +90,7 @@ body * {
 	left:-14%;
 	width: 50vmin;
 	padding: 1.75vmin 10vmin 2vmin 3vmin;
-	background: linear-gradient(90deg,  #4CAF50 40vmin, #fff0 40vmin 100%);
+	background: linear-gradient(90deg,  #34AF6D 40vmin, #fff0 40vmin 100%);
 	border-radius: 5vmin;
 	position: relative;
 }
@@ -102,7 +103,7 @@ body * {
     color: #ffffff;
     width: 10vmin;
     text-align: center;
-    background: #4CAF50;
+    background: #34AF6D;
     position: absolute;
     top: 0;
     right: 30;
