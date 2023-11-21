@@ -17,8 +17,10 @@ import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
-
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
+import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
+
 
 
 const routes: Routes = [
@@ -42,6 +44,10 @@ const routes: Routes = [
   { path : 'usuarios-cliente', component: UsuariosClienteComponent },
   { path : 'pagina-bienvenida', component: PaginaBienvenidaComponent},
   { path : 'reservas-cliente', component: ReservasClienteComponent},
+  { path : 'recuperacion', component: RecuperacionComponent},
+  { path : 'modificar-contrasena', component: ModificarContrasenaComponent},
+
+
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
   

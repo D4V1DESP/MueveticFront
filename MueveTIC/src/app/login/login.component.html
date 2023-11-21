@@ -21,7 +21,9 @@
         <div class="form-group">
           <input type="password" class="form-group" placeholder="contraseña"name="password" id ="password" [(ngModel)]="usuario.contrasena" required>
         </div>
-        
+        <div class="signup-text">
+          No te acuerdas de la contraseña? <a href="/recuperacion"> Recupérala</a>
+        </div>
         <div class="flex">
           <button type="submit" (click)="onLogin()">Iniciar sesión</button>
         </div>

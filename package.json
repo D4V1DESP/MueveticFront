@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "crypto-js": "^4.1.1"
+    "angularx-social-login": "^4.1.0",
+    "boostrap": "^2.0.0",
+    "crypto-js": "^4.1.1",
+    "speakeasy": "^2.0.0"
   }
 }
