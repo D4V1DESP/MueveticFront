@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { VehiculoService } from '../vehiculos.service';
-import { Vehiculo } from '../vehiculos';
+import { VehiculoService } from '../vehiculo.service';
+import { Coche, Moto, Patinete, Vehiculo } from '../vehiculo';
+
 
 
 @Component({
@@ -10,13 +11,13 @@ import { Vehiculo } from '../vehiculos';
 })
 
 export class VehiculosComponent implements OnInit {
-  listaCoches : Vehiculo []
-  listaMotos : Vehiculo []
-  listaPatinetes : Vehiculo []
+  listaCoches : Coche [] = [];
+  listaMotos : Moto [] = [];
+  listaPatinetes : Patinete [] = [];
   isMouseOver: boolean = false; // Variable para controlar el paso del ratón
   selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
 
-  constructor (private vehiculoService : VehiculoService){}
+  constructor (private vehiculoService: VehiculoService){}
 
     ngOnInit() : void{
       this.obtenerVehiculos();
@@ -30,27 +31,27 @@ export class VehiculosComponent implements OnInit {
   }
 
   obtenerCoches(){
-    this.vehiculoService.obtenerListaVehiculos('/coches').subscribe(respuesta => {
-      this.listaCoches = respuesta;
+    this.vehiculoService.obtenerListaVehiculos('/coches').subscribe((data: Coche[]) => {
+      this.listaCoches = data;
     });
   }
 
   obtenerMotos(){
-    this.vehiculoService.obtenerListaVehiculos('/motos').subscribe(respuesta => {
-      this.listaMotos = respuesta;
+    this.vehiculoService.obtenerListaVehiculos('/motos').subscribe((data: Moto[]) => {
+      this.listaMotos = data;
     });
   }
 
   obtenerPatinetes(){
-    this.vehiculoService.obtenerListaVehiculos('/patinetes').subscribe(respuesta => {
-      this.listaPatinetes = respuesta;
+    this.vehiculoService.obtenerListaVehiculos('/patinetes').subscribe((data: Patinete[]) => {
+      this.listaPatinetes = data;
     });
   }
   eliminarVehiculo(vehiculo: Vehiculo) {
     
     console.log('Eliminar vehiculo:', vehiculo);
     this.vehiculoService.eliminarVehiculo(vehiculo).subscribe(
-      response=>{
+      (response: any) => {
         console.log('Datos enviados con éxito:', response);
         if (vehiculo.tipo === "Patinete"){
           this.eliminarElementoDeLista(this.listaPatinetes,vehiculo)
@@ -60,7 +61,7 @@ export class VehiculosComponent implements OnInit {
           this.eliminarElementoDeLista(this.listaMotos,vehiculo)
         }
       },
-      error =>{
+      (error: any) =>{
         console.error('Error al enviar datos:', error);
       }
     )

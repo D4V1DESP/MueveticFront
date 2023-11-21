@@ -1,52 +1,59 @@
 
-<div class="registro-container">
-    <h2>Registro de Usuarios</h2>
-    <form (submit)="submitRegistro()">
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" [(ngModel)]="userData.nombre" required>
-      </div>
-      <div class="form-group">
-        <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" name="apellidos" [(ngModel)]="userData.apellidos" required>
-      </div>
-      <div class="form-group">
-        <label for="dni">DNI</label>
-        <input type="text" id="dni" name="dni" [(ngModel)]="userData.dni" required>
-      </div>
-      <div class="form-group">
-        <label for="fechaNan">Fecha de Nacimiento</label>
-        <input type="date" id="fechaNan" name="fechaNan" [(ngModel)]="userData.fecha" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" [(ngModel)]="userData.email" required>
-      </div>
-      <div class="form-group">
-        <label for="carnet">Tipo de carnet</label>
-        <select type="carnet" id="carnet" name="carnet" [(ngModel)]="userData.carnet" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Regístrate</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+ <link rel="stylesheet" href="registro-usuarios.component.css" />
+
+</head>
+<body>
+ <div class="login-card">
+   <div class="column">
+     <h1>Regístrate </h1>
+     <h2>Únete a nuestro sistema</h2>
+     <form (submit)="submitRegistro()">
+       <div class="form-group">
+        <input type="text" id="nombre" name="nombre" class="form-group" placeholder="Nombre" [(ngModel)]="userData.nombre" required>
+       </div>
+       <div class="form-group">
+        <input type="text" id="apellidos" name="apellidos" class="form-group" placeholder="Apellidos" [(ngModel)]="userData.apellidos" required>
+       </div>
+       <div class="form-group">
+        <input type="text" id="dni" name="dni" class="form-group" placeholder="DNI" [(ngModel)]="userData.dni" required>
+       </div>
+       <div class="form-group">
+        <input type="date" id="fechaNan" name="fechaNan"  class="form-group" placeholder="fechaNan" [(ngModel)]="userData.fecha" required>
+       </div>
+       <div class="form-group">
+        <input type="email" id="email" name="email" class="form-group" placeholder ="email" [(ngModel)]="userData.email" required>
+       </div>
+       <div class="form-group">
+        <select type="carnet" id="carnet" name="carnet" class="form-group" placeholder ="carnet" [(ngModel)]="userData.carnet" required>
           <option value="coche">Coche</option>
           <option value="moto">Moto</option>
           <option value="ambos">Ambos</option>
           <option value="ninguno">Ninguno</option>
         </select>
-      </div>
-      <div class="form-group">
-        <label for="telefono">Telefono</label>
-        <input type="telefono" id="telefono" name="telefono" [(ngModel)]="userData.telefono" required>
-      </div>
-      <div class="form-group">
-        <label for="contrasena">Contraseña</label>
-        <input type="password" id="contrasena" name="contrasena" [(ngModel)]="userData.contrasena" required>
-        </div>
-        <div class="form-group">
-        <label for="repetirContrasena">Repetir Contraseña</label>
-        <input type="password" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="userData.repetirContrasena" required>
-        </div>
-      <button type="submit">Registrarse</button>
-      
+       </div>
+       <div class="form-group">
+        <input type="telefono" id="telefono" name="telefono" class="form-group" placeholder ="telefono" [(ngModel)]="userData.telefono" required>
+       </div>
+       <div class="form-group">
+        <input type="password" id="contrasena" name="contrasena" class="form-group" placeholder="Contraseña" [(ngModel)]="userData.contrasena" required>
+       </div>
+       <div class="form-group">
+        <input type="password" id="repetirContrasena" name="repetirContrasena" class="form-group" placeholder="Repetir Contraseña" [(ngModel)]="userData.repetirContrasena" required>
+       </div>
+       
+       <button type="submit">Registrarse</button>
       <span id="mensaje" style="display: none;">oculto</span>
-    
-    </form>
-  </div>
-  
+     </form>
+   </div>
+ </div>
+</body>
+</html>
+
+

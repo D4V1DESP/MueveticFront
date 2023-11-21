@@ -21,6 +21,9 @@ import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
 import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.component';
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
+import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
+import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
+
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 
 @NgModule({
@@ -40,6 +43,8 @@ import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.co
     VehiculosComponent,
     UsuariosComponent,
     UsuariosClienteComponent,
+    PaginaBienvenidaComponent,
+    VehiculosClienteComponent,
     ReservasClienteComponent
   ],
   imports: [

@@ -86,9 +86,9 @@
             <td>{{coche.estado}}</td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
-                <!-- Botones de eliminar y modificar en la fila -->
-                <button ><!-- (click)="eliminarUsuario(coie)"> -->
-                  <i>Reserva</i> <!-- Ícono de eliminar -->
+                <!-- Boton de reservar -->
+                <button (click)="reservarVehiculo(coche)">
+                  <i>Reserva</i>
                 </button>
             </td>
             
@@ -123,9 +123,9 @@
             <td>{{moto.estado}}</td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
-                <!-- Botones de eliminar y modificar en la fila -->
-                <button ><!-- (click)="eliminarUsuario(motos)"> -->
-                  <i>Reserva</i> <!-- Ícono de eliminar -->
+                <!-- Boton de reservar -->
+                <button (click)="reservarVehiculo(moto)">
+                  <i>Reserva</i>
                 </button>
             </td>
           </tr>
@@ -157,9 +157,9 @@
             <td>{{patinete.estado}}</td>
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
-                <!-- Botones de eliminar y modificar en la fila -->
-                <button ><!-- (click)="eliminarUsuario(patinete)"> -->
-                  <i>Reserva</i> <!-- Ícono de eliminar -->
+                <!-- Boton de reservar -->
+                <button (click)="reservarVehiculo(patinete)">
+                  <i>Reserva</i>
                 </button>
             </td>
     
