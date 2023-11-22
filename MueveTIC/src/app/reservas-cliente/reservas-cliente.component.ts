@@ -3,6 +3,7 @@ import { Reserva } from '../reserva';
 import { Vehiculo } from '../vehiculo';
 import { OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
+import { ReservaService } from '../reserva.service';
 
 @Component({
   selector: 'app-reservas-cliente',
@@ -25,6 +26,7 @@ export class ReservasClienteComponent {
   
   ngOnInit() : void{
     this.obtenerReservas();
+    this.darseBaja();
   }
   loading: boolean = true;
 
