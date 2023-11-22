@@ -43,12 +43,24 @@ export class ReservasClienteComponent {
       }
     );
   }
+  darseBaja() {
+    this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
+      respuesta => {  
+        console.log('Respuesta del servidor:', respuesta);
+        this.UsuarioService.logout();
+      },
+      error => {
+        console.error('Error al darse de baja:', error);
+      }
+    );
+  }
   
   
   cancelarReserva(reserva: Reserva) {
     this.ReservaService.cancelarReserva(reserva).subscribe(
       respuesta => {
         console.log('Reserva cancelada correctamente:', respuesta);
+        window.location.reload();
       },
       error => {
         console.error('Error al cancelar reserva:',reserva, error);

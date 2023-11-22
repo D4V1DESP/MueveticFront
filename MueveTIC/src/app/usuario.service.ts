@@ -8,6 +8,7 @@ import { Cliente, Mantenimiento, Administrador } from './usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  
   private USER_token = 'loggedUser';
   private URLLogin="http://localhost:8080/users/login";
   private baseURLAdmin = "http://localhost:8080/users/administradores";
@@ -64,6 +65,10 @@ export class UsuarioService {
     return this.httpService.post<Mantenimiento>(this.baseUrlActualizarUsuario, mantenimiento)
   }
 
+  darseBaja(email: string) {
+    return this.httpService.delete('http://localhost:8080/users/BajaUser' + email);
+  }
+
   saveLoggedUser(user: any): void {
     // Almacenar información del usuario en sessionStorage
     sessionStorage.setItem(this.USER_token, JSON.stringify(user));
@@ -78,5 +83,9 @@ export class UsuarioService {
   clearLoggedUser(): void {
     // Eliminar la información del usuario al cerrar sesión
     sessionStorage.removeItem(this.USER_token);
+  }
+  logout(): void {
+    this.clearLoggedUser();
+    window.location.reload();
   }
 }
