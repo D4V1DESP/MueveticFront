@@ -27,6 +27,7 @@ import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
+import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-c
     VehiculosClienteComponent,
     ReservasClienteComponent,
     RecuperacionComponent,
-    ModificarContrasenaComponent
+    ModificarContrasenaComponent,
+    ModificarConfiguracionSistemaComponent
   ],
   imports: [
     BrowserModule,

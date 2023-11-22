@@ -224,6 +224,7 @@ span {
       cursor: pointer;
       background: transparent;
       border: 1px solid #4AD489;
+      color: #4AD489
     }
     .tabla button:hover{
       background: #4AD489;
