@@ -47,7 +47,6 @@ body {
   background-color: #fff;
   border-radius: 5px;
   overflow: auto;
-  /* Agrega una barra de desplazamiento si es necesario */
 }
 
 .titulo {

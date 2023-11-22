@@ -1,0 +1,66 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <title>Tu Aplicación</title>
+        
+        <!-- Font Awesome Cdn Link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+      </head>
+      <body>
+        <header class="main-header">
+          <label for="btn-nav" class="btn-nav"><em class="fa fa-bars"></em></label>
+          <input type="checkbox" id="btn-nav">
+          <div class="titulo">
+            <h1>Espacio de consulta de reservas</h1>
+          </div>
+          <nav>
+            <ul class="navigation">
+              <li><a href="#"><a routerLink="/vista-mantenimiento">
+                <em class="fas fa-tasks"></em>
+                <span class="nav-item"> A cargar</span>
+              </a>
+              </a></li>
+              <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
+                <em class="fas fa-sign-out-alt"></em>
+                <span class="nav-item"> Cerrar sesión</span>
+              </a></li>
+            </ul>
+          </nav>
+        </header>
+        <div class="app-container">  
+          <div class="content">
+            <div class="dashboard">            
+            </div>
+            <div class="c1">
+              <div class="header1">
+              
+                <h1>Reservas actuales</h1>  
+                 <div *ngIf="esTablaVacia()">
+                    <p>No tienes ninguna reserva activa en este momento. 
+                      <a href="/vista-mantenimiento">Consultar vehículos pendientes de carga.</a></p> 
+                  </div>           
+              </div>
+            
+          </div>      
+            <table class="tabla" *ngIf="!esTablaVacia()">
+              <thead>
+                <tr id="header-row">
+                  <th>Fecha</th>
+                  <th>Matricula</th>
+                  <th>Modelo</th>
+                  <th>Estado</th>
+                  <th>Acción</th>
+                  <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+                </tr>
+              </thead>
+                
+            </table>
+          </div>
+           
+         
+        
+      
+    
+  

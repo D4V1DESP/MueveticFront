@@ -18,6 +18,8 @@ import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.co
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 import { ValoracionComponent } from './valoracion/valoracion.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
+import { VistaMantenimientoComponent } from './vista-mantenimiento/vista-mantenimiento.component';
+import { ReservasMantenimientoComponent } from './reservas-mantenimiento/reservas-mantenimiento.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,8 @@ const routes: Routes = [
   { path : 'pagina-bienvenida', component: PaginaBienvenidaComponent},
   { path : 'reservas-cliente', component: ReservasClienteComponent},
   { path : 'valoracion', component: ValoracionComponent},
+  { path : 'vista-mantenimiento', component: VistaMantenimientoComponent},
+  { path : 'reservas-mantenimiento', component: ReservasMantenimientoComponent},
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
   

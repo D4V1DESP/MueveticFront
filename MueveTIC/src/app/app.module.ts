@@ -25,6 +25,8 @@ import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
 
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
+import { VistaMantenimientoComponent } from './vista-mantenimiento/vista-mantenimiento.component';
+import { ReservasMantenimientoComponent } from './reservas-mantenimiento/reservas-mantenimiento.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.co
     UsuariosClienteComponent,
     PaginaBienvenidaComponent,
     VehiculosClienteComponent,
-    ReservasClienteComponent
+    ReservasClienteComponent,
+    VistaMantenimientoComponent,
+    ReservasMantenimientoComponent
   ],
   imports: [
     BrowserModule,
