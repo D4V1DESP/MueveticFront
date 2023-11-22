@@ -49,7 +49,7 @@ const routes: Routes = [
   { path : 'pagina-bienvenida', component: PaginaBienvenidaComponent},
   { path : 'reservas-cliente', component: ReservasClienteComponent},
   { path : 'recuperacion', component: RecuperacionComponent},
-  { path : 'modificar-contrasena', component: ModificarContrasenaComponent},
+  { path : 'modificar-contrasena/:emailenc', component: ModificarContrasenaComponent},
 
 
   { path : 'valoracion', component: ValoracionComponent},
