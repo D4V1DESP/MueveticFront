@@ -102,6 +102,12 @@ body{
           outline: none;
           box-shadow: 0 0 0 2px #34AF6D;
       }
+         h3{
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: small;
+        
+    }
   }
  
   input[type=checkbox]{
@@ -135,6 +141,31 @@ body{
       }
   }
 }
+.qr-code{
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    left:100%;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    h2{
+        margin-bottom: 15px;
+        text-align: center;
+        
+    }
+ 
+}
+.qr-code img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  justify-content: center;
+}
+
 
 .flex{
   display:flex;

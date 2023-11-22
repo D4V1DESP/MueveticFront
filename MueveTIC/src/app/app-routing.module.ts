@@ -19,14 +19,20 @@ import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.co
 import { ValoracionComponent } from './valoracion/valoracion.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
 import { DarseBajaComponent } from './darse-baja/darse-baja.component';
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
+import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
+import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
+
+
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/pagina-bienvenida', pathMatch: 'full' }, // Ruta por defecto
-  { path: 'login', component: LoginComponent }, // Ruta para el componente de login
+  { path: '', redirectTo: '/pagina-bienvenida', pathMatch: 'full' },
+  // Ruta por defecto
+  { path: 'login', component: LoginComponent },
   { path: 'registro-usuarios', component: RegistroUsuariosComponent },
-  
+
   { path: 'reservas', component: ReservasComponent },
   { path: 'vehiculos', component: VehiculosComponent },
   { path: 'usuarios', component: UsuariosComponent },
@@ -37,25 +43,31 @@ const routes: Routes = [
   { path: 'anadir-patinete', component: AnadirPatineteComponent },
   { path: 'anadir-moto', component: AnadirMotoComponent },
 
-  { path: 'modificar-admin/:email', component: ModificarAdminComponent },
+  { path : 'modificar-admin/:email', component: ModificarAdminComponent },
   { path : 'modificar-mantenimiento/:email', component: ModificarManComponent },
   { path : 'modificar-cliente/:email', component: ModificarClienteComponent },
   { path : 'usuarios-cliente', component: UsuariosClienteComponent },
   { path : 'pagina-bienvenida', component: PaginaBienvenidaComponent},
   { path : 'reservas-cliente', component: ReservasClienteComponent},
+  { path : 'recuperacion', component: RecuperacionComponent},
+  { path : 'modificar-contrasena', component: ModificarContrasenaComponent},
+
+
   { path : 'valoracion', component: ValoracionComponent},
   { path : 'darse-baja', component: DarseBajaComponent},
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
+  { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent}
+  // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),FormsModule],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
-  
+
 }
 

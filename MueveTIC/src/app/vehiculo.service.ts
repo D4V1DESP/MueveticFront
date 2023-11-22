@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Vehiculo } from './vehiculo';
+import { Reserva } from './reserva';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,8 +20,8 @@ export class VehiculoService {
   eliminarVehiculo(vehiculo:Vehiculo){
     return this.HttpClient.post("http://localhost:8080/vehiculos/eliminar", vehiculo)
   }
-  reservarVehiculo(vehiculo:any){
-    return this.HttpClient.post("http://localhost:8080/vehiculos/reservar", vehiculo)
+  reservarVehiculo(reserva:any){
+    return this.HttpClient.post("http://localhost:8080/reservas/usersAdd", reserva)
   }
   // Obtener lista de vehículos disponibles
   obtenerListaCochesDisponibles() : Observable<any>{

@@ -1,132 +1,137 @@
-<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+<span style="font-family: verdana, geneva, sans-serif;">
+  <!DOCTYPE html>
   <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-      <title>Tu Aplicación</title>
-      <link rel="stylesheet" href="reservas-cliente.component.css" />
-      <!-- Font Awesome Cdn Link -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    </head>
-    <body>
-      <header class="main-header">
-        <label for="btn-nav" class="btn-nav"><em class="fa fa-bars"></em></label>
-        <input type="checkbox" id="btn-nav">
-        <div class="titulo">
-          <h1>Espacio de consulta de reservas</h1>
-        </div>
-        <nav>
-          <ul class="navigation">
-            <li><a href="#"><a routerLink="/usuarios-cliente">
-              <em class="fas fa-tasks"></em>
-              <span class="nav-item"> Reservar</span>
-            </a>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Aplicación</title>
+    <link rel="stylesheet" href="reservas-cliente.component.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+      <input type="checkbox" id="btn-nav">
+      <div class="titulo">
+        <h1>Espacio de consulta de reservas</h1>
+      </div>
+      <nav>
+        <ul class="navigation">
+          <li><a href="#"><a routerLink="/usuarios-cliente">
+                <i class="fas fa-tasks"></i>
+                <span class="nav-item"> Reservar</span>
+              </a>
             </a></li>
-            <label for="btn-nav" class="config"> <!-- cuando exista la pagina configuracion -->
+          <li><a href="#"><a routerLink="/configuracion"></a> <!-- cuando exista la pagina configuracion -->
               <i class="fas fa-user-cog"></i>
               <span class="nav-item"> Configuración</span>
-  
-              <div class="config-buttons">
-  
-                <button class="slide-up-button"><i class="fas fa-pen-square"></i> Modificar datos</button>
-  
-                <button class="slide-up-button"><i class="fas fa-door-open"></i>
-                  Darse de baja</button>
-              </div>
-            </label>
-            <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
-              <em class="fas fa-sign-out-alt"></em>
+            </a></li>
+          <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
+              <i class="fas fa-sign-out-alt"></i>
               <span class="nav-item"> Cerrar sesión</span>
             </a></li>
-          </ul>
-        </nav>
-      </header>
-      <div class="app-container">  
-        <div class="content">
-          <div class="dashboard">            
-            <h1>Tus reservas </h1>
-            <div class="main-skills">
-              <div class="image">
-                <img src="https://www.debrecen.hu/assets/img/frontend/e-car-icon.png" alt="">
-              </div>
-              <div class="card">
-                <em class="fa-solid fa-car"></em>
-                <h2> Nuestros coches</h2>
-                <p> todos nuestros coches son electricos.</p>
-              </div>
-              <div class="card">
-                <em class="fa-solid fa-motorcycle"></em>
-                <h3> Nuestras motos</h3>
-                <p> todas nuestras motos son electricas.</p>
-              </div>
-              <div class="card">
-                <em class="fa-solid fa-motorcycle"></em>
-                <h3> Nuestros patines</h3>
-                <p> todas nuestros patines son electricas.</p>
-              </div>
+        </ul>
+      </nav>
+    </header>
+    <div class="app-container">
+      <div class="content">
+        <div class="dashboard">
+          <h1>Tus reservas </h1>
+          <div class="main-skills">
+            <div class="image">
+              <img src="https://www.debrecen.hu/assets/img/frontend/e-car-icon.png" alt="">
+            </div>
+            <div class="card">
+              <i class="fa fa-car"></i>
+              <h3> Nuestros coches</h3>
+              <p> todos nuestros coches son electricos.</p>
+            </div>
+            <div class="card">
+              <i class="fa fa-motorcycle"></i>
+              <h3> Nuestras motos</h3>
+              <p> todas nuestras motos son electricas.</p>
+            </div>
+            <div class="card">
+              <i class="fa fa-motorcycle"></i>
+              <h3> Nuestros patines</h3>
+              <p> todas nuestros patines son electricas.</p>
             </div>
           </div>
-          <div class="c1">
-            <div class="header1">
-            
-              <h1>Reserva actual
-               </h1>  
-               <div *ngIf="esTablaVacia()">
-                  <p>No tienes ninguna reserva activa en este momento. 
-                    <a href="/usuarios-cliente">Realizar una reserva.</a></p> 
-                </div>           
+        </div>
+        <div class="c1">
+          <div class="header1">
+            <h1>Reserva actual</h1>
+            <div *ngIf="loading; else content">
+              <!-- Muestra un spinner de carga o un mensaje mientras se cargan las reservas -->
+              Loading...
             </div>
-          
-        </div>      
-          <table class="tabla" *ngIf="!esTablaVacia()">
-            <thead>
-              <tr id="header-row">
-                <th>Fecha</th>
-                <th>Matricula</th>
-                <th>Modelo</th>
-                <th>Estado</th>
-                <th>Acción</th>
-                <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
-              </tr>
-            </thead>
-              <tbody id="table-body">
-                <tr *ngFor="let coche of listaCoches;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
-                (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
-                
-                  <td>{{coche.matricula}}</td>
-                  <td>{{coche.modelo}}</td>
-                  <td>{{coche.bateria}}</td>
-                  <!-- Agrega más columnas para cada campo de tu tabla -->
-                 <td>
-                      <!-- Botones de eliminar y modificar en la fila -->
-                      <button >
-                        <em>Reserva</em> <!-- Ícono de eliminar -->
+            <ng-template #content>
+              <div *ngIf="listaReservas && listaReservas.length === 0">
+                <p>No tienes ninguna reserva activa en este momento. <a href="/usuarios-cliente">Realizar una reserva.</a></p>
+              </div>
+              <table class="tabla" *ngIf="!loading && listaReservas && listaReservas.length > 0">
+                <thead>
+                  <tr id="header-row">
+                    <th>Matricula</th>
+                    <th>Correo Electronico</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                    <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                  <tr *ngFor="let reserva of listaReservas;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+                    (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+                    <td>{{reserva.vehiculo}}</td>
+                    <td>{{reserva.cliente}}</td>
+                    <td>{{reserva.estado}}</td>
+                    <td>
+                      <button (click)="cancelarReserva(reserva)">
+                        <i class="fas fa-times"></i>
                       </button>
-                 </td>                  
-                </tr>
-              </tbody> 
-          </table>
+                      <button (click)="finalizarReserva(reserva)">
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-template>
+            </div>
+          </div>
         </div>
-          <div class="header2">
-            <h1>Historial de reservas
-             </h1>             
-          </div>      
-          <table class="tabla">
-            <caption></caption>
-            <thead>
-              <tr id="header-row">
-                <th>Fecha</th>
-                <th>Matricula</th>
-                <th>Modelo</th>
-                <th>Estado</th>
-                <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
-              </tr>
-               </thead>
-            <tbody id="table-body">
-            </tbody> 
-          </table>
-        </div>
-       
-      
-    </body>
+      <div class="header2">
+        <h1>Historial de reservas
+        </h1>
+      </div>
+      <table class="tabla">
+        <caption></caption>
+        <thead>
+          <tr id="header-row">
+            <th>Matricula</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Valoración</th>
+            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr *ngFor="let reserva of listaReservasCompleta;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+                    (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+            <td>{{reserva.vehiculo}}</td>
+            <td>{{reserva.fecha}}</td>
+            <td>{{reserva.estado}}</td>
+            <td>{{reserva.valoracion === -1 ? 'Sin valoración' : reserva.valoracion}}</td>
+                    <!-- Agrega más columnas para cada campo de tu tabla -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </body>
+
   </html>
