@@ -1,1 +1,61 @@
-<p>modificar-configuracion-sistema works!</p>
+<div class="admin-container">
+    <h2>Modificar configuración</h2>
+    <form (submit)="modificarConfiguracion()">
+      <div class="form-group">
+        <label for="eurosViaje">Precio por viaje: {{eurosViaje.valor}}</label>
+        <input type="range" id="eurosViaje" name="eurosViaje" min="1" max="15" step="1" 
+        list="tickmarks" [(ngModel)]="eurosViaje.valor" required >
+        <datalist id="tickmarks">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+        </datalist>
+      </div>
+      <div class="form-group">
+        <label for="bateriaViaje">Bateria consumida por viaje: {{bateriaViaje.valor}}</label>
+        <input type="range" id="bateriaViaje" name="bateriaViaje" min="10" max="50" step="1" 
+        list="tickmarks1" [(ngModel)]="bateriaViaje.valor" required>
+        <datalist id="tickmarks1">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+        </datalist>
+      </div>
+      <div class="form-group">
+        <label for="vehiculosManenimiento">Número maximo de vehiculos reservados para recarga:  {{vehiculosManenimiento.valor}}</label>
+        <input type="range" id="vehiculosManenimiento" name="vehiculosManenimiento" min="1" max="10" step="1"
+        list="tickmarks2" [(ngModel)]="vehiculosManenimiento.valor" required>
+        <datalist id="tickmarks2">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </datalist>
+      </div>
+      <div class="form-group">
+        <label for="bateriaRecarga">Humbral al que se debe recargar un coche: </label>
+        <label id="valor"> {{bateriaRecarga.valor}}</label>
+        <input type="range" id="bateriaRecarga" name="bateriaRecarga" min="10" max="50" step="1"
+        list="tickmarks3" [(ngModel)]="bateriaRecarga.valor" required>
+        <datalist id="tickmarks3">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+        </datalist>
+      </div>
+      <!--div class="boton-container">
+        <button class="boton">Añadir</button>
+        <button (click)="limpiarCampos()" class="boton">Limpiar</button>
+      </div-->
+      <div>
+        <span id="mensajeResultado" style="display: none;">oculto</span>  
+      </div>
+      <button type="submit">Guardar cambios</button>
+    </form>
+  </div>
+  
+  

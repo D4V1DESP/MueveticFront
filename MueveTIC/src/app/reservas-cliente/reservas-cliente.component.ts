@@ -32,23 +32,31 @@ obtenerReservas() {
   this.loading = true;
   this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
     respuesta => {
-      if (Array.isArray(respuesta)) {
+      /*if (Array.isArray(respuesta)) {
         this.listaReservasCompleta = respuesta;
         this.reservaActiva=this.listaReservasCompleta.find(reserva => reserva.estado === 'reservado');
         if (this.reservaActiva!==undefined){
           this.listaReservas.push(this.reservaActiva);
         }
-
       } else {
-        this.listaReservas = [];
-      }
+        this.listaReservas = [];*/
+      this.reservaActiva=respuesta;
+      this.listaReservas.push(this.reservaActiva);
       this.loading = false;
     },
     error => {
       console.error('Error al obtener reservas:', error);
-      this.listaReservas = [];
       this.loading = false;
-    }
+    },  
+  );
+  this.ReservaService.obtenerListaReservasPoEmail(this.UsuarioService.getLoggedUser().email).subscribe(
+    respuesta => {
+      this.listaReservasCompleta=respuesta;
+    },
+    error=>{
+      console.error('Error al obtener reservas:', error);
+      this.listaReservas = [];
+    },
   );
 }
   cancelarReserva(reserva: Reserva) {

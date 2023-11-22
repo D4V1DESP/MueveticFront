@@ -44,14 +44,19 @@ export class UsuariosClienteComponent implements OnInit {
     reservarVehiculo(vehiculo: any){
       let reserva = {
         matricula: vehiculo.matricula,
-        email: this.UsuarioService.getLoggedUser().email,
-        
+        email: this.UsuarioService.getLoggedUser().email
       }
       console.log(reserva);
-     this.vehiculoService.reservarVehiculo(reserva).subscribe(respuesta => {
-        
+      this.vehiculoService.reservarVehiculo(reserva).subscribe(respuesta => {
         this.router.navigate(['/reservas-cliente']);
-      });
+      },
+      error => {
+        if (error.status === '409'){
+          //window.AbortSignal("ya tiene una reserva activa",)
+        }
+      },
+      
+      );
     }
     toggleRow(index: number) {
       this.selectedRowIndex = index;
