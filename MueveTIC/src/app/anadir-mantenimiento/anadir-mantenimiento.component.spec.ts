@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AnadirMantenimientoComponent } from './anadir-mantenimiento.component';
+import { AnadirManComponent } from './anadir-mantenimiento.component';
 
 describe('AnadirMantenimientoComponent', () => {
-  let component: AnadirMantenimientoComponent;
-  let fixture: ComponentFixture<AnadirMantenimientoComponent>;
+  let component: AnadirManComponent;
+  let fixture: ComponentFixture<AnadirManComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AnadirMantenimientoComponent]
+      declarations: [AnadirManComponent]
     });
-    fixture = TestBed.createComponent(AnadirMantenimientoComponent);
+    fixture = TestBed.createComponent(AnadirManComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

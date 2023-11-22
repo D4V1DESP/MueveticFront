@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Reserva } from '../reserva';
-import { ReservaService } from '../reserva.service';
 import { Vehiculo } from '../vehiculo';
 import { OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
@@ -11,9 +10,10 @@ import { UsuarioService } from '../usuario.service';
   styleUrls: ['./reservas-cliente.component.css']
 })
 export class ReservasClienteComponent {
-
-  isMouseOver: boolean = false; // Variable para controlar el paso del ratón
-  selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
+// Variable para controlar el paso del ratón
+  isMouseOver = false;
+// Variable para controlar la fila seleccionada
+  selectedRowIndex = -1;
   miTabla: any[] = [];
   listaCoches: Vehiculo[];
   listaReservas: Reserva[] = [];
