@@ -22,10 +22,18 @@
               <span class="nav-item"> Reservar</span>
             </a>
             </a></li>
-            <li><a href="#" class="config"><a routerLink="/configuracion"></a> <!-- cuando exista la pagina configuracion -->
-              <em class="fas fa-user-cog"></em>
+            <label for="btn-nav" class="config"> <!-- cuando exista la pagina configuracion -->
+              <i class="fas fa-user-cog"></i>
               <span class="nav-item"> Configuración</span>
-            </a></li>
+  
+              <div class="config-buttons">
+  
+                <button class="slide-up-button"><i class="fas fa-pen-square"></i> Modificar datos</button>
+  
+                <button class="slide-up-button"><i class="fas fa-door-open"></i>
+                  Darse de baja</button>
+              </div>
+            </label>
             <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
               <em class="fas fa-sign-out-alt"></em>
               <span class="nav-item"> Cerrar sesión</span>
