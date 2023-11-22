@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Reserva } from '../reserva';
-import { ReservaService } from '../reserva.service';
 import { Vehiculo } from '../vehiculo';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-reservas-cliente',
@@ -17,13 +15,7 @@ export class ReservasClienteComponent {
   miTabla: any[] = [];
   listaCoches: Vehiculo[];
   listaReservas: Reserva[];
-
-
-  ngOnInit() : void{
-    this.obtenerReservas();
-  }
-  obtenerReservas(){
-  }
+ 
   esTablaVacia(): boolean {
     return this.miTabla.length === 0;
   }

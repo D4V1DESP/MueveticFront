@@ -1,16 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModificarManComponent } from './modificar-mantenimiento.component';
 
-import { ModificarMantenimientoComponent } from './modificar-mantenimiento.component';
-
-describe('ModificarMantenimientoComponent', () => {
-  let component: ModificarMantenimientoComponent;
-  let fixture: ComponentFixture<ModificarMantenimientoComponent>;
+describe('ModificarManComponent', () => {
+  let component: ModificarManComponent;
+  let fixture: ComponentFixture<ModificarManComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ModificarMantenimientoComponent]
+      declarations: [ModificarManComponent]
     });
-    fixture = TestBed.createComponent(ModificarMantenimientoComponent);
+    fixture = TestBed.createComponent(ModificarManComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
