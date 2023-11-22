@@ -10,9 +10,10 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./reservas-cliente.component.css']
 })
 export class ReservasClienteComponent {
-
-  isMouseOver: boolean = false; // Variable para controlar el paso del ratón
-  selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
+// Variable para controlar el paso del ratón
+  isMouseOver = false;
+// Variable para controlar la fila seleccionada
+  selectedRowIndex = -1;
   miTabla: any[] = [];
   listaCoches: Vehiculo[];
   listaReservas: Reserva[];
@@ -22,7 +23,6 @@ export class ReservasClienteComponent {
     this.obtenerReservas();
   }
   obtenerReservas(){
-    
   }
   esTablaVacia(): boolean {
     return this.miTabla.length === 0;

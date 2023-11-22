@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.valoracion {
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+input { display: none; }
+.valoracion input {
+  position: absolute;
+  top: -100px;
+}
+
+.card {
+  background-color: #d8f3df;
+  font-family: 'Roboto', sans-serif;
+  width: 20%; 
+  height: auto;
+  margin: 10px;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  font-weight: bold;
+}
+.input[type="radio"] {
+  display: none;
+}
+
+.label {
+  cursor: pointer;
+  font-size: 30px;
+  color: #ddd;
+}
+
+
+.botones {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+button.mandar-valoracion {
+  background-color: #34AF6D;
+  color: #fff;
+}
+.comentario {
+  position: relative;
+  margin: 10px 0;
+}
+
+#comentario {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+body {
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ffffff;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+.rating-stars {
+	align-content: center;
+    transform: scale(0.5);
+	display: block;
+	top:50%;
+	left:-14%;
+	width: 50vmin;
+	padding: 1.75vmin 10vmin 2vmin 3vmin;
+	background: linear-gradient(90deg,  #34AF6D 40vmin, #fff0 40vmin 100%);
+	border-radius: 5vmin;
+	position: relative;
+}
+.stars{
+  margin-left: -15%;
+}
+.rating-counter {
+	font-size: 5.5vmin;
+    font-family: Arial, Helvetica, serif;
+    color: #ffffff;
+    width: 10vmin;
+    text-align: center;
+    background: #34AF6D;
+    position: absolute;
+    top: 0;
+    right: 30;
+    height: 100%;
+    border-radius: 0 5vmin 5vmin 0;
+    line-height: 10vmin;
+}
+
+.rating-counter:before {
+	content: "0";
+	transition: all 0.25s ease 0s;	
+}
+
+
+
+
+
+label {
+	width: 5vmin;
+	height: 5vmin;
+	background: #000b;
+	display: inline-flex;
+	cursor: pointer;
+	margin: 0.5vmin 0.65vmin;
+	transition: all 1s ease 0s;	
+	clip-path: polygon(50% 0%, 66% 32%, 100% 38%, 78% 64%, 83% 100%, 50% 83%, 17% 100%, 22% 64%, 0 38%, 34% 32%);
+}
+
+label[for=rs0] {
+	display: none;
+}
+
+label:before {
+	width: 90%;
+	height: 90%;
+	content: "";
+	z-index: -1;
+	display: block;
+	margin-left: 5%;
+	margin-top: 5%;
+	clip-path: polygon(50% 0%, 66% 32%, 100% 38%, 78% 64%, 83% 100%, 50% 83%, 17% 100%, 22% 64%, 0 38%, 34% 32%);
+	background: linear-gradient(90deg, yellow, orange 30% 50%, #ffffff 50%, 70%, #fefeff 100%);
+	background-size: 205% 100%;
+	background-position: 0 0;
+}
+
+label:hover:before {
+	transition: all 0.25s ease 0s;		
+}
+
+input:checked + label ~ label:before {
+	background-position: 100% 0;
+	transition: all 0.25s ease 0s;	
+}
+
+input:checked + label ~ label:hover:before {
+	background-position: 0% 0
+}
+
+label:hover ~ .rating-counter:before {
+	color: #ffab00 !important;
+	transition: all 0.5s ease 0s;	
+	animation: pulse 1s ease 0s infinite;
+}
+
+label + input:checked ~ .rating-counter:before {
+	color: #ffab00 !important;
+	transition: all 0.25s ease 0s;
+}
+
+label[for=rs1]:hover ~ .rating-counter:before {
+	content: "1" !important;
+}
+label[for=rs2]:hover ~ .rating-counter:before {
+	content: "2" !important;
+}
+label[for=rs3]:hover ~ .rating-counter:before {
+	content: "3" !important;
+}
+
+label[for=rs4]:hover ~ .rating-counter:before {
+	content: "4" !important;
+}
+
+label[for=rs5]:hover ~ .rating-counter:before {
+	content: "5" !important;
+}
+input:checked:hover ~ .rating-counter:before {
+	animation: none !important;
+	color: #ffab00 !important ;
+}
+#rs1:checked ~ .rating-counter:before {
+	content: "1";
+}
+
+#rs2:checked ~ .rating-counter:before {
+	content: "2";
+}
+
+#rs3:checked ~ .rating-counter:before {
+	content: "3";
+}
+
+#rs4:checked ~ .rating-counter:before {
+	content: "4";
+}
+
+#rs5:checked ~ .rating-counter:before {
+	content: "5";
+}
+
+
+
+
+
+
+
+
+
+@keyframes pulse {
+	  50% { font-size: 6.25vmin; }
+}
+
+
+
+
+
+
+
+
