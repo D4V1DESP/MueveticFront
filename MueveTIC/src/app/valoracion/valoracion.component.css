@@ -25,6 +25,16 @@ input { display: none; }
   border-radius: 20px;
   padding: 10px;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  &:after{
+	content: '';
+	position:fixed;
+	inset: 0;
+	background-color: #34AF6D;
+	width: 60%;
+	height: 100vh;
+	clip-path: polygon(0 100%, 0 0, 100% 0, 70% 100%);
+	z-index: -1;
+}
 }
 h2 {
   font-weight: bold;

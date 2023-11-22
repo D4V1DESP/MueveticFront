@@ -37,10 +37,10 @@ export class ModificarContrasenaComponent implements OnInit {
         console.log('contraseña enviados con éxito:', response);
         this.UsuarioService.saveLoggedUser(response);
         if (this.UsuarioService.getLoggedUser().experiencia)
-          this.router.navigate(['/usuarios']);
+          this.router.navigate(['/login']);
         /*se ha de cambiar a la ruta predeterminada del personal de mantenimiento*/
         else if (this.UsuarioService.getLoggedUser().carnet)
-          this.router.navigate(['/usuarios-cliente']);
+          this.router.navigate(['/login']);
         else
           this.router.navigate(['/login']);
 

@@ -3,6 +3,7 @@ import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
+import { ValoracionComponent } from '../valoracion/valoracion.component';
 
 @Component({
   selector: 'app-reservas-cliente',
@@ -76,7 +77,7 @@ obtenerReservas() {
 
     //TODO metodo de finalizar reserva
     if (window.confirm('¿Pasar a la ventana de valoración y facturar la reserva?')){
-      this.router.navigate(['/rutavaloracion']);
+      this.router.navigate(['/valoracion']);
     }
 
   }
