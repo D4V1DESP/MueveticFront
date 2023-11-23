@@ -21,7 +21,6 @@ export class UsuariosClienteComponent implements OnInit {
     constructor (private vehiculoService : VehiculoService,private UsuarioService: UsuarioService, private router: Router){}
   
       ngOnInit() : void{
-        console.log(this.UsuarioService.getLoggedUser().carnet)
         if (this.UsuarioService.getLoggedUser().carnet){
           this.obtenerVehiculosDisponibles();
         }

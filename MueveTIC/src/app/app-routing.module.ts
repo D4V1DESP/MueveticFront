@@ -28,7 +28,7 @@ const routes: Routes = [
   
   { path: 'reservas', component: ReservasComponent },
   { path: 'vehiculos', component: VehiculosComponent },
-  { path: 'usuarios', component: UsuariosComponent },
+  { path: 'usuarios', component: UsuariosComponent},
 
   { path: 'anadir-admin', component: AnadirAdminComponent},
   { path: 'anadir-mantenimiento', component: AnadirManComponent},

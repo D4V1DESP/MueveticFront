@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpProgressEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente, Mantenimiento, Administrador } from './usuario';
 
@@ -8,16 +8,23 @@ import { Cliente, Mantenimiento, Administrador } from './usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  private JWToken = '';
   private USER_token = 'loggedUser';
   private URLLogin="http://localhost:8080/users/login";
+  private URLAuthenticate = "http://localhost:8080/users/authenticate";
   private baseURLAdmin = "http://localhost:8080/users/administradores";
   private baseURLCliente = "http://localhost:8080/users/cliente";
   private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
   private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
   private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser"
-  
+
+
+  get token(){
+    return sessionStorage.getItem(this.JWToken)
+  }
 
   constructor(private httpService: HttpClient) {}
+
 
   anadirUsuario(valor:any){
     return this.httpService.post(this.baseUrlAnadirusuario, valor);
@@ -28,6 +35,7 @@ export class UsuarioService {
   }
 
   obtenerDatosClientes(): Observable<Cliente[]> {
+
     return this.httpService.get<Cliente[]>(this.baseURLCliente);
   }
   obtenerDatosMantenimiento(): Observable<Mantenimiento[]> {
@@ -56,6 +64,11 @@ export class UsuarioService {
   userLogin(usuario: any){
     return this.httpService.post(this.URLLogin,usuario);
   }
+
+  authenticate(usuario : any) : Observable<string>{
+    return this.httpService.post(this.URLAuthenticate, usuario, {responseType : 'text'})
+  }
+
   modificarDatosCliente(cliente : Cliente) : Observable<Cliente>{
     return this.httpService.post<Cliente>(this.baseUrlActualizarUsuario, cliente)
   }
@@ -78,5 +91,10 @@ export class UsuarioService {
   clearLoggedUser(): void {
     // Eliminar la información del usuario al cerrar sesión
     sessionStorage.removeItem(this.USER_token);
+  }
+
+  saveJWTUser(JWToken : string): void{
+    sessionStorage.setItem(this.JWToken, JWToken);
+    console.log("EL TOKEN SE HA GUARDADO")
   }
 }
