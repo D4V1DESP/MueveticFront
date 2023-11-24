@@ -3,7 +3,7 @@ import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
-import { ValoracionComponent } from '../valoracion/valoracion.component';
+
 
 @Component({
   selector: 'app-reservas-cliente',
@@ -34,14 +34,6 @@ obtenerReservas() {
   this.loading = true;
   this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
     respuesta => {
-      /*if (Array.isArray(respuesta)) {
-        this.listaReservasCompleta = respuesta;
-        this.reservaActiva=this.listaReservasCompleta.find(reserva => reserva.estado === 'reservado');
-        if (this.reservaActiva!==undefined){
-          this.listaReservas.push(this.reservaActiva);
-        }
-      } else {
-        this.listaReservas = [];*/
       this.reservaActiva=respuesta;
       this.listaReservas.push(this.reservaActiva);
       this.loading = false;
