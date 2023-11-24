@@ -28,6 +28,7 @@ import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.co
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
+import { ValoracionComponent } from './valoracion/valoracion.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ModificarConfiguracionSistemaComponent } from './modificar-configuracio
     ReservasClienteComponent,
     RecuperacionComponent,
     ModificarContrasenaComponent,
-    ModificarConfiguracionSistemaComponent
+    ModificarConfiguracionSistemaComponent,
+    ValoracionComponent
   ],
   imports: [
     BrowserModule,

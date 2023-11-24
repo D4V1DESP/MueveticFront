@@ -34,14 +34,6 @@ obtenerReservas() {
   this.loading = true;
   this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
     respuesta => {
-      /*if (Array.isArray(respuesta)) {
-        this.listaReservasCompleta = respuesta;
-        this.reservaActiva=this.listaReservasCompleta.find(reserva => reserva.estado === 'reservado');
-        if (this.reservaActiva!==undefined){
-          this.listaReservas.push(this.reservaActiva);
-        }
-      } else {
-        this.listaReservas = [];*/
       this.reservaActiva=respuesta;
       this.listaReservas.push(this.reservaActiva);
       this.loading = false;

@@ -20,4 +20,7 @@ export class ReservaService {
   obtenerListaReservas(): Observable<Reserva[]>{
     return this.httpClient.get<Reserva[]>('http://localhost:8080/reservas/listaReservas');
   }
+  finalizarReserva(reserva:Reserva){
+    return this.httpClient.post('http://localhost:8080/reservas/AddReview',reserva);
+  }
 }
