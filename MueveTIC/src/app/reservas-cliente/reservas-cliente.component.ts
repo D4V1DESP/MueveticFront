@@ -3,6 +3,7 @@ import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
+import { ValoracionComponent } from '../valoracion/valoracion.component';
 
 @Component({
   selector: 'app-reservas-cliente',
@@ -10,9 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./reservas-cliente.component.css']
 })
 export class ReservasClienteComponent {
-
-  isMouseOver: boolean = false; // Variable para controlar el paso del ratón
-  selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
+// Variable para controlar el paso del ratón
+  isMouseOver = false;
+// Variable para controlar la fila seleccionada
+  selectedRowIndex = -1;
   miTabla: any[] = [];
   listaReservas: Reserva[] = [];
   listaReservasCompleta: Reserva[];
@@ -75,7 +77,7 @@ obtenerReservas() {
 
     //TODO metodo de finalizar reserva
     if (window.confirm('¿Pasar a la ventana de valoración y facturar la reserva?')){
-      this.router.navigate(['/rutavaloracion']);
+      this.router.navigate(['/valoracion']);
     }
 
   }

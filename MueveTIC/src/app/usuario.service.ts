@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Cliente, Mantenimiento, Administrador } from './usuario';
+import { Cliente, Mantenimiento, Administrador, Usuario } from './usuario';
+import { TokenRecuperacion } from './token-recuperacion';
 
 
 @Injectable({
@@ -14,7 +15,8 @@ export class UsuarioService {
   private baseURLCliente = "http://localhost:8080/users/cliente";
   private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
   private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
-  private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser"
+  private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser";
+  private baseUrlModificarContrasena = "http://localhost:8080/users/updatePass"
   
 
   constructor(private httpService: HttpClient) {}
@@ -32,6 +34,11 @@ export class UsuarioService {
   }
   obtenerDatosMantenimiento(): Observable<Mantenimiento[]> {
     return this.httpService.get<Mantenimiento[]>(this.baseURLMantenimiento);
+  }
+
+  updatePass(token: TokenRecuperacion){
+    const url=`${this.updatePass}/${token.email}`;
+    return this.httpService.post<Usuario>(url,token);
   }
 
 

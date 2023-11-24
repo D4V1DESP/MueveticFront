@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
+import {AuthenticationResponse} from "../../app/authentication-response";
+import {AuthenticationService} from "../../app/authentication.service";
+import {VerificationRequest} from "../../app/verification-request";
 
 
 
@@ -11,7 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro-usuarios.component.css']
 })
 export class RegistroUsuariosComponent {
+
+  authResponse: AuthenticationResponse = {};
+
   constructor(
+    private authService: AuthenticationService,
     private usuarioService: UsuarioService, 
     private router: Router) {
 
@@ -27,7 +33,9 @@ export class RegistroUsuariosComponent {
     fecha: '',
     carnet: "",
     telefono: "",
-    tipo: "cliente"
+    tipo: "cliente",
+    mFaEnabled: '',
+    otpCode: ''
   }
 
   submitRegistro() {
@@ -117,5 +125,25 @@ export class RegistroUsuariosComponent {
       setTimeout(function () { mensajeResultado.style.display = "block" }, 200);
       mensajeResultado.innerText = mensaje;
     }
+  }
+
+
+  verifyTfa() {
+    /*this.message = '';
+    const verifyRequest: VerificationRequest = {
+      email: this.registerRequest.email,
+      code: this.otpCode
+    };
+    this.authService.verifyCode(verifyRequest)
+      .subscribe({
+        next: (response) => {
+          this.message = 'Cuenta creada correctamente';
+          setTimeout(() => {
+            localStorage.setItem('token', response.accessToken as string);
+            this.router.navigate(['/login']);
+          }, 3000);
+        }
+      });
+      */
   }
 }

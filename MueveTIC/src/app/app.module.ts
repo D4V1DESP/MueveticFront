@@ -25,6 +25,8 @@ import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
 
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
+import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
 
 @NgModule({
@@ -47,6 +49,8 @@ import { ModificarConfiguracionSistemaComponent } from './modificar-configuracio
     PaginaBienvenidaComponent,
     VehiculosClienteComponent,
     ReservasClienteComponent,
+    RecuperacionComponent,
+    ModificarContrasenaComponent,
     ModificarConfiguracionSistemaComponent
   ],
   imports: [

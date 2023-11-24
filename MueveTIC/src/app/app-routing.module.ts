@@ -16,7 +16,11 @@ import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.compo
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
 import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.component';
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
+import { ValoracionComponent } from './valoracion/valoracion.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
+import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
+import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
 
 
@@ -44,6 +48,12 @@ const routes: Routes = [
   { path : 'usuarios-cliente', component: UsuariosClienteComponent },
   { path : 'pagina-bienvenida', component: PaginaBienvenidaComponent},
   { path : 'reservas-cliente', component: ReservasClienteComponent},
+  { path : 'recuperacion', component: RecuperacionComponent},
+  { path : 'modificar-contrasena/:emailenc', component: ModificarContrasenaComponent},
+
+
+  { path : 'valoracion', component: ValoracionComponent},
+  { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent}
   // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
