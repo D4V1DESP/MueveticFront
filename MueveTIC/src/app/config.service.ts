@@ -13,4 +13,7 @@ export class ConfigService {
   obtenerInformacionConfiguracion(): Observable<Config[]>{
     return this.httpClient.get<Config[]>('http://localhost:8080/config/Get');
   }
+  modificarInformacionConfiguracion(config:Config){
+    return this.httpClient.post('http://localhost:8080/config/Update',config);
+  }
 }

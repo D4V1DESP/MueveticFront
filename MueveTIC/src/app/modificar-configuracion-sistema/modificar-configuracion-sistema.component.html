@@ -25,7 +25,8 @@
         </datalist>
       </div>
       <div class="form-group">
-        <label for="vehiculosManenimiento">Número maximo de vehiculos reservados para recarga:  {{vehiculosManenimiento.valor}}</label>
+        <label for="vehiculosManenimiento">Número maximo de vehiculos reservados para recarga:  
+          {{vehiculosManenimiento.valor}}</label>
         <input type="range" id="vehiculosManenimiento" name="vehiculosManenimiento" min="1" max="10" step="1"
         list="tickmarks2" [(ngModel)]="vehiculosManenimiento.valor" required>
         <datalist id="tickmarks2">
@@ -35,7 +36,7 @@
         </datalist>
       </div>
       <div class="form-group">
-        <label for="bateriaRecarga">Humbral al que se debe recargar un coche: </label>
+        <label for="bateriaRecarga">Umbral al que se debe recargar un coche: </label>
         <label id="valor"> {{bateriaRecarga.valor}}</label>
         <input type="range" id="bateriaRecarga" name="bateriaRecarga" min="10" max="50" step="1"
         list="tickmarks3" [(ngModel)]="bateriaRecarga.valor" required>
@@ -46,13 +47,6 @@
             <option value="40">40</option>
             <option value="50">50</option>
         </datalist>
-      </div>
-      <!--div class="boton-container">
-        <button class="boton">Añadir</button>
-        <button (click)="limpiarCampos()" class="boton">Limpiar</button>
-      </div-->
-      <div>
-        <span id="mensajeResultado" style="display: none;">oculto</span>  
       </div>
       <button type="submit">Guardar cambios</button>
     </form>
