@@ -29,8 +29,6 @@ export class TokenInterceptorService implements HttpInterceptor{
         Authorization: 'Bearer ' + token
       }
     })
-
-    console.log("CABECERA" + token)
     return next.handle(JWToken);
   }
 }

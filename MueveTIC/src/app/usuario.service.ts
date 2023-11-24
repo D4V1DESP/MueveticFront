@@ -8,7 +8,8 @@ import { Cliente, Mantenimiento, Administrador } from './usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private JWToken = '';
+  private JWToken = 'JWToken';
+  private roleUser = 'roleUser';
   private USER_token = 'loggedUser';
   private URLLogin="http://localhost:8080/users/login";
   private URLAuthenticate = "http://localhost:8080/users/authenticate";
@@ -21,6 +22,10 @@ export class UsuarioService {
 
   get token(){
     return sessionStorage.getItem(this.JWToken)
+  }
+
+  get role(){
+    return sessionStorage.getItem(this.roleUser)
   }
 
   constructor(private httpService: HttpClient) {}
@@ -95,6 +100,9 @@ export class UsuarioService {
 
   saveJWTUser(JWToken : string): void{
     sessionStorage.setItem(this.JWToken, JWToken);
-    console.log("EL TOKEN SE HA GUARDADO")
+  }
+
+  saveRole(role : string) : void{
+    sessionStorage.setItem(this.roleUser, role)
   }
 }
