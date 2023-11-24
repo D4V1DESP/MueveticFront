@@ -69,7 +69,7 @@
               Loading...
             </div>
             <ng-template #content>
-              <div *ngIf="listaReservas && listaReservas.length === 0">
+              <div *ngIf="!listaReservas || listaReservas.length === 0">
                 <p>No tienes ninguna reserva activa en este momento. <a href="/usuarios-cliente">Realizar una reserva.</a></p>
               </div>
               <table class="tabla" *ngIf="!loading && listaReservas && listaReservas.length > 0">
@@ -100,9 +100,12 @@
                 </tbody>
               </table>
             </ng-template>
-            </div>
           </div>
         </div>
+      </div>
+
+
+
       <div class="header2">
         <h1>Historial de reservas
         </h1>

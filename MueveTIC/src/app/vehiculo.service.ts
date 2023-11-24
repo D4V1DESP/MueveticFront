@@ -3,13 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Vehiculo } from './vehiculo';
 import { Reserva } from './reserva';
+import { UsuarioService } from './usuario.service';
 @Injectable({
   providedIn: 'root'
 })
 export class VehiculoService {
   
 
-  constructor(private HttpClient : HttpClient) { }
+  constructor(private HttpClient : HttpClient, private usuarioService : UsuarioService) { }
+
+  
+
 
   enviarVehiculo(valor: any) {
     return this.HttpClient.post('http://localhost:8080/vehiculos/alta',  valor );
