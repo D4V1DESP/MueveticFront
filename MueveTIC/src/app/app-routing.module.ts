@@ -18,13 +18,14 @@ import { UsuariosClienteComponent } from './usuarios-cliente/usuarios-cliente.co
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
 import { ValoracionComponent } from './valoracion/valoracion.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
-import { DarseBajaComponent } from './darse-baja/darse-baja.component';
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
 import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
 
 
+import { VistaMantenimientoComponent } from './vista-mantenimiento/vista-mantenimiento.component';
+import { ReservasMantenimientoComponent } from './reservas-mantenimiento/reservas-mantenimiento.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,8 @@ const routes: Routes = [
 
 
   { path : 'valoracion', component: ValoracionComponent},
-  { path : 'darse-baja', component: DarseBajaComponent},
+  { path : 'vista-mantenimiento', component: VistaMantenimientoComponent},
+  { path : 'reservas-mantenimiento', component: ReservasMantenimientoComponent},
   { path: '', redirectTo: '/reservas', pathMatch: 'full' }, // Ruta para el componente de registro
   { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent}
   // Ruta para el componente de registro
