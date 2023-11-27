@@ -1,8 +1,8 @@
 export class Reserva{
     cliente: String;
     vehiculo: String;
-    valoracion: number;
-    valoracionText: String;
+    estrellas: number;
+    comentario: String;
     estado: String;
     fecha: String;
 }

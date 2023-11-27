@@ -15,9 +15,12 @@ export class ReservaService {
     return this.httpClient.get<Reserva[]>(`http://localhost:8080/reservas/reservasCliente/${email}`);
   }
   cancelarReserva(reserva: Reserva) {
-    return this.httpClient.put<Reserva>(`http://localhost:8080/reservas/usersCancel`, reserva);
+    return this.httpClient.post<Reserva>('http://localhost:8080/reservas/usersCancel', reserva);
   }
   obtenerListaReservas(): Observable<Reserva[]>{
     return this.httpClient.get<Reserva[]>('http://localhost:8080/reservas/listaReservas');
+  }
+  finalizarReserva(reserva:Reserva){
+    return this.httpClient.post('http://localhost:8080/reservas/AddReview',reserva);
   }
 }

@@ -15,10 +15,12 @@
         <p> <i class="fas fa-key"></i> Cambio de contraseña <i class="fas fa-key"></i></p>
         <form>
         <div class="form-group">
-            <input type="password" class="form-group" placeholder="introduzca nueva contraseña" name="contrasena" id ="contrasena" [(ngModel)]="usuario.contrasena" required>
+            <input type="password" class="form-group" placeholder="introduzca nueva contraseña" name="contrasena" id ="contrasena" 
+            [(ngModel)]="usuario.contrasena" required>
         </div>
         <div class="form-group">
-            <input type="password" id="repetirContrasena" name="repetirContrasena" class="form-group" placeholder="repita nueva contraseña" [(ngModel)]="usuario.repetirContrasena" required>
+            <input type="password" id="repetirContrasena" name="repetirContrasena" class="form-group" placeholder="repita nueva contraseña" 
+            [(ngModel)]="usuario.repetirContrasena" required>
         </div>
         <div class="flex">
             <button type="submit" (click)="onPulse()">Cambiar contraseña</button>

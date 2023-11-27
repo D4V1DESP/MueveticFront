@@ -21,7 +21,6 @@ export class UsuariosClienteComponent implements OnInit {
     constructor (private vehiculoService : VehiculoService,private UsuarioService: UsuarioService, private router: Router){}
   
       ngOnInit() : void{
-        console.log(this.UsuarioService.getLoggedUser().carnet)
         if (this.UsuarioService.getLoggedUser().carnet){
           this.obtenerVehiculosDisponibles();
         }
@@ -51,8 +50,9 @@ export class UsuariosClienteComponent implements OnInit {
         this.router.navigate(['/reservas-cliente']);
       },
       error => {
-        if (error.status === '409'){
-          //window.AbortSignal("ya tiene una reserva activa",)
+        if (error.status === 409){
+          window.alert('Ya tiene una reserva activa');
+          console.log('Ya tiene una reserva activa');
         }
       },
       

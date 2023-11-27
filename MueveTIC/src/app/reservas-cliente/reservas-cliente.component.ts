@@ -5,6 +5,7 @@ import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 import { Vehiculo } from '../vehiculo';
 
+
 @Component({
   selector: 'app-reservas-cliente',
   templateUrl: './reservas-cliente.component.html',
@@ -34,14 +35,6 @@ obtenerReservas() {
   this.loading = true;
   this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
     respuesta => {
-      /*if (Array.isArray(respuesta)) {
-        this.listaReservasCompleta = respuesta;
-        this.reservaActiva=this.listaReservasCompleta.find(reserva => reserva.estado === 'reservado');
-        if (this.reservaActiva!==undefined){
-          this.listaReservas.push(this.reservaActiva);
-        }
-      } else {
-        this.listaReservas = [];*/
       this.reservaActiva=respuesta;
       this.listaReservas.push(this.reservaActiva);
       this.loading = false;
@@ -77,7 +70,7 @@ obtenerReservas() {
 
     //TODO metodo de finalizar reserva
     if (window.confirm('¿Pasar a la ventana de valoración y facturar la reserva?')){
-      this.router.navigate(['/rutavaloracion']);
+      this.router.navigate(['/valoracion']);
     }
 
   }

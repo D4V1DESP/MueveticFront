@@ -24,6 +24,16 @@ input { display: none; }
   border-radius: 20px;
   padding: 10px;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  &:after{
+	content: '';
+	position:fixed;
+	inset: 0;
+	background-color: #34AF6D;
+	width: 60%;
+	height: 100vh;
+	clip-path: polygon(0 100%, 0 0, 100% 0, 70% 100%);
+	z-index: -1;
+}
 }
 h2 {
   font-weight: bold;
@@ -86,7 +96,7 @@ body * {
     transform: scale(0.5);
 	display: block;
 	top:50%;
-	left:-14%;
+	right: -5%;
 	width: 50vmin;
 	padding: 1.75vmin 10vmin 2vmin 3vmin;
 	background: linear-gradient(90deg,  #34AF6D 40vmin, #fff0 40vmin 100%);
@@ -123,12 +133,10 @@ body * {
 label {
 	width: 5vmin;
 	height: 5vmin;
-	background: #000b;
 	display: inline-flex;
 	cursor: pointer;
 	margin: 0.5vmin 0.65vmin;
 	transition: all 1s ease 0s;	
-	clip-path: polygon(50% 0%, 66% 32%, 100% 38%, 78% 64%, 83% 100%, 50% 83%, 17% 100%, 22% 64%, 0 38%, 34% 32%);
 }
 
 label[for=rs0] {
@@ -214,6 +222,65 @@ input:checked:hover ~ .rating-counter:before {
 	content: "5";
 }
 
+#full-stars-example-two {
+
+	/* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+	.rating-group {
+	  display: inline-flex;
+	}
+	
+	/* make hover effect work properly in IE */
+	.rating__icon {
+	  pointer-events: none;
+	}
+	
+	/* hide radio inputs */
+	.rating__input {
+	 position: absolute !important;
+	 left: -9999px !important;
+	}
+	
+	/* hide 'none' input from screenreaders */
+	.rating__input--none {
+	  display: none
+	}
+  
+	/* set icon padding and size */
+	.rating__label {
+	  cursor: pointer;
+	  padding: 0 0.1em;
+	  font-size: 2rem;
+	}
+	
+	/* set default star color */
+	.rating__icon--star {
+	  color: orange;
+	}
+  
+	/* if any input is checked, make its following siblings grey */
+	.rating__input:checked ~ .rating__label .rating__icon--star {
+	  color: #ddd;
+	}
+	
+	/* make all stars orange on rating group hover */
+	.rating-group:hover .rating__label .rating__icon--star {
+	  color: orange;
+	}
+  
+	/* make hovered input's following siblings grey on hover */
+	.rating__input:hover ~ .rating__label .rating__icon--star {
+	  color: #ddd;
+	}
+  }
+  
+  
+  body {
+	padding: 1rem;
+	text-align: center;
+  }
+  
+  
+
 
 
 
@@ -225,10 +292,6 @@ input:checked:hover ~ .rating-counter:before {
 @keyframes pulse {
 	  50% { font-size: 6.25vmin; }
 }
-
-
-
-
 
 
 
