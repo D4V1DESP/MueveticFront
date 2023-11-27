@@ -16,6 +16,7 @@ export class ValoracionComponent {
   @Output() valoracionChange: EventEmitter<number> = new EventEmitter<number>();
 
   maxEstrellas = 5;
+  
   estrellas: boolean[] = [];
   reserva: Reserva={
     cliente: '',

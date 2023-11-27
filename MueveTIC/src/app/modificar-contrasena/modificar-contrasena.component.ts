@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
-import { Token } from '@angular/compiler';
 import { TokenRecuperacion } from '../token-recuperacion';
 
 @Component({
@@ -15,7 +14,7 @@ export class ModificarContrasenaComponent implements OnInit {
     contrasena: "",
     repetirContrasena: ""
   }
-  
+
   urlCompleta: string = window.location.href;
   urlSeparada: string[] = this.urlCompleta.split('/');
   emailenc: string = this.urlSeparada.pop() || '';
@@ -25,6 +24,31 @@ export class ModificarContrasenaComponent implements OnInit {
     console.log(this.emailenc);
   }
   onPulse() {
+    if (
+
+      !this.usuario.contrasena ||
+      !this.usuario.repetirContrasena
+    ) {
+      this.mostrarLabelMensaje("Ningun campo debe estar vacio");
+      return; //aborta la funcion 
+    }
+    if (this.usuario.contrasena.length < 8 ||
+      !/[0-9]/.test(this.usuario.contrasena) || // al menos un número
+      !/[A-Z]/.test(this.usuario.contrasena) || // al menos una letra mayúscula
+      !/[!@#$%^&*]/.test(this.usuario.contrasena)) {
+      console.log('La contraseña debe tener al menos 8 caracteres, una letra mayuscula y un caraceter especial (!@#$%^&*)');
+      this.mostrarLabelMensaje('La contraseña debe tener al menos 8 caracteres, una letra mayuscula y un caraceter especial (!@#$%^&*)')
+      return; // Aborta la función submitRegistro
+    }
+
+    if (this.usuario.repetirContrasena !== this.usuario.contrasena) {
+      console.log('Las contraseñas no coinciden.');
+      this.mostrarLabelMensaje('Las contraseñas no coinciden.')
+      return;
+    }
+
+
+
     console.log('contraseña:', this.usuario.contrasena);
     const token: TokenRecuperacion = {
       email: this.emailenc,
@@ -38,11 +62,11 @@ export class ModificarContrasenaComponent implements OnInit {
         this.UsuarioService.saveLoggedUser(response);
         if (this.UsuarioService.getLoggedUser().experiencia)
           this.router.navigate(['/login']);
-        /*se ha de cambiar a la ruta predeterminada del personal de mantenimiento*/
+        /*se ha de cambiar a la ruta predeterminada del personal de mantenimiento
         else if (this.UsuarioService.getLoggedUser().carnet)
           this.router.navigate(['/login']);
         else
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login']);*/
 
         /*console.log(this.UsuarioService.getLoggedUser().email)*/
 
@@ -52,6 +76,15 @@ export class ModificarContrasenaComponent implements OnInit {
 
       }
     )
+  }
+
+  mostrarLabelMensaje(mensaje: string) {
+    const mensajeResultado = document.getElementById('mensaje');
+    if (mensajeResultado) {
+      mensajeResultado.style.display = "none";
+      setTimeout(function () { mensajeResultado.style.display = "block" }, 200);
+      mensajeResultado.innerText = mensaje;
+    }
   }
 
 }
