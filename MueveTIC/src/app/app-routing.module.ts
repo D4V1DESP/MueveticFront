@@ -51,10 +51,8 @@ const routes: Routes = [
   { path : 'reservas-cliente', component: ReservasClienteComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' }},
   { path : 'recuperacion', component: RecuperacionComponent},
   { path : 'modificar-contrasena/:emailenc', component: ModificarContrasenaComponent},
-
-
-  { path : 'valoracion', component: ValoracionComponent},
-  { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent}
+  { path : 'valoracion', component: ValoracionComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' }},
+  { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
   // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
 
