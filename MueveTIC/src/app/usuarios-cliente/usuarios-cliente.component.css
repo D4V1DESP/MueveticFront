@@ -232,9 +232,8 @@ span {
 .config-buttons {
   display: none;
   position: absolute;
-  top: -600%; /* Ajusta la posición según tus necesidades */
+  top: -300%; /* Ajusta la posición según tus necesidades */
   border-radius: 5px;
- 
   padding: 10px;
   transition: 0.4s ease;
 }
@@ -245,7 +244,6 @@ span {
 
 .slide-up-button {
   white-space: nowrap;
-  height: 47px;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   display: block;
