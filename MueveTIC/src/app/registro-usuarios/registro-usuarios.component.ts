@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
-import {AuthenticationResponse} from "../../app/authentication-response";
 import {AuthenticationService} from "../../app/authentication.service";
-import {VerificationRequest} from "../../app/verification-request";
+
 
 
 
@@ -14,7 +13,7 @@ import {VerificationRequest} from "../../app/verification-request";
 })
 export class RegistroUsuariosComponent {
 
-  authResponse: AuthenticationResponse = {};
+  
 
   constructor(
     private authService: AuthenticationService,
@@ -34,9 +33,18 @@ export class RegistroUsuariosComponent {
     carnet: "",
     telefono: "",
     tipo: "cliente",
-    mFaEnabled: '',
-    otpCode: ''
+    mFaEnabled: false
+    
   }
+
+  verifyJson = {
+    email: "",
+    codigo: ""
+  }
+  otpCode= '';
+  message= '';
+  mfaEnabled= false;
+  secretImageUri='';
 
   submitRegistro() {
 
@@ -91,28 +99,33 @@ export class RegistroUsuariosComponent {
       !/[0-9]/.test(this.userData.contrasena) || // al menos un número
       !/[A-Z]/.test(this.userData.contrasena) || // al menos una letra mayúscula
       !/[!@#$%^&*]/.test(this.userData.contrasena)) {
-      console.log('La contraseña debe tener al menos 8 caracteres, una letra mayuscula y un caraceter especial (!@#$%^&*)');
-      this.mostrarLabelMensaje('La contraseña debe tener al menos 8 caracteres, una letra mayuscula y un caraceter especial (!@#$%^&*)')
+      console.log('La contraseña debe tener al menos 8 caracteres, un numero ,una letra mayuscula y un caraceter especial (!@#$%^&*)');
+      this.mostrarLabelMensaje('La contraseña debe tener al menos 8 caracteres, un numero, una letra mayuscula y un caraceter especial (!@#$%^&*)')
       return; // Aborta la función submitRegistro
     }
 
     if (this.userData.repetirContrasena !== this.userData.contrasena) {
-      console.log('Las contraseñas no coinciden.');
       this.mostrarLabelMensaje('Las contraseñas no coinciden.')
       return;
     }
     this.userData.carnet = this.userData.carnet.charAt(0)
+    console.log(this.userData.mFaEnabled);
     this.usuarioService.anadirUsuario(this.userData).subscribe(
       response => {
-        console.log('Los datos han sido enviados correctamente', response);
-        this.mostrarLabelMensaje("Usuario registrado correctamente");
-        this.router.navigate(['/login']);
+        if(this.userData.mFaEnabled){
+          this.secretImageUri = response;
+          this.mfaEnabled = true;
+        }else{
+          this.router.navigate(['/login']);
+        }
+
+        //this.router.navigate(['/login']);
 
       },
       error => {
         console.error('Error al enviar los datos', error);
-        console.log(this.userData)
-        if (error.status == '409') {
+        console.log(this.userData);
+        if (error.status === '409') {
           this.mostrarLabelMensaje("Usuario ya esta registrado");
         }
       })
@@ -129,21 +142,24 @@ export class RegistroUsuariosComponent {
 
 
   verifyTfa() {
-    /*this.message = '';
-    const verifyRequest: VerificationRequest = {
-      email: this.registerRequest.email,
-      code: this.otpCode
+    this.message = '';
+    this.verifyJson = {
+      email: this.userData.email,
+      codigo: this.otpCode
     };
-    this.authService.verifyCode(verifyRequest)
-      .subscribe({
-        next: (response) => {
-          this.message = 'Cuenta creada correctamente';
+    console.log(this.verifyJson)
+    this.authService.verifyCode(this.verifyJson)
+      .subscribe(
+        response => {
+          this.mostrarLabelMensaje(response);
           setTimeout(() => {
-            localStorage.setItem('token', response.accessToken as string);
             this.router.navigate(['/login']);
           }, 3000);
+        },
+        error => {
+          console.log("JSON A ENVIAR", this.verifyJson);
         }
-      });
-      */
+      );
+      
   }
 }
