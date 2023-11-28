@@ -118,7 +118,7 @@ export class ModificarClienteComponent implements OnInit {
       email: '',
       carnet: '',
       fecha: '',
-      telefono: ''
+      telefono: '',
 
 
     };

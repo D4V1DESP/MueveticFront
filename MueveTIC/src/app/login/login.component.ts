@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
+import {AuthenticationService} from "../../app/authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,17 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-  constructor(private UsuarioService: UsuarioService,private router: Router) { }
+  constructor(private UsuarioService: UsuarioService,private router: Router, private authService: AuthenticationService) { }
   usuario={
     email:"",
     contrasena:""
   } 
+  verifyJson = {
+    email: "",
+    codigo: ""
+  }
+  mfaEnabled = false;
+  otpCode = "";
 
 
   onLogin(){
@@ -21,17 +28,24 @@ export class LoginComponent {
     console.log('contraseña:', this.usuario.contrasena);
     this.UsuarioService.userLogin(this.usuario).subscribe(
       response=>{
-        console.log('Datos enviados con éxito:', response);
+        
         this.UsuarioService.saveLoggedUser(response);
-        if(this.UsuarioService.getLoggedUser().experiencia)
-          this.router.navigate(['/usuarios']);
-        /*se ha de cambiar a la ruta predeterminada del personal de mantenimiento*/
-        else if(this.UsuarioService.getLoggedUser().carnet)
-          this.router.navigate(['/usuarios-cliente']);
-        else 
-          this.router.navigate(['/usuarios']);
 
-        /*console.log(this.UsuarioService.getLoggedUser().email)*/
+        if(this.UsuarioService.getLoggedUser().experiencia){
+          //Save JWT
+          this.router.navigate(['/usuarios']);
+     
+        }else if(this.UsuarioService.getLoggedUser().carnet){
+          if(this.UsuarioService.getLoggedUser().mFaEnabled){
+            this.mfaEnabled = true;
+          }else{
+            //Save JWT
+            this.router.navigate(['/usuarios-cliente']);
+          }
+        }else {
+          //Save JWT
+          this.router.navigate(['/usuarios']);
+        }
       },
       error =>{
         console.error('Error al enviar datos:', error);
@@ -40,5 +54,19 @@ export class LoginComponent {
     )
   }
   
+  verifyCode(){
+    this.verifyJson = {
+      email: this.UsuarioService.getLoggedUser().email,
+      codigo: this.otpCode
+    };
+    console.log("VERIFICAR")
+    this.authService.verifyCode(this.verifyJson).subscribe(
+      response => {
+        //Save JWT
+        this.router.navigate(['/usuarios-cliente']);
+      }
+    )
+  }
+
 }
 

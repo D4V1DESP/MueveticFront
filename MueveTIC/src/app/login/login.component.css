@@ -164,3 +164,113 @@ body{
     
     
 }
+
+.login-carde{
+    background-color: #d8f3df;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 50px -30px black;
+    width: 1200px;
+    border-radius: 30px;
+    overflow:visible;
+    display: grid;
+    grid-template-columns: auto auto;
+
+    a{
+        
+        color:#34AF6D;
+    }
+    .column {
+        padding: 4rem;
+    
+        &:last-child {
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+
+            &:after{
+                content: '';
+                position: absolute;
+               
+            }
+            *{
+                z-index: 1;
+            }
+            a{
+                display: inline-block;
+                padding: 12px 30px;
+                font-size: 16px;
+                border:2px solid #34AF6D;
+                color: black;
+                border-radius: 50px;
+                cursor:pointer;
+                transition: all .3s;
+                font-weight: 600;
+
+                &:hover{
+                    background-color: #34AF6D;
+                    color: white;
+
+                }
+
+            }
+        }
+
+    }
+    h1{
+        margin-bottom: 15px;
+    }
+    .form-group{
+        width: 100%;
+        max-height: 40%;
+        border: none;
+        background-color: #effaf3;
+        padding: 10px 20px;
+        font-size:18px;
+        border-radius: 50px;
+        transition:box-shadow .2s;
+
+        &:focus{
+            outline: none;
+            box-shadow: 0 0 0 2px #34AF6D;
+        }
+    }
+   
+    input[type=checkbox]{
+        accent-color: #34AF6D;
+        width:16px ;
+        height: 16px;
+    }
+    form{
+        margin-top: 3rem;
+
+        &>*{
+            margin-top: 1rem ;
+        }
+        button{
+            background-color: #34AF6D;
+            color: white;
+            border:none;
+            padding: 20px 40px;
+            border-radius:50px ;
+            cursor:pointer;
+            font-weight: 600;
+            transition: all .2s;
+            font-size: 18px;
+        
+
+            &:active{
+                scale: .95;
+                background-color: darken(#34AF6D, 10%);
+            }
+
+        }
+
+        
+    }
+
+    
+    
+}

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
-import {AuthenticationResponse} from "../../app/authentication-response";
 import {AuthenticationService} from "../../app/authentication.service";
-import {VerificationRequest} from "../../app/verification-request";
+
 
 
 
@@ -34,8 +33,13 @@ export class RegistroUsuariosComponent {
     carnet: "",
     telefono: "",
     tipo: "cliente",
-    mFaEnabled: ''
+    mFaEnabled: false
     
+  }
+
+  verifyJson = {
+    email: "",
+    codigo: ""
   }
   otpCode= '';
   message= '';
@@ -101,7 +105,6 @@ export class RegistroUsuariosComponent {
     }
 
     if (this.userData.repetirContrasena !== this.userData.contrasena) {
-      console.log('Las contraseñas no coinciden.');
       this.mostrarLabelMensaje('Las contraseñas no coinciden.')
       return;
     }
@@ -109,12 +112,13 @@ export class RegistroUsuariosComponent {
     console.log(this.userData.mFaEnabled);
     this.usuarioService.anadirUsuario(this.userData).subscribe(
       response => {
-        console.log('Los datos han sido enviados correctamente');
-        console.log(response);
-        this.mostrarLabelMensaje("Usuario registrado correctamente");
-        this.secretImageUri=response;
-        console.log(this.secretImageUri)
-        this.mfaEnabled=true;
+        if(this.userData.mFaEnabled){
+          this.secretImageUri = response;
+          this.mfaEnabled = true;
+        }else{
+          this.router.navigate(['/login']);
+        }
+
         //this.router.navigate(['/login']);
 
       },
@@ -139,18 +143,21 @@ export class RegistroUsuariosComponent {
 
   verifyTfa() {
     this.message = '';
-    const verifyRequest = {
+    this.verifyJson = {
       email: this.userData.email,
       codigo: this.otpCode
     };
-    this.authService.verifyCode(verifyRequest)
+    console.log(this.verifyJson)
+    this.authService.verifyCode(this.verifyJson)
       .subscribe(
         response => {
-          this.message = "Cuenta creada correctamente";
+          this.mostrarLabelMensaje(response);
           setTimeout(() => {
-            localStorage.setItem('token', response.accessToken as string);
             this.router.navigate(['/login']);
           }, 3000);
+        },
+        error => {
+          console.log("JSON A ENVIAR", this.verifyJson);
         }
       );
       
