@@ -14,7 +14,7 @@ import {VerificationRequest} from "../../app/verification-request";
 })
 export class RegistroUsuariosComponent {
 
-  authResponse: AuthenticationResponse = {};
+  
 
   constructor(
     private authService: AuthenticationService,
@@ -39,6 +39,8 @@ export class RegistroUsuariosComponent {
   }
   otpCode= '';
   message= '';
+  mfaEnabled= false;
+  secretImageUri='';
 
   submitRegistro() {
 
@@ -93,8 +95,8 @@ export class RegistroUsuariosComponent {
       !/[0-9]/.test(this.userData.contrasena) || // al menos un número
       !/[A-Z]/.test(this.userData.contrasena) || // al menos una letra mayúscula
       !/[!@#$%^&*]/.test(this.userData.contrasena)) {
-      console.log('La contraseña debe tener al menos 8 caracteres, una letra mayuscula y un caraceter especial (!@#$%^&*)');
-      this.mostrarLabelMensaje('La contraseña debe tener al menos 8 caracteres, una letra mayuscula y un caraceter especial (!@#$%^&*)')
+      console.log('La contraseña debe tener al menos 8 caracteres, un numero ,una letra mayuscula y un caraceter especial (!@#$%^&*)');
+      this.mostrarLabelMensaje('La contraseña debe tener al menos 8 caracteres, un numero, una letra mayuscula y un caraceter especial (!@#$%^&*)')
       return; // Aborta la función submitRegistro
     }
 
@@ -104,18 +106,22 @@ export class RegistroUsuariosComponent {
       return;
     }
     this.userData.carnet = this.userData.carnet.charAt(0)
+    console.log(this.userData.mFaEnabled);
     this.usuarioService.anadirUsuario(this.userData).subscribe(
       response => {
-        console.log('Los datos han sido enviados correctamente', response);
+        console.log('Los datos han sido enviados correctamente');
+        console.log(response);
         this.mostrarLabelMensaje("Usuario registrado correctamente");
-        this.authResponse=response;
+        this.secretImageUri=response;
+        console.log(this.secretImageUri)
+        this.mfaEnabled=true;
         //this.router.navigate(['/login']);
 
       },
       error => {
         console.error('Error al enviar los datos', error);
-        console.log(this.userData)
-        if (error.status == '409') {
+        console.log(this.userData);
+        if (error.status === '409') {
           this.mostrarLabelMensaje("Usuario ya esta registrado");
         }
       })
@@ -132,7 +138,7 @@ export class RegistroUsuariosComponent {
 
 
   verifyTfa() {
-    this.message = ' ';
+    this.message = '';
     const verifyRequest: VerificationRequest = {
       email: this.userData.email,
       code: this.otpCode

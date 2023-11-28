@@ -21,8 +21,8 @@ export class UsuarioService {
 
   constructor(private httpService: HttpClient) {}
 
-  anadirUsuario(valor:any){
-    return this.httpService.post(this.baseUrlAnadirusuario, valor);
+  anadirUsuario(valor:any): Observable<string>{
+    return this.httpService.post(this.baseUrlAnadirusuario, valor,{responseType:'text'});
   }
 
   obtenerDatosAdministradores(): Observable<Administrador[]> {
