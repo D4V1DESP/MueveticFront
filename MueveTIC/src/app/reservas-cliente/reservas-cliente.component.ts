@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Reserva } from '../reserva';
-import { Vehiculo } from '../vehiculo';
-import { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
 import { ReservaService } from '../reserva.service';
 
@@ -31,6 +30,18 @@ export class ReservasClienteComponent {
   }
   loading: boolean = true;
 
+  darseBaja() {
+    this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
+      respuesta => {  
+        console.log('Respuesta del servidor:', respuesta);
+        this.UsuarioService.logout();
+      },
+      error => {
+        console.error('Error al darse de baja:', error);
+      }
+    );
+  }
+  
 obtenerReservas() {
   this.loading = true;
   this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(

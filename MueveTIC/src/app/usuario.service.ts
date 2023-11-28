@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpProgressEvent } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente, Mantenimiento, Administrador, Usuario } from './usuario';
 import { TokenRecuperacion } from './token-recuperacion';
