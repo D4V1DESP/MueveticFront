@@ -16,7 +16,7 @@ import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente
 import { ReservasComponent } from './reservas/reservas.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AnadirCochesComponent } from './anadir-coches/anadir-coches.component';
 import { AnadirPatineteComponent } from './anadir-patinete/anadir-patinete.component';
 import { AnadirMotoComponent } from './anadir-moto/anadir-moto.component';
@@ -25,6 +25,11 @@ import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida
 import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
 
 import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.component';
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
+import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
+import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
+import { ValoracionComponent } from './valoracion/valoracion.component';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,11 @@ import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.co
     UsuariosClienteComponent,
     PaginaBienvenidaComponent,
     VehiculosClienteComponent,
-    ReservasClienteComponent
+    ReservasClienteComponent,
+    RecuperacionComponent,
+    ModificarContrasenaComponent,
+    ModificarConfiguracionSistemaComponent,
+    ValoracionComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +62,7 @@ import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.co
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

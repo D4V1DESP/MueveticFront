@@ -16,11 +16,12 @@ export class ReservasClienteComponent {
 // Variable para controlar la fila seleccionada
   selectedRowIndex = -1;
   miTabla: any[] = [];
-  listaCoches: Vehiculo[];
   listaReservas: Reserva[] = [];
+  listaReservasCompleta: Reserva[];
+  reservaActiva: Reserva | undefined;
   
 
-  constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService) {
+  constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService, private router: Router) {
     this.listaReservas = [];
   }
   
@@ -30,44 +31,47 @@ export class ReservasClienteComponent {
   }
   loading: boolean = true;
 
-  obtenerReservas() {
-    this.loading = true;
-    this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
-      respuesta => {
-        console.log('Respuesta del servidor:', respuesta);
-        this.listaReservas = Array.isArray(respuesta) ? respuesta : [respuesta as Reserva];
-        this.loading = false;
-      },
-      error => {
-        console.error('Error al obtener reservas:', error);
-        this.listaReservas = [];
-        this.loading = false;
-      }
-    );
-  }
-  darseBaja() {
-    this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
-      respuesta => {  
-        console.log('Respuesta del servidor:', respuesta);
-        this.UsuarioService.logout();
-      },
-      error => {
-        console.error('Error al darse de baja:', error);
-      }
-    );
-  }
-  
-  
+obtenerReservas() {
+  this.loading = true;
+  this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
+    respuesta => {
+      this.reservaActiva=respuesta;
+      this.listaReservas.push(this.reservaActiva);
+      this.loading = false;
+    },
+    error => {
+      console.error('Error al obtener reservas:', error);
+      this.loading = false;
+    },  
+  );
+  this.ReservaService.obtenerListaReservasPoEmail(this.UsuarioService.getLoggedUser().email).subscribe(
+    respuesta => {
+      this.listaReservasCompleta=respuesta;
+    },
+    error=>{
+      console.error('Error al obtener reservas:', error);
+      this.listaReservas = [];
+    },
+  );
+}
   cancelarReserva(reserva: Reserva) {
-    this.ReservaService.cancelarReserva(reserva).subscribe(
-      respuesta => {
-        console.log('Reserva cancelada correctamente:', respuesta);
-        window.location.reload();
-      },
-      error => {
-        console.error('Error al cancelar reserva:',reserva, error);
-      }
-    );
+    if (window.confirm('¿Estás seguro de que deseas cancelar tu reserva?')) {
+      this.ReservaService.cancelarReserva(reserva).subscribe(
+        respuesta => {
+          console.log('Reserva cancelada correctamente:', respuesta);
+        },
+        error => {
+          console.error('Error al cancelar reserva:',reserva, error);
+        }
+      );
+    }
+  }
+  finalizarReserva(reserva: Reserva) {
+
+    //TODO metodo de finalizar reserva
+    if (window.confirm('¿Pasar a la ventana de valoración y facturar la reserva?')){
+      this.router.navigate(['/valoracion']);
+    }
 
   }
   

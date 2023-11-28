@@ -1,0 +1,77 @@
+/* Estilos para el formulario de añadir admin */
+
+.admin-container {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #62bef8, #dbf0fe);
+    background-color: #62bef8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    margin: 10px 0;
+  }
+  
+  .form-group label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form-group input[type="range"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .boton-container {
+    display: flex;
+    gap: 10px; /* Espacio de 10 píxeles entre los botones */
+  }
+
+  #valor{
+    text-align: right;
+    display: inline-block;
+  }
+  
+  button {
+    width: 30%;
+    padding: 10px;
+    background-color: #329cf3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Otras reglas de estilo, como colores, tamaños, etc. */
+  
+  option {
+    padding: 0;
+  }
+  
+  /* Estilos específicos para los campos */
+  
+  datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    writing-mode: vertical-lr;
+    width: 410px;
+  }
+  
+  
+  /* Puedes agregar más estilos personalizados según sea necesario */

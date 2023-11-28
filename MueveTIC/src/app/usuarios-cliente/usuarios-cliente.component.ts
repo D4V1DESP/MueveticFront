@@ -21,7 +21,6 @@ export class UsuariosClienteComponent implements OnInit {
     constructor (private vehiculoService : VehiculoService,private UsuarioService: UsuarioService, private router: Router){}
   
       ngOnInit() : void{
-        console.log(this.UsuarioService.getLoggedUser().carnet)
         if (this.UsuarioService.getLoggedUser().carnet){
           this.obtenerVehiculosDisponibles();
         }
@@ -44,14 +43,20 @@ export class UsuariosClienteComponent implements OnInit {
     reservarVehiculo(vehiculo: any){
       let reserva = {
         matricula: vehiculo.matricula,
-        email: this.UsuarioService.getLoggedUser().email,
-        
+        email: this.UsuarioService.getLoggedUser().email
       }
       console.log(reserva);
-     this.vehiculoService.reservarVehiculo(reserva).subscribe(respuesta => {
-        
+      this.vehiculoService.reservarVehiculo(reserva).subscribe(respuesta => {
         this.router.navigate(['/reservas-cliente']);
-      });
+      },
+      error => {
+        if (error.status === 409){
+          window.alert('Ya tiene una reserva activa');
+          console.log('Ya tiene una reserva activa');
+        }
+      },
+      
+      );
     }
     toggleRow(index: number) {
       this.selectedRowIndex = index;
