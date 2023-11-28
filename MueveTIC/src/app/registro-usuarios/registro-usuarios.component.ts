@@ -139,9 +139,9 @@ export class RegistroUsuariosComponent {
 
   verifyTfa() {
     this.message = '';
-    const verifyRequest: VerificationRequest = {
+    const verifyRequest = {
       email: this.userData.email,
-      code: this.otpCode
+      codigo: this.otpCode
     };
     this.authService.verifyCode(verifyRequest)
       .subscribe(

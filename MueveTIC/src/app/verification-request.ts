@@ -1,4 +1,4 @@
 export interface VerificationRequest {
     email?: string;
-    code?: string;
+    codigo?: string;
   }
