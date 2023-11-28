@@ -26,7 +26,7 @@ export class LoginComponent {
             
             if(this.UsuarioService.getLoggedUser().experiencia){
               this.saveSessionStorageItems(response, 'ROLE_MANTENIMIENTO')
-              this.router.navigate(['/usuarios']);
+              this.router.navigate(['/vista-mantenimiento']);
             /*se ha de cambiar a la ruta predeterminada del personal de mantenimiento*/
             }else if(this.UsuarioService.getLoggedUser().carnet){
               this.saveSessionStorageItems(response, 'ROLE_CLIENTE')
