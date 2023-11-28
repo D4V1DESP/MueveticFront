@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  /* private baseUrl = 'http://localhost:8080/api/v1/auth'*/ 
+   private baseUrl = 'http://localhost:8080/api/v1/auth' 
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,7 @@ export class AuthenticationService {
   }
 
   verifyCode(verificationRequest: VerificationRequest) {
-    return this.http.post<AuthenticationResponse>
+    return this.http.post<AuthenticationResponse>(this.baseUrl,verificationRequest)
     /*(`${this.baseUrl}/verify`, verificationRequest);*/
   }
 }

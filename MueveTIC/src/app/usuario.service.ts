@@ -37,7 +37,7 @@ export class UsuarioService {
   }
 
   updatePass(token: TokenRecuperacion){
-    const url=`${this.updatePass}/${token.email}`;
+    const url=`${this.baseUrlModificarContrasena}/${token.email}`;
     return this.httpService.post<Usuario>(url,token);
   }
 

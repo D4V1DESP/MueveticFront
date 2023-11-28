@@ -29,6 +29,7 @@ import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,7 @@ import { ModificarConfiguracionSistemaComponent } from './modificar-configuracio
     ReservasClienteComponent,
     RecuperacionComponent,
     ModificarContrasenaComponent,
-    ModificarConfiguracionSistemaComponent
+    ModificarConfiguracionSistemaComponent,
   ],
   imports: [
     BrowserModule,

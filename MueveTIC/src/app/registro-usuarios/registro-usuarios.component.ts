@@ -34,9 +34,11 @@ export class RegistroUsuariosComponent {
     carnet: "",
     telefono: "",
     tipo: "cliente",
-    mFaEnabled: '',
-    otpCode: ''
+    mFaEnabled: ''
+    
   }
+  otpCode= '';
+  message= '';
 
   submitRegistro() {
 
@@ -106,7 +108,8 @@ export class RegistroUsuariosComponent {
       response => {
         console.log('Los datos han sido enviados correctamente', response);
         this.mostrarLabelMensaje("Usuario registrado correctamente");
-        this.router.navigate(['/login']);
+        this.authResponse=response;
+        //this.router.navigate(['/login']);
 
       },
       error => {
@@ -129,21 +132,21 @@ export class RegistroUsuariosComponent {
 
 
   verifyTfa() {
-    /*this.message = '';
+    this.message = ' ';
     const verifyRequest: VerificationRequest = {
-      email: this.registerRequest.email,
+      email: this.userData.email,
       code: this.otpCode
     };
     this.authService.verifyCode(verifyRequest)
-      .subscribe({
-        next: (response) => {
-          this.message = 'Cuenta creada correctamente';
+      .subscribe(
+        response => {
+          this.message = "Cuenta creada correctamente";
           setTimeout(() => {
             localStorage.setItem('token', response.accessToken as string);
             this.router.navigate(['/login']);
           }, 3000);
         }
-      });
-      */
+      );
+      
   }
 }

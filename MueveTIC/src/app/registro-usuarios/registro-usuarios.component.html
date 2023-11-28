@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div class="login-card" *ngIf="!userData.mFaEnabled">
+  <div class="login-card" *ngIf="!authResponse.mfaEnabled">
     <div class="column">
       <h1>Regístrate </h1>
       <h2>Únete a nuestro sistema</h2>
@@ -72,7 +72,7 @@
 
 
 
-  <div class="login-card" *ngIf="userData.mFaEnabled">
+  <div class="login-card" *ngIf="authResponse.mfaEnabled">
     <div class ="column">
       <h2>Doble Factor de Autenticación</h2>
     <form (submit)="verifyTfa()">
@@ -88,10 +88,6 @@
       <button type="submit"> Verificar </button>
     </form>
     </div>
-    
-
   </div>
-
 </body>
-
 </html>
