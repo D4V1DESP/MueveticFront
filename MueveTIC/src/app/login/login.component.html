@@ -23,7 +23,7 @@
           </div>
           <div class="form-group">
             <input type="password" class="form-group" placeholder="contraseña" name="password" id="password"
-              [(ngModel)]="usuario.contrasena" required>
+              [(ngModel)]="usuario.contrasena" required (keydown.enter)="onLogin()">
           </div>
           <div class="signup-text">
             No te acuerdas de la contraseña? <a href="/recuperacion"> Recupérala</a>
