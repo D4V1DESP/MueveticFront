@@ -20,6 +20,7 @@ export class UsuarioService {
   private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
   private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser";
   private baseUrlModificarContrasena = "http://localhost:8080/users/updatePass"
+  private baseUrlRecuperarContrasena = "http://localhost:8080/users/recover";
 
 
 
@@ -50,8 +51,11 @@ export class UsuarioService {
   }
 
   updatePass(token: TokenRecuperacion){
-    const url=`${this.baseUrlModificarContrasena}/${token.email}`;
-    return this.httpService.post<Usuario>(url,token);
+    return this.httpService.post<Usuario>(this.baseUrlModificarContrasena,token);
+  }
+
+  recoverPass(usuario: any ){
+    return this.httpService.post(this.baseUrlRecuperarContrasena,usuario);
   }
 
 
@@ -88,6 +92,7 @@ export class UsuarioService {
   modificarDatosMantenimiento(mantenimiento : Mantenimiento) : Observable<Mantenimiento>{
     return this.httpService.post<Mantenimiento>(this.baseUrlActualizarUsuario, mantenimiento)
   }
+ 
 
   saveLoggedUser(user: any): void {
     // Almacenar información del usuario en sessionStorage
