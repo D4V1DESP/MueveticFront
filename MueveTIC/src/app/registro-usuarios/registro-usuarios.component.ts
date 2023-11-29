@@ -110,11 +110,14 @@ export class RegistroUsuariosComponent {
     }
     this.userData.carnet = this.userData.carnet.charAt(0)
     console.log(this.userData.mFaEnabled);
+    this.usuarioService.saveRole("")
+    this.usuarioService.saveJWTUser("")
     this.usuarioService.anadirUsuario(this.userData).subscribe(
       response => {
+        console.log("respuesta")
         if(this.userData.mFaEnabled){
-          this.secretImageUri = response;
           this.mfaEnabled = true;
+          this.secretImageUri = response;
         }else{
           this.router.navigate(['/login']);
         }
