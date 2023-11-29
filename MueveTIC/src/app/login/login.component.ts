@@ -1,7 +1,7 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
-import {AuthenticationService} from "../../app/authentication.service";
+import { AuthenticationService } from "../../app/authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -10,11 +10,11 @@ import {AuthenticationService} from "../../app/authentication.service";
 })
 
 export class LoginComponent {
-  constructor(private UsuarioService: UsuarioService,private router: Router, private authService: AuthenticationService) { }
-  usuario={
-    email:"",
-    contrasena:""
-  } 
+  constructor(private UsuarioService: UsuarioService, private router: Router, private authService: AuthenticationService) { }
+  usuario = {
+    email: "",
+    contrasena: ""
+  }
   verifyJson = {
     email: "",
     codigo: ""
@@ -23,45 +23,45 @@ export class LoginComponent {
   otpCode = "";
 
 
-  onLogin(){
+  onLogin() {
     this.saveSessionStorageItems("", "")
     this.UsuarioService.userLogin(this.usuario).subscribe(
-      response=>{
+      response => {
         console.log('Datos enviados con éxito:', response);
         this.UsuarioService.saveLoggedUser(response);
         this.UsuarioService.authenticate(this.usuario).subscribe(
-          response =>{
-        if(this.UsuarioService.getLoggedUser().experiencia){
-          this.saveSessionStorageItems(response, 'ROLE_MANTENIMIENTO')
-          this.router.navigate(['/vista-mantenimiento']);
+          response => {
+            if (this.UsuarioService.getLoggedUser().experiencia) {
+              this.saveSessionStorageItems(response, 'ROLE_MANTENIMIENTO')
+              this.router.navigate(['/vista-mantenimiento']);
 
-        }else if(this.UsuarioService.getLoggedUser().carnet){
-          console.log("2FA" + this.UsuarioService.getLoggedUser().mFaEnabled)
-          if(this.UsuarioService.getLoggedUser().mFaEnabled){
-            this.mfaEnabled = true;
-          }else{
-            this.saveSessionStorageItems(response, 'ROLE_CLIENTE')
-            this.router.navigate(['/usuarios-cliente']);
-          }
-        }else {
-          this.saveSessionStorageItems(response, 'ROLE_ADMIN')
-          this.router.navigate(['/usuarios']);
-        }
-      })
+            } else if (this.UsuarioService.getLoggedUser().carnet) {
+              console.log("2FA" + this.UsuarioService.getLoggedUser().mFaEnabled)
+              if (this.UsuarioService.getLoggedUser().mFaEnabled) {
+                this.mfaEnabled = true;
+              } else {
+                this.saveSessionStorageItems(response, 'ROLE_CLIENTE')
+                this.router.navigate(['/usuarios-cliente']);
+              }
+            } else {
+              this.saveSessionStorageItems(response, 'ROLE_ADMIN')
+              this.router.navigate(['/usuarios']);
+            }
+          })
       },
-      error =>{
+      error => {
         console.error('Error al enviar datos:', error);
-      
+
       }
     )
   }
 
-  saveSessionStorageItems(JWTToken : string, role : string){
+  saveSessionStorageItems(JWTToken: string, role: string) {
     this.UsuarioService.saveRole(role)
     this.UsuarioService.saveJWTUser(JWTToken)
   }
-  
-  verifyCode(){
+
+  verifyCode() {
     this.verifyJson = {
       email: this.UsuarioService.getLoggedUser().email,
       codigo: this.otpCode
