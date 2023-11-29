@@ -1,6 +1,6 @@
 <div class="mantenimiento-container">
   <form (submit)="submitRegistro()">
-  <h2>Añadir usuario mantenimiento</h2>
+    <h2>Añadir usuario mantenimiento</h2>
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input type="text" id="nombre" name="nombre" [(ngModel)]="manData.nombre" required>
@@ -20,7 +20,7 @@
 
     <div class="form-group">
       <label for="ciudad">Ciudad</label>
-      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="manData.ciudad" required> 
+      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="manData.ciudad" required>
     </div>
 
     <div class="form-group">
@@ -30,18 +30,19 @@
     <div class="form-group">
       <label for="contrasena">Contraseña</label>
       <input type="password" id="contrasena" name="contrasena" [(ngModel)]="manData.contrasena" required>
-      </div>
-      <div class="form-group">
+    </div>
+    <div class="form-group">
       <label for="repetirContrasena">Repetir Contraseña</label>
-      <input type="password" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="manData.repetirContrasena" required>
-      </div>
-    
+      <input type="password" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="manData.repetirContrasena"
+        required>
+    </div>
+
     <div class="boton-container">
       <button (click)="submitRegistro()" class="boton">Añadir</button>
       <button (click)="limpiarCampos()" class="boton">Limpiar</button>
     </div>
     <span id="mensajeResultado" style="display: none;">oculto</span>
-   </form>
+  </form>
 
 
 </div>

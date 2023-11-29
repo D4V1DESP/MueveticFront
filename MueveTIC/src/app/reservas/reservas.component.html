@@ -1,79 +1,82 @@
+<span style="font-family: verdana, geneva, sans-serif;">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Tu Aplicación</title>
-  <link rel="stylesheet" href="reservas.component.css" />
-  <!-- Font Awesome Cdn Link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-</head>
-<body>
-  <header class="main-header">
-    <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
-    <input type="checkbox" id="btn-nav">
-    <div class="titulo">
-      <h1>Espacio de consulta de reservas</h1>
-    </div>
-    <nav>
-      <ul class="navigation">
-        <li><a href="#"><a routerLink="/vehiculos">
-          <i class="fas fa-solid fa-car"></i>
-          <span class="nav-item"> Vehiculos</span>
-        </a>
-        </a></li>
-        
-        <li><a href="#"><a routerLink="/usuarios">
-          <i class="fas fa-user"></i>
-          <span class="nav-item"> Usuarios</span>
-        </a>
-        </a></li>
-        <li><a href="#"><a routerLink="/modificar-configuracion-sistema">
-          <i class="fas fa-user-cog"></i>
-          <span class="nav-item"> Configuración</span>
-        </a>
-        </a></li>
-        <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item"> Cerrar sesión</span>
-        </a></li>
-      </ul>
-    </nav>
-  
-  </header>
-  <div class="app-container">
-    <div class="content">
-      <!-- Área de contenido donde se cargarán los componentes -->
-      <div class="header1">
-        <h1>Reservas</h1>             
-      </div>      
-      <table class="tabla">
-        <caption></caption>
-        <thead>
-          <tr id="header-row">
-            <th>Usuario</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-            <th>Vehiculo</th>
-            <th>Valoracion</th>
-            <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
-          </tr>
-        </thead>
-        <tbody id="table-body">
-          <tr *ngFor="let reserva of listaReservas;  let i = index ">
-            <td>{{reserva.cliente}}</td>
-            <td>{{reserva.fecha}}</td>
-            <td>{{reserva.estado}}</td>
-            <td>{{reserva.vehiculo}}</td>
-            <td>{{reserva.estrellas === -1 ? 'Sin valoración' : reserva.estrellas}}</td>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          </tr>
-        </tbody>
-      </table>
-      <router-outlet></router-outlet>
+    <title>Tu Aplicación</title>
+    <link rel="stylesheet" href="reservas.component.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+      <input type="checkbox" id="btn-nav">
+      <div class="titulo">
+        <h1>Espacio de consulta de reservas</h1>
+      </div>
+      <nav>
+        <ul class="navigation">
+          <li><a href="#"><a routerLink="/vehiculos">
+                <i class="fas fa-solid fa-car"></i>
+                <span class="nav-item"> Vehiculos</span>
+              </a>
+            </a></li>
+
+          <li><a href="#"><a routerLink="/usuarios">
+                <i class="fas fa-user"></i>
+                <span class="nav-item"> Usuarios</span>
+              </a>
+            </a></li>
+          <li><a href="#"><a routerLink="/modificar-configuracion-sistema">
+                <i class="fas fa-user-cog"></i>
+                <span class="nav-item"> Configuración</span>
+              </a>
+            </a></li>
+          <li><a href="#" class="logout"><a routerLink="/logout"></a> 
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item"> Cerrar sesión</span>
+            </a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <div class="app-container">
+      <div class="content">
+        <!-- Área de contenido donde se cargarán los componentes -->
+        <div class="header1">
+          <h1>Reservas</h1>
+        </div>
+        <table class="tabla">
+          <caption></caption>
+          <thead>
+            <tr id="header-row">
+              <th>Usuario</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th>Vehiculo</th>
+              <th>Valoracion</th>
+              <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr *ngFor="let reserva of listaReservas;  let i = index ">
+              <td>{{reserva.cliente}}</td>
+              <td>{{reserva.fecha}}</td>
+              <td>{{reserva.estado}}</td>
+              <td>{{reserva.vehiculo}}</td>
+              <td>{{reserva.estrellas === -1 ? 'Sin valoración' : reserva.estrellas}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+        <router-outlet></router-outlet>
+      </div>
     </div>
-  </div>
-</body>
-</html>
+  </body>
+
+  </html>

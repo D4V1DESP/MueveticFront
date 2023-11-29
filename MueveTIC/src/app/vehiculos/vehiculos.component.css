@@ -4,10 +4,12 @@
 }
 
 
-body, html {
+body,
+html {
   height: 100%;
   width: 100%;
-  overflow: hidden; /* Para evitar barras de desplazamiento innecesarias */
+  overflow: hidden;
+  /* Para evitar barras de desplazamiento innecesarias */
 }
 
 body {
@@ -20,23 +22,24 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  background:linear-gradient(to right, #329cf3, #98e0ed ) ;
+  background: linear-gradient(to right, #329cf3, #98e0ed);
   width: 100%;
   height: 50px;
 }
 
 .content {
-  
+
   flex-grow: 1;
   padding: 50px;
   background-color: #fff;
   border-radius: 5px;
-  overflow: auto; /* Agrega una barra de desplazamiento si es necesario */
+  overflow: auto;
+  /* Agrega una barra de desplazamiento si es necesario */
 }
 
-.titulo{
+.titulo {
   margin-left: 60px;
-  margin-top:10px
+  margin-top: 10px
 }
 
 
@@ -46,7 +49,7 @@ nav {
   top: 50;
   width: 200px;
   height: calc(100vh - 50px);
-  background:linear-gradient(to bottom, #329cf3, #98e0ed ) ;
+  background: linear-gradient(to bottom, #329cf3, #98e0ed);
   transform: translateX(-100%);
   transition: 0.4s ease;
 }
@@ -75,7 +78,7 @@ nav {
   display: none;
 }
 
-#btn-nav:checked ~ nav {
+#btn-nav:checked~nav {
   transform: translateX(0);
 }
 
@@ -119,7 +122,8 @@ nav {
   background-color: #fff;
 }
 
-.tabla th, .tabla td {
+.tabla th,
+.tabla td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
@@ -138,6 +142,7 @@ nav {
   background-color: lightgray;
   cursor: pointer;
 }
+
 .anadir-button {
   padding: 5px;
   background-color: #329cf3;
@@ -147,10 +152,12 @@ nav {
   cursor: pointer;
   margin-bottom: 10px;
 }
+
 :root {
   --main-color: #fff;
 }
-.logout{
+
+.logout {
   position: absolute;
   bottom: 0;
 }

@@ -1,33 +1,43 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-integrity="sha512-...." crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  integrity="sha512-...." crossorigin="anonymous" />
 <form (submit)="enviarValoracion()">
-<div class="valoracion">
+  <div class="valoracion">
     <div class="card">
-    <h1>Valora tu experiencia!</h1>
-    <div id="full-stars-example-two">
-      <div class="rating-group">
-          <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
-          <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-          <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio" [(ngModel)]="reserva.estrellas" requiered>
-          <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-          <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio" [(ngModel)]="reserva.estrellas" requiered>
-          <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-          <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio" [(ngModel)]="reserva.estrellas" requiered>
-          <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-          <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio" [(ngModel)]="reserva.estrellas" requiered>
-          <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-          <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio" [(ngModel)]="reserva.estrellas" requiered>
+      <h1>Valora tu experiencia!</h1>
+      <div id="full-stars-example-two">
+        <div class="rating-group">
+          <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0"
+            type="radio">
+          <label aria-label="1 star" class="rating__label" for="rating3-1"><i
+              class="rating__icon rating__icon--star fa fa-star"></i></label>
+          <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio"
+            [(ngModel)]="reserva.estrellas" requiered>
+          <label aria-label="2 stars" class="rating__label" for="rating3-2"><i
+              class="rating__icon rating__icon--star fa fa-star"></i></label>
+          <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio"
+            [(ngModel)]="reserva.estrellas" requiered>
+          <label aria-label="3 stars" class="rating__label" for="rating3-3"><i
+              class="rating__icon rating__icon--star fa fa-star"></i></label>
+          <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio"
+            [(ngModel)]="reserva.estrellas" requiered>
+          <label aria-label="4 stars" class="rating__label" for="rating3-4"><i
+              class="rating__icon rating__icon--star fa fa-star"></i></label>
+          <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio"
+            [(ngModel)]="reserva.estrellas" requiered>
+          <label aria-label="5 stars" class="rating__label" for="rating3-5"><i
+              class="rating__icon rating__icon--star fa fa-star"></i></label>
+          <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio"
+            [(ngModel)]="reserva.estrellas" requiered>
+        </div>
       </div>
-  </div>
-    
-    <div class="comentario">
-      <textarea type="text" id="comentario" class="form-group" placeholder="Deja un comentario..." 
-      [(ngModel)]="reserva.comentario" name="comentario"></textarea>
-    </div>
-    <div class="botones">
-      <button type="submit" class="mandar-valoracion">Enviar valoración</button>
-    </div>
+
+      <div class="comentario">
+        <textarea type="text" id="comentario" class="form-group" placeholder="Deja un comentario..."
+          [(ngModel)]="reserva.comentario" name="comentario"></textarea>
+      </div>
+      <div class="botones">
+        <button type="submit" class="mandar-valoracion">Enviar valoración</button>
+      </div>
     </div>
   </div>
 </form>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
 import { UsuarioService } from '../usuario.service';
-import {Mantenimiento } from '../usuario';
+import { Mantenimiento } from '../usuario';
 
 @Component({
   selector: 'app-modificar-mantenimiento',
@@ -18,8 +18,8 @@ export class ModificarManComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private usuarioServicio: UsuarioService,
-    private router : Router
-  ) {}
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     const email = this.route.snapshot.paramMap.get('email');
@@ -64,9 +64,9 @@ export class ModificarManComponent implements OnInit {
       this.mostrarLabelMensaje("La ciudad solo puede contener letras");
       return;
     }
-    
-    if (isNaN(Number(this.manData.experiencia)) 
-    || Number(this.manData.experiencia) < 0) {
+
+    if (isNaN(Number(this.manData.experiencia))
+      || Number(this.manData.experiencia) < 0) {
       console.log('La experiencia debe ser un número positivo.');
       this.mostrarLabelMensaje("La experiencia debe ser un número positivo");
       return;
@@ -78,7 +78,7 @@ export class ModificarManComponent implements OnInit {
           this.router.navigate(['/usuarios']);
           if (response.statusCode === 200) {
             this.mostrarAlerta('exito');
-            
+
           } else {
             this.mostrarAlerta('error');
           }

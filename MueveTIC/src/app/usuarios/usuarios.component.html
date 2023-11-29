@@ -1,51 +1,53 @@
+<span style="font-family: verdana, geneva, sans-serif;">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu Aplicación</title>
-  <link rel="stylesheet" href="usuarios.component.css" />
-  <!-- Font Awesome Cdn Link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-</head>
-<body>
-  <header class="main-header">
-    <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
-    <input type="checkbox" id="btn-nav">
-    <div class="titulo">
-      <h1>Espacio de gestion de usuarios</h1>
-    </div>
-    <nav>
-      <ul class="navigation">
-        <li><a href="#"><a routerLink="/reservas">
-          <i class="fas fa-tasks"></i>
-          <span class="nav-item"> Reservas</span>
-        </a>
-        </a></li>
-        <li><a href="#"><a routerLink="/vehiculos">
-          <i class="fas fa-solid fa-car"></i>
-          <span class="nav-item"> Vehiculos</span>
-        </a>
-        </a></li>
-        <li><a href="#"><a routerLink="/modificar-configuracion-sistema">
-          <i class="fas fa-user-cog"></i>
-          <span class="nav-item"> Configuración</span>
-        </a>
-        </a></li>
-        <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item"> Cerrar sesión</span>
-        </a></li>
-      </ul>
-    </nav>
-  
-  </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Aplicación</title>
+    <link rel="stylesheet" href="usuarios.component.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
+      <input type="checkbox" id="btn-nav">
+      <div class="titulo">
+        <h1>Espacio de gestion de usuarios</h1>
+      </div>
+      <nav>
+        <ul class="navigation">
+          <li><a href="#"><a routerLink="/reservas">
+                <i class="fas fa-tasks"></i>
+                <span class="nav-item"> Reservas</span>
+              </a>
+            </a></li>
+          <li><a href="#"><a routerLink="/vehiculos">
+                <i class="fas fa-solid fa-car"></i>
+                <span class="nav-item"> Vehiculos</span>
+              </a>
+            </a></li>
+          <li><a href="#"><a routerLink="/modificar-configuracion-sistema">
+                <i class="fas fa-user-cog"></i>
+                <span class="nav-item"> Configuración</span>
+              </a>
+            </a></li>
+          <li><a href="#" class="logout"><a routerLink="/logout"></a>
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item"> Cerrar sesión</span>
+            </a></li>
+        </ul>
+      </nav>
+
+    </header>
     <div class="content">
       <div class="header1">
         <h1>Administradores <button class="anadir-button" [routerLink]="'/anadir-admin'" text-align="right">
-          <i class="fa fa-plus"></i>
-        </button> </h1> 
+            <i class="fa fa-plus"></i>
+          </button> </h1>
       </div>
       <table class="tabla">
         <caption></caption>
@@ -61,14 +63,14 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let administrador of administradores; let i = index" [ngClass]="{'table-row': i === selectedRowIndex}"
-        (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+          <tr *ngFor="let administrador of administradores; let i = index"
+            [ngClass]="{'table-row': i === selectedRowIndex}" (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{administrador.dni}}</td>
             <td>{{administrador.email}}</td>
             <td>{{administrador.nombre}}</td>
             <td>{{administrador.apellidos}}</td>
             <td>{{administrador.ciudad}}</td>
-            
+
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
@@ -83,9 +85,10 @@
         </tbody>
       </table>
       <div class="header2">
-        <h1>Personal de Mantenimiento <button class="anadir-button" [routerLink]="'/anadir-mantenimiento'" text-align="right">
-          <i class="fa fa-plus"></i>
-        </button> </h1>
+        <h1>Personal de Mantenimiento <button class="anadir-button" [routerLink]="'/anadir-mantenimiento'"
+            text-align="right">
+            <i class="fa fa-plus"></i>
+          </button> </h1>
       </div>
       <table class="tabla">
         <caption></caption>
@@ -98,22 +101,22 @@
             <th>Ciudad</th>
             <th>Acción</th>
             <!-- Agrega más columnas para cada campo de tu tabla "vehiculos" -->
-            
+
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let mantenimiento of mantenimiento; let i = index" [ngClass]="{'table-row': i === selectedRowIndex}"
-        (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+          <tr *ngFor="let mantenimiento of mantenimiento; let i = index"
+            [ngClass]="{'table-row': i === selectedRowIndex}" (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{mantenimiento.dni}}</td>
             <td>{{mantenimiento.email}}</td>
             <td>{{mantenimiento.nombre}}</td>
             <td>{{mantenimiento.apellidos}}</td>
             <td>{{mantenimiento.ciudad}}</td>
-            
+
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
-              <button (click)="eliminarUsuario(mantenimiento)" >
+              <button (click)="eliminarUsuario(mantenimiento)">
                 <i class="fa fa-trash"></i> <!-- Ícono de eliminar -->
               </button>
               <button [routerLink]="'/modificar-mantenimiento/' + mantenimiento.email">
@@ -141,13 +144,13 @@
         </thead>
         <tbody id="table-body">
           <tr *ngFor="let cliente of clientes; let i = index" [ngClass]="{'table-row': i === selectedRowIndex}"
-        (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+            (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{cliente.dni}}</td>
             <td>{{cliente.email}}</td>
             <td>{{cliente.nombre}}</td>
             <td>{{cliente.apellidos}}</td>
             <td>{{cliente.carnet}}</td>
-            
+
             <!-- Agrega más columnas para cada campo de tu tabla -->
             <td>
               <!-- Botones de eliminar y modificar en la fila -->
@@ -162,8 +165,9 @@
         </tbody>
       </table>
       <!-- Área de contenido donde se cargarán los componentes -->
-      
+
     </div>
-    
-</body>
-</html>
+
+  </body>
+
+  </html>

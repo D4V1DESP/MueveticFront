@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
 import { UsuarioService } from '../usuario.service';
-import { Usuario, Cliente } from '../usuario';
+import { Cliente } from '../usuario';
 
 @Component({
   selector: 'app-modificar-cliente',
@@ -41,14 +41,14 @@ export class ModificarClienteComponent implements OnInit {
     this.alertaAbierta = alerta;
   }
   modificarCliente(email: string) {
-    if(
+    if (
       !this.clienteData.nombre ||
       !this.clienteData.apellidos ||
       !this.clienteData.dni ||
       !this.clienteData.carnet ||
       !this.clienteData.telefono ||
       !this.clienteData.fecha
-    ){
+    ) {
       this.mostrarLabelMensaje("Todos los campos son obligatorios");
       return; // Detener el proceso de envío
     }
@@ -58,13 +58,13 @@ export class ModificarClienteComponent implements OnInit {
       this.mostrarLabelMensaje("El nombre solo puede contener letras");
       return;
     }
-  
+
     if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.clienteData.apellidos)) {
       console.log('Los apellidos solo pueden contener letras.');
       this.mostrarLabelMensaje("Los apellidos solo pueden contener letras");
       return;
     }
-    
+
     const formatoDNI = /^\d{8}[a-zA-Z]$/;
     if (!formatoDNI.test(this.clienteData.dni)) {
       console.log('El DNI no tiene el formato correcto.');

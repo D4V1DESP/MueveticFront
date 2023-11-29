@@ -27,28 +27,29 @@ h2 {
 }
 
 .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
 .boton-container {
   display: flex;
-  gap: 10px; /* Espacio de 10 píxeles entre los botones */
+  gap: 10px;
+  /* Espacio de 10 píxeles entre los botones */
 }
 
 .boton {
   width: 100%;
-    padding: 10px;
-    background-color: #329cf3;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px;
+  background-color: #329cf3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Otras reglas de estilo, como colores, tamaños, etc. */
@@ -65,8 +66,7 @@ h2 {
 #email,
 #experiencia,
 #contrasena,
-#repetircontrasena
-{
+#repetircontrasena {
   width: 100%;
   padding: 10px;
   margin: 10px 0;

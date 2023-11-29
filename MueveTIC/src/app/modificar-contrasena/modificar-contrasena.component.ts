@@ -17,7 +17,7 @@ export class ModificarContrasenaComponent implements OnInit {
 
   urlCompleta: string = window.location.href;
   urlSeparada: string[] = this.urlCompleta.split('/');
-  emailenc: string = this.urlSeparada.pop() || '';
+  emailenc: string = this.urlSeparada.pop() ?? '';
 
 
   ngOnInit(): void {
@@ -33,7 +33,7 @@ export class ModificarContrasenaComponent implements OnInit {
       return; //aborta la funcion 
     }
     if (this.usuario.contrasena.length < 8 ||
-      !/[0-9]/.test(this.usuario.contrasena) || // al menos un número
+      !/\d/.test(this.usuario.contrasena) || // al menos un número
       !/[A-Z]/.test(this.usuario.contrasena) || // al menos una letra mayúscula
       !/[!@#$%^&*]/.test(this.usuario.contrasena)) {
       console.log('La contraseña debe tener al menos 8 caracteres, una letra mayuscula y un caraceter especial (!@#$%^&*)');
@@ -62,14 +62,6 @@ export class ModificarContrasenaComponent implements OnInit {
         this.UsuarioService.saveLoggedUser(response);
         if (this.UsuarioService.getLoggedUser().experiencia)
           this.router.navigate(['/login']);
-        /*se ha de cambiar a la ruta predeterminada del personal de mantenimiento
-        else if (this.UsuarioService.getLoggedUser().carnet)
-          this.router.navigate(['/login']);
-        else
-          this.router.navigate(['/login']);*/
-
-        /*console.log(this.UsuarioService.getLoggedUser().email)*/
-
       },
       error => {
         console.error('Error al enviar datos:', error);

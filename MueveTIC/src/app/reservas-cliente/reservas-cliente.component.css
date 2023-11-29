@@ -107,6 +107,7 @@ nav {
 .config {
   position: absolute;
   bottom: 8%;
+  margin-left: 5%;
 }
 
 .image {
@@ -275,13 +276,13 @@ nav {
 }
 
 /* ... (código existente) ... */
-.config{
-  margin-left: 5%;  
-}
+
+
 .config-buttons {
   display: none;
   position: absolute;
-  top: -300%; /* Ajusta la posición según tus necesidades */
+  top: -300%;
+  /* Ajusta la posición según tus necesidades */
   border-radius: 5px;
   padding: 10px;
   transition: 0.4s ease;
@@ -304,7 +305,7 @@ nav {
   border-radius: 0px;
   cursor: pointer;
   transition: 0.4s ease;
-  margin-left:-16%;
+  margin-left: -16%;
 }
 
 .slide-up-button:hover {
@@ -312,6 +313,3 @@ nav {
 }
 
 /* ... (código existente) ... */
-
-  
- 

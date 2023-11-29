@@ -73,21 +73,20 @@
 
 
   <div class="login-card" *ngIf="mfaEnabled">
-    <div class ="column">
+    <div class="column">
       <h2>Doble Factor de Autenticación</h2>
-    <form (submit)="verifyTfa()">
-      <div class="qr-code">
-        <img [src]="secretImageUri" alt="QR Code">
-      </div>
-      <div class="form-group">
-        <h3>Introduzca los 6 digitos generados por la aplicacion (google authenticator)</h3>
-        <input type="text" id="otpCode" name="otpCode" class="form-group"
-           [(ngModel)]="otpCode"
-          required>
-      </div>
-      <button type="submit"> Verificar </button>
-    </form>
+      <form (submit)="verifyTfa()">
+        <div class="qr-code">
+          <img [src]="secretImageUri" alt="QR Code">
+        </div>
+        <div class="form-group">
+          <h3>Introduzca los 6 digitos generados por la aplicacion (google authenticator)</h3>
+          <input type="text" id="otpCode" name="otpCode" class="form-group" [(ngModel)]="otpCode" required>
+        </div>
+        <button type="submit"> Verificar </button>
+      </form>
     </div>
   </div>
 </body>
+
 </html>

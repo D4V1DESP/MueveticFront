@@ -77,16 +77,16 @@ export class AnadirManComponent {
       this.mostrarLabelMensaje("La ciudad solo puede contener letras");
       return;
     }
-    
-    if (isNaN(Number(this.manData.experiencia)) 
-    || Number(this.manData.experiencia) < 0) {
+
+    if (isNaN(Number(this.manData.experiencia))
+      || Number(this.manData.experiencia) < 0) {
       console.log('La experiencia debe ser un número positivo.');
       this.mostrarLabelMensaje("La experiencia debe ser un número positivo");
       return;
     }
 
     if (this.manData.contrasena.length < 8 ||
-      !/[0-9]/.test(this.manData.contrasena) || // al menos un número
+      !/\d/.test(this.manData.contrasena) || // al menos un número
       !/[A-Z]/.test(this.manData.contrasena) || // al menos una letra mayúscula
       !/[!@#$%^&*]/.test(this.manData.contrasena)) {
       console.log('La contraseña debe tener al menos 8 caracteres.');
@@ -99,7 +99,7 @@ export class AnadirManComponent {
       this.mostrarLabelMensaje("La contraseña repetida debe ser igual a la original")
       return;
     }
-    
+
     console.log('Datos del formulario:', this.manData);
     this.usuarioService.anadirUsuario(this.manData).subscribe(
       response => {

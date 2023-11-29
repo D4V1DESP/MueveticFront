@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // Importa ActivatedRoute para obtener el ID de la URL
 import { UsuarioService } from '../usuario.service';
-import { Administrador} from '../usuario';
+import { Administrador } from '../usuario';
 
 @Component({
   selector: 'app-modificar-admin',
@@ -19,7 +19,7 @@ export class ModificarAdminComponent implements OnInit {
     private route: ActivatedRoute,
     private usuarioServicio: UsuarioService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const email = this.route.snapshot.paramMap.get('email');
@@ -43,7 +43,7 @@ export class ModificarAdminComponent implements OnInit {
     this.alertaAbierta = alerta;
   }
   modificarAdmin(email: string) {
-    if(
+    if (
       !this.adminData.nombre ||
       !this.adminData.apellidos ||
       !this.adminData.dni ||
@@ -57,13 +57,13 @@ export class ModificarAdminComponent implements OnInit {
       this.mostrarLabelMensaje("El nombre solo puede contener letras");
       return;
     }
-  
+
     if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.adminData.apellidos)) {
       console.log('Los apellidos solo pueden contener letras.');
       this.mostrarLabelMensaje("Los apellidos solo pueden contener letras");
       return;
     }
-    
+
     const formatoDNI = /^\d{8}[a-zA-Z]$/;
     if (!formatoDNI.test(this.adminData.dni)) {
       console.log('El DNI no tiene el formato correcto.');
@@ -83,7 +83,7 @@ export class ModificarAdminComponent implements OnInit {
           this.router.navigate(['/usuarios']);
           if (response.statusCode === 200) {
             this.mostrarAlerta('exito');
-            
+
           } else {
             this.mostrarAlerta('error');
           }

@@ -20,7 +20,6 @@ import { ValoracionComponent } from './valoracion/valoracion.component';
 import { PaginaBienvenidaComponent } from './pagina-bienvenida/pagina-bienvenida.component';
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { AuthGuard } from './auth-guard.guard';
-import { VehiculosClienteComponent } from './vehiculos-cliente/vehiculos-cliente.component';
 import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
 
@@ -34,37 +33,37 @@ const routes: Routes = [
   // Ruta por defecto
   { path: 'login', component: LoginComponent },
   { path: 'registro-usuarios', component: RegistroUsuariosComponent },
-  
-  { path: 'reservas', component: ReservasComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' }},
-  { path: 'vehiculos', component: VehiculosComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' }},
+
+  { path: 'reservas', component: ReservasComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'vehiculos', component: VehiculosComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
 
-  { path: 'anadir-admin', component: AnadirAdminComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' }},
-  { path: 'anadir-mantenimiento', component: AnadirManComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' }},
-  { path: 'anadir-coche', component: AnadirCochesComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' }},
-  { path: 'anadir-patinete', component: AnadirPatineteComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' }},
-  { path: 'anadir-moto', component: AnadirMotoComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'anadir-admin', component: AnadirAdminComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'anadir-mantenimiento', component: AnadirManComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'anadir-coche', component: AnadirCochesComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'anadir-patinete', component: AnadirPatineteComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'anadir-moto', component: AnadirMotoComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
 
-  { path : 'modificar-admin/:email', component: ModificarAdminComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' }},
-  { path : 'modificar-mantenimiento/:email', component: ModificarManComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
-  { path : 'modificar-cliente/:email', component: ModificarClienteComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
-  { path : 'usuarios-cliente', component: UsuariosClienteComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' }},
-  { path : 'pagina-bienvenida', component: PaginaBienvenidaComponent},
-  { path : 'reservas-cliente', component: ReservasClienteComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' }},
-  { path : 'recuperacion', component: RecuperacionComponent},
-  { path : 'modificar-contrasena/:emailenc', component: ModificarContrasenaComponent},
-  { path : 'valoracion', component: ValoracionComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' }},
-  { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } }, 
-  { path : 'vista-mantenimiento', component: VistaMantenimientoComponent},
-  { path : 'reservas-mantenimiento', component: ReservasMantenimientoComponent},
-  
+  { path: 'modificar-admin/:email', component: ModificarAdminComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'modificar-mantenimiento/:email', component: ModificarManComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'modificar-cliente/:email', component: ModificarClienteComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'usuarios-cliente', component: UsuariosClienteComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' } },
+  { path: 'pagina-bienvenida', component: PaginaBienvenidaComponent },
+  { path: 'reservas-cliente', component: ReservasClienteComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' } },
+  { path: 'recuperacion', component: RecuperacionComponent },
+  { path: 'modificar-contrasena/:emailenc', component: ModificarContrasenaComponent },
+  { path: 'valoracion', component: ValoracionComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' } },
+  { path: 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path: 'vista-mantenimiento', component: VistaMantenimientoComponent },
+  { path: 'reservas-mantenimiento', component: ReservasMantenimientoComponent },
+
   // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),FormsModule],
+  imports: [RouterModule.forRoot(routes), FormsModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {

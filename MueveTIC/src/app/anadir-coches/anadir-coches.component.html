@@ -1,42 +1,39 @@
-
 <body>
   <div class="anadir-coche-container">
-      <h2>Añadir Coches</h2>
-      
-      <form (submit)="onClickEnviar()">
-        <div class="form-group">
-          <label for="matricula">Matricula</label>
-          <input type="text" id="matricula" name="matricula" [(ngModel)]="coche.matricula" required>
-        </div>
-        <div class="form-group">
-          <label for="modelo">Modelo</label>
-          <input type="text" id="modelo" name="modelo" [(ngModel)]="coche.modelo" required>
-        </div>
-        <div class="form-group">
-          <label for="nPlazas">Numero de plazas</label>
-          <input type="number" id="nPlazas"  name="nPlazas" [(ngModel)]="coche.nPlazas" required>
-        </div>
-        <div class="form-group">
-          <label for="direccion">Direccion</label>
-          <input type="text" id="direccion" name="direccion" [(ngModel)]="coche.direccion" required>
-        </div>
-        <button type="submit">Añadir</button>
-        <div>
-          <span id="mensajeResultado" style="display: none;">oculto</span>
-        </div>
-      </form>
-  </div> 
-       
-      
+    <h2>Añadir Coches</h2>
+
+    <form (submit)="onClickEnviar()">
+      <div class="form-group">
+        <label for="matricula">Matricula</label>
+        <input type="text" id="matricula" name="matricula" [(ngModel)]="coche.matricula" required>
+      </div>
+      <div class="form-group">
+        <label for="modelo">Modelo</label>
+        <input type="text" id="modelo" name="modelo" [(ngModel)]="coche.modelo" required>
+      </div>
+      <div class="form-group">
+        <label for="nPlazas">Numero de plazas</label>
+        <input type="number" id="nPlazas" name="nPlazas" [(ngModel)]="coche.nPlazas" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Direccion</label>
+        <input type="text" id="direccion" name="direccion" [(ngModel)]="coche.direccion" required>
+      </div>
+      <button type="submit">Añadir</button>
+      <div>
+        <span id="mensajeResultado" style="display: none;">oculto</span>
+      </div>
+    </form>
+  </div>
+
+
 </body>
 
 
 <script>
   const inputNumerico = document.getElementById("nPlazas");
-  
-  inputNumerico.addEventListener("keydown", function(e) {
+
+  inputNumerico.addEventListener("keydown", function (e) {
     e.preventDefault(); // Evita la entrada de texto
   });
 </script>
-  
-  

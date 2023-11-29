@@ -10,7 +10,8 @@
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   </head>
-   <body>
+
+  <body>
     <header class="main-header">
       <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
       <input type="checkbox" id="btn-nav">
@@ -24,13 +25,14 @@
                 <span class="nav-item"> Reservar</span>
               </a>
             </a></li>
-            <label for="btn-nav" class="config"> <!-- cuando exista la pagina configuracion -->
-              <i class="fas fa-user-cog"></i>
-              <span class="nav-item"> Configuración</span> 
-              <div class="config-buttons">  
-                <button  (click)="darseBaja()" class="slide-up-button"><i class="fas fa-door-open"></i> Darse de baja</button>
-              </div>
-            </label>
+          <label for="btn-nav" class="config"> <!-- cuando exista la pagina configuracion -->
+            <i class="fas fa-user-cog"></i>
+            <span class="nav-item"> Configuración</span>
+            <div class="config-buttons">
+              <button (click)="darseBaja()" class="slide-up-button"><i class="fas fa-door-open"></i> Darse de
+                baja</button>
+            </div>
+          </label>
           <li><a href="#" class="logout"><a routerLink="/logout"></a> <!-- cuando exista la pagina logout -->
               <i class="fas fa-sign-out-alt"></i>
               <span class="nav-item"> Cerrar sesión</span>
@@ -48,8 +50,9 @@
             </div>
             <div class="card">
               <i class="fa fa-car"></i>
-              <h3> Vehículos reservados hasta ahora:<p> {{listaReservas.length}}</p> </h3>              
-            </div>           
+              <h3> Vehículos reservados hasta ahora:<p> {{listaReservas.length}}</p>
+              </h3>
+            </div>
           </div>
         </div>
         <div class="c1">
@@ -61,7 +64,8 @@
             </div>
             <ng-template #content>
               <div *ngIf="!listaReservas || listaReservas.length === 0">
-                <p>No tienes ninguna reserva activa en este momento. <a href="/usuarios-cliente">Realizar una reserva.</a></p>
+                <p>No tienes ninguna reserva activa en este momento. <a href="/usuarios-cliente">Realizar una
+                    reserva.</a></p>
               </div>
               <table class="tabla" *ngIf="!loading && listaReservas && listaReservas.length > 0">
                 <thead>
@@ -74,8 +78,9 @@
                   </tr>
                 </thead>
                 <tbody id="table-body">
-                  <tr *ngFor="let reserva of listaReservas;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
-                    (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+                  <tr *ngFor="let reserva of listaReservas;  let i = index "
+                    [ngClass]="{'table-row': i === selectedRowIndex}" (mouseover)="toggleRow(i)"
+                    (mouseout)="toggleRow(-1)">
                     <td>{{reserva.vehiculo}}</td>
                     <td>{{reserva.cliente}}</td>
                     <td>{{reserva.estado}}</td>
@@ -110,16 +115,17 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr *ngFor="let reserva of listaReservasCompleta;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
-                    (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+          <tr *ngFor="let reserva of listaReservasCompleta;  let i = index "
+            [ngClass]="{'table-row': i === selectedRowIndex}" (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
             <td>{{reserva.vehiculo}}</td>
             <td>{{reserva.fecha}}</td>
             <td>{{reserva.estado}}</td>
             <td>{{reserva.estrellas === -1 ? 'Sin valoración' : reserva.estrellas}}</td>
-                    <!-- Agrega más columnas para cada campo de tu tabla -->
+            <!-- Agrega más columnas para cada campo de tu tabla -->
           </tr>
         </tbody>
       </table>
     </div>
   </body>
-</html>
+
+  </html>

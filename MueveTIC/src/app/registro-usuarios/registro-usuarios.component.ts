@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
-import {AuthenticationService} from "../../app/authentication.service";
+import { AuthenticationService } from "../../app/authentication.service";
 
 
 
@@ -13,11 +13,11 @@ import {AuthenticationService} from "../../app/authentication.service";
 })
 export class RegistroUsuariosComponent {
 
-  
+
 
   constructor(
     private authService: AuthenticationService,
-    private usuarioService: UsuarioService, 
+    private usuarioService: UsuarioService,
     private router: Router) {
 
   }
@@ -34,22 +34,22 @@ export class RegistroUsuariosComponent {
     telefono: "",
     tipo: "cliente",
     mFaEnabled: false
-    
+
   }
 
   verifyJson = {
     email: "",
     codigo: ""
   }
-  otpCode= '';
-  message= '';
-  mfaEnabled= false;
-  secretImageUri='';
+  otpCode = '';
+  message = '';
+  mfaEnabled = false;
+  secretImageUri = '';
 
   submitRegistro() {
 
     if (
-      
+
       !this.userData.nombre ||
       !this.userData.apellidos ||
       !this.userData.dni ||
@@ -59,7 +59,7 @@ export class RegistroUsuariosComponent {
       !this.userData.telefono ||
       !this.userData.contrasena ||
       !this.userData.repetirContrasena
-      ) {
+    ) {
       this.mostrarLabelMensaje("Ningun campo debe estar vacio");
       return; //aborta la funcion submitRegistro
     }
@@ -69,7 +69,7 @@ export class RegistroUsuariosComponent {
       this.mostrarLabelMensaje("El nombre solo puede contener letras");
       return;
     }
-  
+
     if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.userData.apellidos)) {
       console.log('Los apellidos solo pueden contener letras.');
       this.mostrarLabelMensaje("Los apellidos solo pueden contener letras");
@@ -96,7 +96,7 @@ export class RegistroUsuariosComponent {
     }
 
     if (this.userData.contrasena.length < 8 ||
-      !/[0-9]/.test(this.userData.contrasena) || // al menos un número
+      !/\d/.test(this.userData.contrasena) || // al menos un número
       !/[A-Z]/.test(this.userData.contrasena) || // al menos una letra mayúscula
       !/[!@#$%^&*]/.test(this.userData.contrasena)) {
       console.log('La contraseña debe tener al menos 8 caracteres, un numero ,una letra mayuscula y un caraceter especial (!@#$%^&*)');
@@ -115,14 +115,12 @@ export class RegistroUsuariosComponent {
     this.usuarioService.anadirUsuario(this.userData).subscribe(
       response => {
         console.log("respuesta")
-        if(this.userData.mFaEnabled){
+        if (this.userData.mFaEnabled) {
           this.mfaEnabled = true;
           this.secretImageUri = response;
-        }else{
+        } else {
           this.router.navigate(['/login']);
         }
-
-        //this.router.navigate(['/login']);
 
       },
       error => {
@@ -163,6 +161,6 @@ export class RegistroUsuariosComponent {
           console.log("JSON A ENVIAR", this.verifyJson);
         }
       );
-      
+
   }
 }

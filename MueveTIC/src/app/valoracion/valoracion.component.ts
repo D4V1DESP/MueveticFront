@@ -3,7 +3,6 @@ import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-valoracion',
@@ -16,9 +15,9 @@ export class ValoracionComponent {
   @Output() valoracionChange: EventEmitter<number> = new EventEmitter<number>();
 
   maxEstrellas = 5;
-  
+
   estrellas: boolean[] = [];
-  reserva: Reserva={
+  reserva: Reserva = {
     cliente: '',
     vehiculo: '',
     estrellas: 0,
@@ -26,13 +25,13 @@ export class ValoracionComponent {
     estado: '',
     fecha: ''
   };
-  constructor(private ReservaService: ReservaService,private UsuarioService: UsuarioService, private router: Router) {
+  constructor(private ReservaService: ReservaService, private UsuarioService: UsuarioService, private router: Router) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
       respuesta => {
-        this.reserva=respuesta;
+        this.reserva = respuesta;
       },
       error => {
         console.error('Error al obtener reservas:', error);
@@ -49,10 +48,10 @@ export class ValoracionComponent {
     this.generarEstrellas();
     this.valoracionChange.emit(this.valoracion);
   }
-  enviarValoracion(){
+  enviarValoracion() {
     this.ReservaService.finalizarReserva(this.reserva).subscribe(
       respuesta => {
-        if(respuesta){
+        if (respuesta) {
           console.log("mira la base de datos a ver si se ha cambiado bien")
           this.router.navigate(["/usuarios-cliente"])
         }
@@ -60,6 +59,6 @@ export class ValoracionComponent {
       error => {
         console.error('Error al obtener reservas:', error);
       });
-    
+
   }
 }

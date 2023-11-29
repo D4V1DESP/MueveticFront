@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../vehiculo.service';
-import { Vehiculo, Coche, Moto, Patinete } from '../vehiculo';
-import { OnInit} from '@angular/core';
+import { Vehiculo } from '../vehiculo';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 
@@ -12,71 +11,71 @@ import { Router } from '@angular/router';
 })
 export class UsuariosClienteComponent implements OnInit {
 
-    listaCoches : Vehiculo []
-    listaMotos : Vehiculo []
-    listaPatinetes : Vehiculo []
-    isMouseOver: boolean = false; // Variable para controlar el paso del ratón
-    selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
-  
-    constructor (private vehiculoService : VehiculoService,private UsuarioService: UsuarioService, private router: Router){}
-  
-      ngOnInit() : void{
-        if (this.UsuarioService.getLoggedUser().carnet){
-          this.obtenerVehiculosDisponibles();
-        }
-      }
+  listaCoches: Vehiculo[]
+  listaMotos: Vehiculo[]
+  listaPatinetes: Vehiculo[]
+  isMouseOver: boolean = false; // Variable para controlar el paso del ratón
+  selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
 
-      darseBaja() {
-       
-        this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
-          respuesta => {  
-            
-            console.log('Respuesta del servidor:', respuesta);
-            this.router.navigate(['/login']);
-          },
-          error => {
-            window.alert('Error al darse de baja: Tienes reservas activas');
-            console.error('Error al darse de baja:', error);
-            
-          }
-        );
+  constructor(private vehiculoService: VehiculoService, private UsuarioService: UsuarioService, private router: Router) { }
+
+  ngOnInit(): void {
+    if (this.UsuarioService.getLoggedUser().carnet) {
+      this.obtenerVehiculosDisponibles();
+    }
+  }
+
+  darseBaja() {
+
+    this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
+      respuesta => {
+
+        console.log('Respuesta del servidor:', respuesta);
+        this.router.navigate(['/login']);
+      },
+      error => {
+        window.alert('Error al darse de baja: Tienes reservas activas');
+        console.error('Error al darse de baja:', error);
+
       }
-    obtenerVehiculosDisponibles(){
-      if (this.UsuarioService.getLoggedUser().carnet=== 'a' || this.UsuarioService.getLoggedUser().carnet=== 'c')
+    );
+  }
+  obtenerVehiculosDisponibles() {
+    if (this.UsuarioService.getLoggedUser().carnet === 'a' || this.UsuarioService.getLoggedUser().carnet === 'c')
       this.vehiculoService.obtenerListaCochesDisponibles().subscribe(respuesta => {
         this.listaCoches = respuesta;
       });
-      if (this.UsuarioService.getLoggedUser().carnet=== 'a' || this.UsuarioService.getLoggedUser().carnet=== 'm')
+    if (this.UsuarioService.getLoggedUser().carnet === 'a' || this.UsuarioService.getLoggedUser().carnet === 'm')
       this.vehiculoService.obtenerListaMotosDisponibles().subscribe(respuesta => {
         this.listaMotos = respuesta;
       });
-      this.vehiculoService.obtenerListaPatinetesDisponibles().subscribe(respuesta => {
-        this.listaPatinetes = respuesta;
-      });
-    }
+    this.vehiculoService.obtenerListaPatinetesDisponibles().subscribe(respuesta => {
+      this.listaPatinetes = respuesta;
+    });
+  }
 
-    reservarVehiculo(vehiculo: any){
-      let reserva = {
-        matricula: vehiculo.matricula,
-        email: this.UsuarioService.getLoggedUser().email
-      }
-      console.log(reserva);
-      this.vehiculoService.reservarVehiculo(reserva).subscribe(respuesta => {
-        this.router.navigate(['/reservas-cliente']);
-      },
+  reservarVehiculo(vehiculo: any) {
+    let reserva = {
+      matricula: vehiculo.matricula,
+      email: this.UsuarioService.getLoggedUser().email
+    }
+    console.log(reserva);
+    this.vehiculoService.reservarVehiculo(reserva).subscribe(respuesta => {
+      this.router.navigate(['/reservas-cliente']);
+    },
       error => {
-        if (error.status === 409){
+        if (error.status === 409) {
           window.alert('Ya tiene una reserva activa');
           console.log('Ya tiene una reserva activa');
         }
       },
-      
-      );
-    }
-    toggleRow(index: number) {
-      this.selectedRowIndex = index;
-    }
-    isRowSelected(index: number) {
-      return index === this.selectedRowIndex;
-    }
+
+    );
+  }
+  toggleRow(index: number) {
+    this.selectedRowIndex = index;
+  }
+  isRowSelected(index: number) {
+    return index === this.selectedRowIndex;
+  }
 }

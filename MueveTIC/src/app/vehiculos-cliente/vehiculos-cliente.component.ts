@@ -9,13 +9,13 @@ export class VehiculosClienteComponent {
   mostrarReservaActual = true; // Ajusta según tu lógica de visualización
   reservaActual: any; // La reserva actual del cliente
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   tieneReservaActual(): boolean {
-      return this.mostrarReservaActual && this.reservaActual != null;
+    return this.mostrarReservaActual && this.reservaActual != null;
   }
-  
-  
+
+
   navegarAVehiculos() {
     this.router.navigate(['/vehiculos-cliente']);
   }

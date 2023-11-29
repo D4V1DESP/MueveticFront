@@ -8,13 +8,13 @@ import { ReservaService } from '../reserva.service';
   styleUrls: ['./reservas.component.css']
 })
 export class ReservasComponent {
-  listaReservas: Reserva [] =[];
+  listaReservas: Reserva[] = [];
 
 
 
-  constructor(private reservaService : ReservaService){}
+  constructor(private reservaService: ReservaService) { }
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     this.obtenerReservas();
     console.log(this.listaReservas.find(reserva => reserva.estado === 'reservado')?.fecha);
 

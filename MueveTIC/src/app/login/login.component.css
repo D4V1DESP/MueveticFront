@@ -1,11 +1,10 @@
-
-
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: 'Roboto', sans-serif;
     display: flex;
     align-items: center;
@@ -13,9 +12,9 @@ body{
     min-height: 100vh;
     padding: 1.5rem;
 
-    &:after{
+    &:after {
         content: '';
-        position:fixed;
+        position: fixed;
         inset: 0;
         background-color: #34AF6D;
         width: 60%;
@@ -24,23 +23,25 @@ body{
         z-index: -1;
     }
 }
-.login-card{
+
+.login-card {
     background-color: #d8f3df;
     border: 1px solid #ddd;
     box-shadow: 0 10px 50px -30px black;
     width: 1200px;
     border-radius: 30px;
-    overflow:visible;
+    overflow: visible;
     display: grid;
     grid-template-columns: auto auto;
 
-    a{
-        
-        color:#34AF6D;
+    a {
+
+        color: #34AF6D;
     }
+
     .column {
         padding: 4rem;
-    
+
         &:last-child {
             background: url('../../assets/fondo.jpg') center;
             background-size: cover;
@@ -50,26 +51,28 @@ body{
             justify-content: center;
             gap: 40px;
 
-            &:after{
+            &:after {
                 content: '';
                 position: absolute;
-               
+
             }
-            *{
+
+            * {
                 z-index: 1;
             }
-            a{
+
+            a {
                 display: inline-block;
                 padding: 12px 30px;
                 font-size: 16px;
-                border:2px solid #34AF6D;
+                border: 2px solid #34AF6D;
                 color: black;
                 border-radius: 50px;
-                cursor:pointer;
+                cursor: pointer;
                 transition: all .3s;
                 font-weight: 600;
 
-                &:hover{
+                &:hover {
                     background-color: #34AF6D;
                     color: white;
 
@@ -79,109 +82,115 @@ body{
         }
 
     }
-    h1{
+
+    h1 {
         margin-bottom: 15px;
     }
-    .form-group{
+
+    .form-group {
         width: 100%;
         max-height: 40%;
         border: none;
         background-color: #effaf3;
         padding: 10px 20px;
-        font-size:18px;
+        font-size: 18px;
         border-radius: 50px;
-        transition:box-shadow .2s;
+        transition: box-shadow .2s;
 
-        &:focus{
+        &:focus {
             outline: none;
             box-shadow: 0 0 0 2px #34AF6D;
         }
     }
-   
-    input[type=checkbox]{
+
+    input[type=checkbox] {
         accent-color: #34AF6D;
-        width:16px ;
+        width: 16px;
         height: 16px;
     }
-    form{
+
+    form {
         margin-top: 3rem;
 
-        &>*{
-            margin-top: 1rem ;
+        &>* {
+            margin-top: 1rem;
         }
-        button{
+
+        button {
             background-color: #34AF6D;
             color: white;
-            border:none;
+            border: none;
             padding: 20px 40px;
-            border-radius:50px ;
-            cursor:pointer;
+            border-radius: 50px;
+            cursor: pointer;
             font-weight: 600;
             transition: all .2s;
             font-size: 18px;
-        
 
-            &:active{
+
+            &:active {
                 scale: .95;
                 background-color: darken(#34AF6D, 10%);
             }
 
         }
 
-        
+
     }
 
-    
-    
+
+
 }
 
-.flex{
-    display:flex;
+.flex {
+    display: flex;
     justify-content: center;
     align-items: center;
 
 }
 
-@media(max-width: 992px){
-    .login-card{
+@media(max-width: 992px) {
+    .login-card {
         display: block;
         width: 500px;
         text-align: center;
 
-        .column{
-            &:last-child{
+        .column {
+            &:last-child {
                 display: flex;
             }
         }
-        
+
     }
-    .flex{
+
+    .flex {
         flex-direction: column;
         gap: 1rem;
 
     }
 
-    
-    
+
+
 }
 
-.login-carde{
+.login-carde {
     background-color: #d8f3df;
     border: 1px solid #ddd;
     box-shadow: 0 10px 50px -30px black;
     width: 1200px;
     border-radius: 30px;
-    overflow:visible;
+    overflow: visible;
     display: grid;
     grid-template-columns: auto auto;
 
-    a{
-        
-        color:#34AF6D;
+    a {
+
+        color: #34AF6D;
     }
+
     .column {
         padding: 4rem;
-    
+
         &:last-child {
             background-size: cover;
             display: flex;
@@ -190,26 +199,28 @@ body{
             justify-content: center;
             gap: 40px;
 
-            &:after{
+            &:after {
                 content: '';
                 position: absolute;
-               
+
             }
-            *{
+
+            * {
                 z-index: 1;
             }
-            a{
+
+            a {
                 display: inline-block;
                 padding: 12px 30px;
                 font-size: 16px;
-                border:2px solid #34AF6D;
+                border: 2px solid #34AF6D;
                 color: black;
                 border-radius: 50px;
-                cursor:pointer;
+                cursor: pointer;
                 transition: all .3s;
                 font-weight: 600;
 
-                &:hover{
+                &:hover {
                     background-color: #34AF6D;
                     color: white;
 
@@ -219,58 +230,62 @@ body{
         }
 
     }
-    h1{
+
+    h1 {
         margin-bottom: 15px;
     }
-    .form-group{
+
+    .form-group {
         width: 100%;
         max-height: 40%;
         border: none;
         background-color: #effaf3;
         padding: 10px 20px;
-        font-size:18px;
+        font-size: 18px;
         border-radius: 50px;
-        transition:box-shadow .2s;
+        transition: box-shadow .2s;
 
-        &:focus{
+        &:focus {
             outline: none;
             box-shadow: 0 0 0 2px #34AF6D;
         }
     }
-   
-    input[type=checkbox]{
+
+    input[type=checkbox] {
         accent-color: #34AF6D;
-        width:16px ;
+        width: 16px;
         height: 16px;
     }
-    form{
+
+    form {
         margin-top: 3rem;
 
-        &>*{
-            margin-top: 1rem ;
+        &>* {
+            margin-top: 1rem;
         }
-        button{
+
+        button {
             background-color: #34AF6D;
             color: white;
-            border:none;
+            border: none;
             padding: 20px 40px;
-            border-radius:50px ;
-            cursor:pointer;
+            border-radius: 50px;
+            cursor: pointer;
             font-weight: 600;
             transition: all .2s;
             font-size: 18px;
-        
 
-            &:active{
+
+            &:active {
                 scale: .95;
                 background-color: darken(#34AF6D, 10%);
             }
 
         }
 
-        
+
     }
 
-    
-    
+
+
 }

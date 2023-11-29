@@ -76,6 +76,6 @@ export class ModificarConfiguracionSistemaComponent {
         console.error("Error al enviar información del umbral al que se debe recargar un coche", error)
       })
 
-      this.router.navigate(['/usuarios']);
+    this.router.navigate(['/usuarios']);
   }
 }
