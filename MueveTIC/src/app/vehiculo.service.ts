@@ -8,7 +8,7 @@ import { UsuarioService } from './usuario.service';
   providedIn: 'root'
 })
 export class VehiculoService {
-  
+ private baseURLVehiculoRecargable="http://localhost:8080/vehiculos/recargables"
 
   constructor(private HttpClient : HttpClient, private usuarioService : UsuarioService) { }
 
@@ -36,6 +36,13 @@ export class VehiculoService {
   }
   obtenerListaPatinetesDisponibles() : Observable<any>{
     return this.HttpClient.get<any>("http://localhost:8080/vehiculos/patinetes/disponibles")
+  }
+  obtenerListaVehiculosRecargables(tipo : string): Observable<any>{
+    const url = `${this.baseURLVehiculoRecargable}/${tipo}`;
+    return this.HttpClient.get<any>(url)
+  }
+  recargarVehiculo(reserva:any){
+    return this.HttpClient.post("",reserva)
   }
 
 }

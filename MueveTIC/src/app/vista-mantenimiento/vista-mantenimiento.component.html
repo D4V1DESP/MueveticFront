@@ -33,17 +33,17 @@
               <div class="card">
                 <span class="fas fa-car"></span>
                 <h3> Coches pendientes de carga</h3>
-                <p> Numero</p>
+                <p> {{listaCoches.length}}</p>
               </div>
               <div class="card">
                 <i class="fas fa-motorcycle"></i>
                 <h3> Motos pendientes de carga</h3>
-                <p> Numero</p>
+                <p>  {{listaMotos.length}}</p>
               </div>
               <div class="card">
                 <i class="fas fa-motorcycle"></i>
                 <h3> Patines pendientes de carga</h3>
-                <p> Numero</p>
+                <p>  {{listaPatinetes.length}}</p>
               </div>
             </div>
           </div>
@@ -65,7 +65,22 @@
               </tr>
             </thead>
             <tbody id="table-body">
-              
+              <tr *ngFor="let coche of listaCoches;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+              (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+              <td>{{coche.matricula}}</td>
+              <td>{{coche.direccion}}</td>
+              <td>{{coche.modelo}}</td>
+              <td>{{coche.bateria}}</td>
+              <td>{{coche.estado}}</td>
+              <!-- Agrega más columnas para cada campo de tu tabla -->
+              <td>
+                <!-- Boton de reservar -->
+                <button (click)="recargarVehiculo(coche)">
+                  <i>Recarga</i>
+                </button>
+              </td>
+
+            </tr>
             </tbody>
           </table>
           <div class="header2">
@@ -87,7 +102,21 @@
               </tr>
             </thead>
             <tbody id="table-body">
-              
+              <tr *ngFor="let moto of listaMotos;  let i = index " [ngClass]="{'table-row': i === selectedRowIndex}"
+              (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+              <td>{{moto.matricula}}</td>
+              <td>{{moto.direccion}}</td>
+              <td>{{moto.modelo}}</td>
+              <td>{{moto.bateria}}</td>
+              <td>{{moto.estado}}</td>
+              <!-- Agrega más columnas para cada campo de tu tabla -->
+              <td>
+                <!-- Boton de reservar -->
+                <button (click)="recargarVehiculo(moto)">
+                  <i>Recarga</i>
+                </button>
+              </td>
+            </tr>
             </tbody>
           </table>
           <div class="header3">
@@ -107,7 +136,22 @@
               </tr>
             </thead>
             <tbody id="table-body">
-              
+              <tr *ngFor="let patinete of listaPatinetes; let i = index "
+              [ngClass]="{'table-row': i === selectedRowIndex}" (mouseover)="toggleRow(i)" (mouseout)="toggleRow(-1)">
+              <td>{{patinete.matricula}}</td>
+              <td>{{patinete.direccion}}</td>
+              <td>{{patinete.modelo}}</td>
+              <td>{{patinete.bateria}}</td>
+              <td>{{patinete.estado}}</td>
+              <!-- Agrega más columnas para cada campo de tu tabla -->
+              <td>
+                <!-- Boton de reservar -->
+                <button (click)="recargarVehiculo(patinete)">
+                  <i>Recarga</i>
+                </button>
+              </td>
+
+            </tr>
             </tbody>
           </table>
           <!-- Área de contenido donde se cargarán los componentes -->
