@@ -13,7 +13,7 @@ export class TokenInterceptorService implements HttpInterceptor{
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
     const excludedUrls : string[] = ['http://localhost:8080/users/login', 'http://localhost:8080/users/authenticate',
-    'http://localhost:8080/users/AddUser']
+    'http://localhost:8080/users/AddUser', 'http://localhost:8080/users/updatePass','http://localhost:8080/users/recover','http://localhost:8080/users/verify']
 
     const shouldExclude = excludedUrls.some(url => req.url.includes(url));
 

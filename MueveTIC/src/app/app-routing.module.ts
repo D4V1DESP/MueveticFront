@@ -54,8 +54,8 @@ const routes: Routes = [
   { path: 'modificar-contrasena/:emailenc', component: ModificarContrasenaComponent },
   { path: 'valoracion', component: ValoracionComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' } },
   { path: 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
-  { path: 'vista-mantenimiento', component: VistaMantenimientoComponent },
-  { path: 'reservas-mantenimiento', component: ReservasMantenimientoComponent },
+  { path: 'vista-mantenimiento', component: VistaMantenimientoComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_MANTENIMIENTO' } },
+  { path: 'reservas-mantenimiento', component: ReservasMantenimientoComponent , canActivate: [AuthGuard], data: { expectedRole: 'ROLE_MANTENIMIENTO' } },
 
   // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales

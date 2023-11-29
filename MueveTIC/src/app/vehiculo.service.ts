@@ -39,10 +39,10 @@ export class VehiculoService {
   }
   obtenerListaVehiculosRecargables(tipo : string): Observable<any>{
     const url = `${this.baseURLVehiculoRecargable}/${tipo}`;
-    return this.HttpClient.get<any>(url)
+    return this.HttpClient.get<Vehiculo[]>(url)
   }
-  recargarVehiculo(reserva:any){
-    return this.HttpClient.post("",reserva)
+  reservarVehiculoParaRecarga(reserva:any){
+    return this.HttpClient.post("http://localhost:8080/reservas/mantenimientoAdd",reserva)
   }
 
 }

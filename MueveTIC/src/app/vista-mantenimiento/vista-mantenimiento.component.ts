@@ -10,43 +10,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./vista-mantenimiento.component.css']
 })
 export class VistaMantenimientoComponent implements OnInit {
-  listaCoches: Vehiculo[]
-  listaMotos: Vehiculo[]
-  listaPatinetes: Vehiculo[]
-  isMouseOver: boolean = false; // Variable para controlar el paso del ratón
-  selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
-
-  constructor(private vehiculoService: VehiculoService, private UsuarioService: UsuarioService, private router: Router) { }
-
-  ngOnInit(): void {
-    if (this.UsuarioService.getLoggedUser().experiencia) {
-      this.obtenerVehiculosNoDisponibles();
+    listaCoches : Vehiculo []
+    listaMotos : Vehiculo []
+    listaPatinetes : Vehiculo []
+    isMouseOver: boolean = false; // Variable para controlar el paso del ratón
+    selectedRowIndex: number = -1; // Variable para controlar la fila seleccionada
+  
+    constructor (private vehiculoService : VehiculoService,private UsuarioService: UsuarioService, private router: Router){}
+  
+      ngOnInit() : void{
+        if (this.UsuarioService.getLoggedUser().experiencia){
+          this.obtenerVehiculosNoDisponibles();
+        }
+      }
+  
+    obtenerVehiculosNoDisponibles(){
+      this.vehiculoService.obtenerListaVehiculosRecargables("Coche").subscribe(respuesta => {
+        this.listaCoches = respuesta;
+      });
+      this.vehiculoService.obtenerListaVehiculosRecargables("Moto").subscribe(respuesta => {
+        this.listaMotos = respuesta;
+      });
+      this.vehiculoService.obtenerListaVehiculosRecargables("Patinete").subscribe(respuesta => {
+        this.listaPatinetes = respuesta;
+      });
     }
-  }
+  
 
-  obtenerVehiculosNoDisponibles() {
-    this.vehiculoService.obtenerListaVehiculosRecargables("Coche").subscribe(respuesta => {
-      this.listaCoches = respuesta;
-    });
-    this.vehiculoService.obtenerListaVehiculosRecargables("Moto").subscribe(respuesta => {
-      this.listaMotos = respuesta;
-    });
-    this.vehiculoService.obtenerListaVehiculosRecargables("Patinete").subscribe(respuesta => {
-      this.listaPatinetes = respuesta;
-    });
-  }
-
-
-
-  recargarVehiculo(vehiculo: any) {
-    let reserva = {
-      matricula: vehiculo.matricula,
-      email: this.UsuarioService.getLoggedUser().email
-    }
-    console.log(reserva);
-    this.vehiculoService.recargarVehiculo(reserva).subscribe(respuesta => {
-      window.alert('Has reservado el vehiculo: ' + reserva.matricula);
-    },
+    recargarVehiculo(vehiculo: any){
+      let reserva = {
+        matricula: vehiculo.matricula,
+        email: this.UsuarioService.getLoggedUser().email
+      }
+      console.log(reserva);
+      this.vehiculoService.reservarVehiculoParaRecarga(reserva).subscribe(respuesta => {
+        window.alert('Has reservado el vehiculo: '+ reserva.matricula);
+        window.location.reload();
+      },
       error => {
         if (error.status === 409) {
           window.alert('Limite de reservas alcanzado');

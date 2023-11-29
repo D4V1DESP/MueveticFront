@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Reserva } from './reserva';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ReservaMantenimiento } from './reservaMantenimiento';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +23,14 @@ export class ReservaService {
   }
   finalizarReserva(reserva:Reserva){
     return this.httpClient.post('http://localhost:8080/reservas/AddReview',reserva);
+  }
+  obtenerListaReservasMantenimientoPorEmail(email:string){
+    return this.httpClient.get<ReservaMantenimiento[]>(`http://localhost:8080/reservas/reservasMantenimiento/${email}`);
+  }
+  cancelarReservaMantenimiento(reserva: ReservaMantenimiento) {
+    return this.httpClient.post<ReservaMantenimiento>('http://localhost:8080/reservas/mantenimientoCancel', reserva);
+  }
+  finalizarReservaMantenimiento(reserva: ReservaMantenimiento) {
+    return this.httpClient.post<ReservaMantenimiento>('http://localhost:8080/reservas/mantenimientoFinalizar', reserva);
   }
 }
