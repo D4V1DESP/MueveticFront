@@ -20,7 +20,7 @@ export class ModificarConfiguracionSistemaComponent {
     valor: 1
   };
   vehiculosManenimiento: Config = {
-    nombre: 'vehiculosManenimiento',
+    nombre: 'vehiculosMantenimiento',
     valor: 1
   };
   bateriaRecarga: Config = {
@@ -37,7 +37,7 @@ export class ModificarConfiguracionSistemaComponent {
       console.log(this.listaConfig)
       this.eurosViaje = this.listaConfig.find(config => config.nombre === 'eurosViaje')!;
       this.bateriaViaje = this.listaConfig.find(config => config.nombre === 'bateriaViaje')!;
-      this.vehiculosManenimiento = this.listaConfig.find(config => config.nombre === 'vehiculosManenimiento')!;
+      this.vehiculosManenimiento = this.listaConfig.find(config => config.nombre === 'vehiculosMantenimiento')!;
       this.bateriaRecarga = this.listaConfig.find(config => config.nombre === 'bateriaRecarga')!;
     });
     /*!*/
