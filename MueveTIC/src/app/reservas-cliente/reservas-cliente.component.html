@@ -10,8 +10,7 @@
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   </head>
-
-  <body>
+   <body>
     <header class="main-header">
       <label for="btn-nav" class="btn-nav"><i class="fa fa-bars"></i></label>
       <input type="checkbox" id="btn-nav">
@@ -53,19 +52,8 @@
             </div>
             <div class="card">
               <i class="fa fa-car"></i>
-              <h3> Nuestros coches</h3>
-              <p> todos nuestros coches son electricos.</p>
-            </div>
-            <div class="card">
-              <i class="fa fa-motorcycle"></i>
-              <h3> Nuestras motos</h3>
-              <p> todas nuestras motos son electricas.</p>
-            </div>
-            <div class="card">
-              <i class="fa fa-motorcycle"></i>
-              <h3> Nuestros patines</h3>
-              <p> todas nuestros patines son electricas.</p>
-            </div>
+              <h3> Vehículos reservados hasta ahora:<p> {{listaReservas.length}}</p> </h3>              
+            </div>           
           </div>
         </div>
         <div class="c1">
@@ -110,9 +98,6 @@
           </div>
         </div>
       </div>
-
-
-
       <div class="header2">
         <h1>Historial de reservas
         </h1>
@@ -140,8 +125,5 @@
         </tbody>
       </table>
     </div>
-
-
   </body>
-
-  </html>
+</html>

@@ -28,6 +28,8 @@ import { ReservasClienteComponent } from './reservas-cliente/reservas-cliente.co
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-contrasena.component';
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
+import { VistaMantenimientoComponent } from './vista-mantenimiento/vista-mantenimiento.component';
+import { ReservasMantenimientoComponent } from './reservas-mantenimiento/reservas-mantenimiento.component';
 import { ValoracionComponent } from './valoracion/valoracion.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 
@@ -54,6 +56,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     RecuperacionComponent,
     ModificarContrasenaComponent,
     ModificarConfiguracionSistemaComponent,
+    VistaMantenimientoComponent,
+    ReservasMantenimientoComponent,
     ValoracionComponent
   ],
   imports: [

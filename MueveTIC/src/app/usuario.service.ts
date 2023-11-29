@@ -20,6 +20,7 @@ export class UsuarioService {
   private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
   private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser";
   private baseUrlModificarContrasena = "http://localhost:8080/users/updatePass"
+  private baseUrlRecuperarContrasena = "http://localhost:8080/users/recover";
 
 
 
@@ -33,9 +34,8 @@ export class UsuarioService {
 
   constructor(private httpService: HttpClient) {}
 
-
-  anadirUsuario(valor:any){
-    return this.httpService.post(this.baseUrlAnadirusuario, valor);
+  anadirUsuario(valor:any): Observable<string>{
+    return this.httpService.post(this.baseUrlAnadirusuario, valor,{responseType:'text'});
   }
 
   obtenerDatosAdministradores(): Observable<Administrador[]> {
@@ -51,8 +51,11 @@ export class UsuarioService {
   }
 
   updatePass(token: TokenRecuperacion){
-    const url=`${this.updatePass}/${token.email}`;
-    return this.httpService.post<Usuario>(url,token);
+    return this.httpService.post<Usuario>(this.baseUrlModificarContrasena,token);
+  }
+
+  recoverPass(usuario: any ){
+    return this.httpService.post(this.baseUrlRecuperarContrasena,usuario);
   }
 
 
@@ -89,6 +92,7 @@ export class UsuarioService {
   modificarDatosMantenimiento(mantenimiento : Mantenimiento) : Observable<Mantenimiento>{
     return this.httpService.post<Mantenimiento>(this.baseUrlActualizarUsuario, mantenimiento)
   }
+ 
 
   darseBaja(email: string) {
     return this.httpService.delete('http://localhost:8080/users/BajaUser' + email);

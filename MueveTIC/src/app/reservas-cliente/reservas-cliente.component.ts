@@ -3,6 +3,10 @@ import { Reserva } from '../reserva';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
 import { ReservaService } from '../reserva.service';
+import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
+import { Vehiculo } from '../vehiculo';
+
 
 @Component({
   selector: 'app-reservas-cliente',

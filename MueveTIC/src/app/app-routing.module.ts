@@ -25,6 +25,8 @@ import { ModificarContrasenaComponent } from './modificar-contrasena/modificar-c
 import { ModificarConfiguracionSistemaComponent } from './modificar-configuracion-sistema/modificar-configuracion-sistema.component';
 
 
+import { VistaMantenimientoComponent } from './vista-mantenimiento/vista-mantenimiento.component';
+import { ReservasMantenimientoComponent } from './reservas-mantenimiento/reservas-mantenimiento.component';
 
 
 const routes: Routes = [
@@ -52,7 +54,10 @@ const routes: Routes = [
   { path : 'recuperacion', component: RecuperacionComponent},
   { path : 'modificar-contrasena/:emailenc', component: ModificarContrasenaComponent},
   { path : 'valoracion', component: ValoracionComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_CLIENTE' }},
-  { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } },
+  { path : 'modificar-configuracion-sistema', component: ModificarConfiguracionSistemaComponent, canActivate: [AuthGuard], data: { expectedRole: 'ROLE_ADMIN' } }, 
+  { path : 'vista-mantenimiento', component: VistaMantenimientoComponent},
+  { path : 'reservas-mantenimiento', component: ReservasMantenimientoComponent},
+  
   // Ruta para el componente de registro
   // Otras rutas para tus componentes adicionales
 
