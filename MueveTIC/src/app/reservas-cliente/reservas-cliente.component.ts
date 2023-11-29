@@ -28,8 +28,25 @@ export class ReservasClienteComponent {
   
   ngOnInit() : void{
     this.obtenerReservas();
+
   }
   loading: boolean = true;
+
+  darseBaja() {
+       
+    this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
+      respuesta => {  
+        
+        console.log('Respuesta del servidor:', respuesta);
+        this.router.navigate(['/login']);
+      },
+      error => {
+        window.alert('Error al darse de baja: Tienes reservas activas');
+        console.error('Error al darse de baja:', error);
+        
+      }
+    );
+  }
 
 obtenerReservas() {
   this.loading = true;
@@ -59,6 +76,7 @@ obtenerReservas() {
       this.ReservaService.cancelarReserva(reserva).subscribe(
         respuesta => {
           console.log('Reserva cancelada correctamente:', respuesta);
+          location.reload();
         },
         error => {
           console.error('Error al cancelar reserva:',reserva, error);

@@ -25,7 +25,22 @@ export class UsuariosClienteComponent implements OnInit {
           this.obtenerVehiculosDisponibles();
         }
       }
-  
+
+      darseBaja() {
+       
+        this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
+          respuesta => {  
+            
+            console.log('Respuesta del servidor:', respuesta);
+            this.router.navigate(['/login']);
+          },
+          error => {
+            window.alert('Error al darse de baja: Tienes reservas activas');
+            console.error('Error al darse de baja:', error);
+            
+          }
+        );
+      }
     obtenerVehiculosDisponibles(){
       if (this.UsuarioService.getLoggedUser().carnet=== 'a' || this.UsuarioService.getLoggedUser().carnet=== 'c')
       this.vehiculoService.obtenerListaCochesDisponibles().subscribe(respuesta => {

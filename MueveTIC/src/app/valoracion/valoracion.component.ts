@@ -54,6 +54,7 @@ export class ValoracionComponent {
       respuesta => {
         if(respuesta){
           console.log("mira la base de datos a ver si se ha cambiado bien")
+          this.router.navigate(['/reservas-cliente']);
         }
       },
       error => {

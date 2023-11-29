@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders, HttpProgressEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente, Mantenimiento, Administrador, Usuario } from './usuario';
 import { TokenRecuperacion } from './token-recuperacion';
-
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
+  
 })
 export class UsuarioService {
   private JWToken = 'JWToken';
@@ -21,6 +22,7 @@ export class UsuarioService {
   private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser";
   private baseUrlModificarContrasena = "http://localhost:8080/users/updatePass"
   private baseUrlRecuperarContrasena = "http://localhost:8080/users/recover";
+
 
 
 
@@ -57,7 +59,11 @@ export class UsuarioService {
   recoverPass(usuario: any ){
     return this.httpService.post(this.baseUrlRecuperarContrasena,usuario);
   }
-
+  darseBaja(email: string) {
+    return this.httpService.delete<Usuario>(`http://localhost:8080/users/BajaUser/${email}`);
+  }
+  
+  
 
   obtenerAdminPorEmail(email: string): Observable<Administrador> {
     const url = `${this.baseURLAdmin}/${email}`;
@@ -117,4 +123,6 @@ export class UsuarioService {
   saveRole(role : string) : void{
     sessionStorage.setItem(this.roleUser, role)
   }
+
+  
 }
