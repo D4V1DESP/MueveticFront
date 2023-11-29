@@ -17,7 +17,7 @@ span {
   padding: 40px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-image: linear-gradient(to bottom, #d8f3df, #d8f3df);
+  background-image: linear-gradient(to bottom, #34AF6D, #d8f3df);
   background-color: #d8f3df;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }

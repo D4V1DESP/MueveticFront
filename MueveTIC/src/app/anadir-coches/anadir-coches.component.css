@@ -5,8 +5,8 @@
     padding: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-image: linear-gradient(to bottom, #62bef8, #dbf0fe);
-    background-color: #62bef8;
+    background-image: linear-gradient(to bottom, #34AF6D, #d8f3df);
+    background-color: #34AF6D;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
   
@@ -38,7 +38,7 @@
   button {
     width: 100%;
     padding: 10px;
-    background-color: #329cf3;
+    background-color: #34AF6D;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -46,7 +46,7 @@
   }
   
   button:hover {
-    background-color: #2059ad;
+    background-color: #34AF6D;
   }
   
   /* Estilos específicos para los campos */
