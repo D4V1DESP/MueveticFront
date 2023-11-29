@@ -11,9 +11,9 @@ export class ConfigService {
   constructor(private httpClient: HttpClient) { }
 
   obtenerInformacionConfiguracion(): Observable<Config[]>{
-    return this.httpClient.get<Config[]>('http://localhost:8080/config/Get');
+    return this.httpClient.get<Config[]>('https://muevetic-zw7y.onrender.com/config/Get');
   }
   modificarInformacionConfiguracion(config:Config){
-    return this.httpClient.post('http://localhost:8080/config/Update',config);
+    return this.httpClient.post('https://muevetic-zw7y.onrender.com/config/Update',config);
   }
 }

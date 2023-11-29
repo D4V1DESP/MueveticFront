@@ -8,7 +8,7 @@ import { UsuarioService } from './usuario.service';
   providedIn: 'root'
 })
 export class VehiculoService {
- private baseURLVehiculoRecargable="http://localhost:8080/vehiculos/recargables"
+ private baseURLVehiculoRecargable="https://muevetic-zw7y.onrender.com/vehiculos/recargables"
 
   constructor(private HttpClient : HttpClient, private usuarioService : UsuarioService) { }
 
@@ -16,33 +16,33 @@ export class VehiculoService {
 
 
   enviarVehiculo(valor: any) {
-    return this.HttpClient.post('http://localhost:8080/vehiculos/alta',  valor );
+    return this.HttpClient.post('https://muevetic-zw7y.onrender.com/vehiculos/alta',  valor );
   }
   obtenerListaVehiculos(cadControlador : string) : Observable<any>{
-    return this.HttpClient.get<any>("http://localhost:8080/vehiculos" + cadControlador)
+    return this.HttpClient.get<any>("https://muevetic-zw7y.onrender.com/vehiculos" + cadControlador)
   }
   eliminarVehiculo(vehiculo:Vehiculo){
-    return this.HttpClient.post("http://localhost:8080/vehiculos/eliminar", vehiculo)
+    return this.HttpClient.post("https://muevetic-zw7y.onrender.com/vehiculos/eliminar", vehiculo)
   }
   reservarVehiculo(reserva:any){
-    return this.HttpClient.post("http://localhost:8080/reservas/usersAdd", reserva)
+    return this.HttpClient.post("https://muevetic-zw7y.onrender.com/reservas/usersAdd", reserva)
   }
   // Obtener lista de vehículos disponibles
   obtenerListaCochesDisponibles() : Observable<any>{
-    return this.HttpClient.get<any>("http://localhost:8080/vehiculos/coches/disponibles")
+    return this.HttpClient.get<any>("https://muevetic-zw7y.onrender.com/vehiculos/coches/disponibles")
   }
   obtenerListaMotosDisponibles() : Observable<any>{
-    return this.HttpClient.get<any>("http://localhost:8080/vehiculos/motos/disponibles")
+    return this.HttpClient.get<any>("https://muevetic-zw7y.onrender.com/vehiculos/motos/disponibles")
   }
   obtenerListaPatinetesDisponibles() : Observable<any>{
-    return this.HttpClient.get<any>("http://localhost:8080/vehiculos/patinetes/disponibles")
+    return this.HttpClient.get<any>("https://muevetic-zw7y.onrender.com/vehiculos/patinetes/disponibles")
   }
   obtenerListaVehiculosRecargables(tipo : string): Observable<any>{
     const url = `${this.baseURLVehiculoRecargable}/${tipo}`;
     return this.HttpClient.get<Vehiculo[]>(url)
   }
   reservarVehiculoParaRecarga(reserva:any){
-    return this.HttpClient.post("http://localhost:8080/reservas/mantenimientoAdd",reserva)
+    return this.HttpClient.post("https://muevetic-zw7y.onrender.com/reservas/mantenimientoAdd",reserva)
   }
 
 }

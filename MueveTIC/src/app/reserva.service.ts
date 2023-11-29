@@ -10,27 +10,27 @@ export class ReservaService {
   constructor(private httpClient: HttpClient) { }
 
   ObtenerReservaActiva(email: string) {
-    return this.httpClient.get<Reserva>(`http://localhost:8080/reservas/reservaActiva/${email}`);
+    return this.httpClient.get<Reserva>(`https://muevetic-zw7y.onrender.com/reservas/reservaActiva/${email}`);
   }
   obtenerListaReservasPoEmail(email: string): Observable<Reserva[]>{
-    return this.httpClient.get<Reserva[]>(`http://localhost:8080/reservas/reservasCliente/${email}`);
+    return this.httpClient.get<Reserva[]>(`https://muevetic-zw7y.onrender.com/reservas/reservasCliente/${email}`);
   }
   cancelarReserva(reserva: Reserva) {
-    return this.httpClient.post<Reserva>('http://localhost:8080/reservas/usersCancel', reserva);
+    return this.httpClient.post<Reserva>('https://muevetic-zw7y.onrender.com/reservas/usersCancel', reserva);
   }
   obtenerListaReservas(): Observable<Reserva[]>{
-    return this.httpClient.get<Reserva[]>('http://localhost:8080/reservas/listaReservas');
+    return this.httpClient.get<Reserva[]>('https://muevetic-zw7y.onrender.com/reservas/listaReservas');
   }
   finalizarReserva(reserva:Reserva){
-    return this.httpClient.post('http://localhost:8080/reservas/AddReview',reserva);
+    return this.httpClient.post('https://muevetic-zw7y.onrender.com/reservas/AddReview',reserva);
   }
   obtenerListaReservasMantenimientoPorEmail(email:string){
-    return this.httpClient.get<ReservaMantenimiento[]>(`http://localhost:8080/reservas/reservasMantenimiento/${email}`);
+    return this.httpClient.get<ReservaMantenimiento[]>(`https://muevetic-zw7y.onrender.com/reservas/reservasMantenimiento/${email}`);
   }
   cancelarReservaMantenimiento(reserva: ReservaMantenimiento) {
-    return this.httpClient.post<ReservaMantenimiento>('http://localhost:8080/reservas/mantenimientoCancel', reserva);
+    return this.httpClient.post<ReservaMantenimiento>('https://muevetic-zw7y.onrender.com/reservas/mantenimientoCancel', reserva);
   }
   finalizarReservaMantenimiento(reserva: ReservaMantenimiento) {
-    return this.httpClient.post<ReservaMantenimiento>('http://localhost:8080/reservas/mantenimientoFinalizar', reserva);
+    return this.httpClient.post<ReservaMantenimiento>('https://muevetic-zw7y.onrender.com/reservas/mantenimientoFinalizar', reserva);
   }
 }

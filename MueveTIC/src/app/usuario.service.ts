@@ -13,15 +13,15 @@ export class UsuarioService {
   private JWToken = 'JWToken';
   private roleUser = 'roleUser';
   private USER_token = 'loggedUser';
-  private URLLogin="http://localhost:8080/users/login";
-  private URLAuthenticate = "http://localhost:8080/users/authenticate";
-  private baseURLAdmin = "http://localhost:8080/users/administradores";
-  private baseURLCliente = "http://localhost:8080/users/cliente";
-  private baseURLMantenimiento = "http://localhost:8080/users/mantenimiento";
-  private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
-  private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser";
-  private baseUrlModificarContrasena = "http://localhost:8080/users/updatePass"
-  private baseUrlRecuperarContrasena = "http://localhost:8080/users/recover";
+  private URLLogin="https://muevetic-zw7y.onrender.com/users/login";
+  private URLAuthenticate = "https://muevetic-zw7y.onrender.com/users/authenticate";
+  private baseURLAdmin = "https://muevetic-zw7y.onrender.com/users/administradores";
+  private baseURLCliente = "https://muevetic-zw7y.onrender.com/users/cliente";
+  private baseURLMantenimiento = "https://muevetic-zw7y.onrender.com/users/mantenimiento";
+  private baseUrlActualizarUsuario = "https://muevetic-zw7y.onrender.com/users/UpdateUser";
+  private baseUrlAnadirusuario = "https://muevetic-zw7y.onrender.com/users/AddUser";
+  private baseUrlModificarContrasena = "https://muevetic-zw7y.onrender.com/users/updatePass"
+  private baseUrlRecuperarContrasena = "https://muevetic-zw7y.onrender.com/users/recover";
 
 
 
@@ -60,7 +60,7 @@ export class UsuarioService {
     return this.httpService.post(this.baseUrlRecuperarContrasena,usuario);
   }
   darseBaja(email: string) {
-    return this.httpService.delete<Usuario>(`http://localhost:8080/users/BajaUser/${email}`);
+    return this.httpService.delete<Usuario>(`https://muevetic-zw7y.onrender.com/users/BajaUser/${email}`);
   }
   
   

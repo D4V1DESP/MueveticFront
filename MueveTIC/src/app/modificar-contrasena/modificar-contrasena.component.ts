@@ -60,7 +60,6 @@ export class ModificarContrasenaComponent implements OnInit {
       response => {
         console.log('contraseña enviados con éxito:', response);
         this.UsuarioService.saveLoggedUser(response);
-        if (this.UsuarioService.getLoggedUser().experiencia)
           this.router.navigate(['/login']);
       },
       error => {
