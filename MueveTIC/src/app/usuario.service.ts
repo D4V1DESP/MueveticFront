@@ -20,6 +20,7 @@ export class UsuarioService {
   private baseUrlActualizarUsuario = "http://localhost:8080/users/UpdateUser";
   private baseUrlAnadirusuario = "http://localhost:8080/users/AddUser";
   private baseUrlModificarContrasena = "http://localhost:8080/users/updatePass"
+ 
 
 
 

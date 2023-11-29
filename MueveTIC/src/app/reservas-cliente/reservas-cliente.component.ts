@@ -68,7 +68,7 @@ obtenerReservas() {
   }
   finalizarReserva(reserva: Reserva) {
 
-    //TODO metodo de finalizar reserva
+   
     if (window.confirm('¿Pasar a la ventana de valoración y facturar la reserva?')){
       this.router.navigate(['/valoracion']);
     }
