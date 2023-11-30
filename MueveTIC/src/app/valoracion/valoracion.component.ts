@@ -37,17 +37,22 @@ export class ValoracionComponent {
         console.error('Error al obtener reservas:', error);
       });
   }
+  //se utiliza para generar un arreglo de booleanos que indica si cada estrella está seleccionada. 
+  //El arreglo tiene una longitud igual al número máximo de estrellas.
   generarEstrellas() {
     for (let i = 0; i < this.maxEstrellas; i++) {
       this.estrellas.push(i < this.valoracion);
     }
   }
-
+//establece la valoración del componente. El método recibe el índice de la estrella seleccionada como argumento.
   establecerValoracion(index: number) {
     this.valoracion = index + 1;
     this.generarEstrellas();
     this.valoracionChange.emit(this.valoracion);
   }
+  //se utiliza para enviar la valoración a la base de datos. El método llama al método finalizarReserva() 
+  //del servicio ReservaService para actualizar la reserva con la nueva valoración. 
+  //Si la operación es exitosa, el usuario se redirige a la página usuarios-cliente.
   enviarValoracion() {
     this.ReservaService.finalizarReserva(this.reserva).subscribe(
       respuesta => {

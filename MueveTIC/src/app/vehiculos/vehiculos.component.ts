@@ -22,31 +22,33 @@ export class VehiculosComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerVehiculos();
   }
-
+//es un método auxiliar que llama a los métodos obtenerCoches(), obtenerMotos() y obtenerPatinetes().
   obtenerVehiculos() {
 
     this.obtenerCoches();
     this.obtenerMotos();
     this.obtenerPatinetes();
   }
-
+//llama al método obtenerListaVehiculos() del servicio VehiculoService para cargar la lista de coches.
   obtenerCoches() {
     this.vehiculoService.obtenerListaVehiculos('/coches').subscribe((data: Coche[]) => {
       this.listaCoches = data;
     });
   }
-
+// llama al método obtenerListaVehiculos() del servicio VehiculoService para cargar la lista de motos.
   obtenerMotos() {
     this.vehiculoService.obtenerListaVehiculos('/motos').subscribe((data: Moto[]) => {
       this.listaMotos = data;
     });
   }
-
+// llama al método obtenerListaVehiculos() del servicio VehiculoService para cargar la lista de patinetes.
   obtenerPatinetes() {
     this.vehiculoService.obtenerListaVehiculos('/patinetes').subscribe((data: Patinete[]) => {
       this.listaPatinetes = data;
     });
   }
+  //se utiliza para eliminar un vehículo de la base de datos. 
+  //El método recibe el objeto Vehiculo que se desea eliminar como argumento.
   eliminarVehiculo(vehiculo: Vehiculo) {
 
     console.log('Eliminar vehiculo:', vehiculo);
@@ -66,6 +68,8 @@ export class VehiculosComponent implements OnInit {
       }
     )
   }
+  //muestra un mensaje de confirmación al usuario antes de eliminar un vehículo. 
+  //El método recibe el objeto Vehiculo que se desea eliminar como argumento.
   confirmarEliminarVehiculo(vehiculo: Vehiculo) {
     if (window.confirm('¿Estás seguro de que deseas eliminar el vehiculo con matricula ' + vehiculo.matricula + '?')) {
       this.eliminarVehiculo(vehiculo)
@@ -78,6 +82,8 @@ export class VehiculosComponent implements OnInit {
   isRowSelected(index: number) {
     return index === this.selectedRowIndex;
   }
+  //se utiliza para eliminar un elemento de una lista. 
+  //El método recibe la lista y el elemento que se desea eliminar como argumentos.
   eliminarElementoDeLista(lista: Vehiculo[], vehiculoAEliminar: Vehiculo): void {
     const indiceAEliminar = lista.findIndex(vehiculo => vehiculo.matricula === vehiculoAEliminar.matricula);
 

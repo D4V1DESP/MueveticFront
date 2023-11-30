@@ -31,8 +31,10 @@ export class ReservasClienteComponent {
 
   }
   loading: boolean = true;
-
-  darseBaja() {
+// Este metodo se utiliza para que el usuario se dé de baja de la aplicación. Antes de realizar la llamada a la API REST, 
+//se comprueba que el usuario no tiene reservas activas. 
+//Si tiene reservas activas, se muestra un mensaje de error
+darseBaja() {
 
     this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
       respuesta => {
@@ -47,7 +49,8 @@ export class ReservasClienteComponent {
       }
     );
   }
-
+//Realiza dos llamadas a API REST de reservas, obteniendo así la reserva activa del usuario y la lista completa de reservas del usuario.
+// Las reservas se almacenan en reservaActiva y listaReservas
   obtenerReservas() {
     this.loading = true;
     this.ReservaService.ObtenerReservaActiva(this.UsuarioService.getLoggedUser().email).subscribe(
@@ -71,6 +74,7 @@ export class ReservasClienteComponent {
       },
     );
   }
+  //se utiliza para cancelar una reserva. Antes de realizar la llamada a la API REST, se muestra una confirmación al usuario.
   cancelarReserva(reserva: Reserva) {
     if (window.confirm('¿Estás seguro de que deseas cancelar tu reserva?')) {
       this.ReservaService.cancelarReserva(reserva).subscribe(
@@ -84,6 +88,7 @@ export class ReservasClienteComponent {
       );
     }
   }
+//se utiliza para finalizar una reserva. Antes de realizar la llamada a la API REST, se muestra una confirmación al usuario.
   finalizarReserva(reserva: Reserva) {
 
 
@@ -92,13 +97,15 @@ export class ReservasClienteComponent {
     }
 
   }
-
+//metodo que comprueba que la tabla esté vacía
   esTablaVacia(): boolean {
     return this.miTabla.length === 0;
   }
+//establece la fila seleccionada.
   toggleRow(index: number) {
     this.selectedRowIndex = index;
   }
+//devuelve true si la fila especificada está seleccionada.
   isRowSelected(index: number) {
     return index === this.selectedRowIndex;
   }

@@ -24,7 +24,9 @@ export class UsuariosClienteComponent implements OnInit {
       this.obtenerVehiculosDisponibles();
     }
   }
-
+  //cancelar la suscripción del usuario a la aplicación. Antes de realizar la llamada a la API REST, 
+  //comprueba que el usuario no tiene reservas activas. 
+  //Si el usuario tiene reservas activas, se muestra un mensaje de error.
   darseBaja() {
 
     this.UsuarioService.darseBaja(this.UsuarioService.getLoggedUser().email).subscribe(
@@ -40,6 +42,9 @@ export class UsuariosClienteComponent implements OnInit {
       }
     );
   }
+  //obtiene los vehículos disponibles en función del tipo de carnet de conducir del usuario. 
+  //Llama a los métodos obtenerListaCochesDisponibles(), obtenerListaMotosDisponibles() y obtenerListaPatinetesDisponibles() 
+  //para obtener los coches, motos y patinetes disponibles, respectivamente.
   obtenerVehiculosDisponibles() {
     if (this.UsuarioService.getLoggedUser().carnet === 'a' || this.UsuarioService.getLoggedUser().carnet === 'c')
       this.vehiculoService.obtenerListaCochesDisponibles().subscribe(respuesta => {
@@ -53,7 +58,10 @@ export class UsuariosClienteComponent implements OnInit {
       this.listaPatinetes = respuesta;
     });
   }
-
+  //se utiliza para reservar un vehículo. Crea un objeto de reserva con el número de matrícula del vehículo y la dirección de correo electrónico del usuario. 
+  //Luego, llama al método reservarVehiculo() del servicio VehiculoService para realizar la reserva. 
+  //Si la reserva es exitosa, el usuario se redirige a la página reservas-cliente. 
+  //Si hay un error, se muestra un mensaje al usuario.
   reservarVehiculo(vehiculo: any) {
     let reserva = {
       matricula: vehiculo.matricula,
