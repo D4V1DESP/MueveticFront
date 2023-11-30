@@ -9,18 +9,18 @@ import { UsuarioService } from '../usuario.service';
 })
 export class RecuperacionComponent {
   constructor(private UsuarioService: UsuarioService, private router: Router) { }
-  usuario = {
+  usuario = {//objeto en el que cargamos la información para enviarlo más tarde
     email: "",
     contrasena: ""
   }
 
   onPulse() {
     console.log('email:', this.usuario.email);
-    this.UsuarioService.recoverPass(this.usuario).subscribe(/*userLogin no, el servicio necesario que haga manu*/
+    this.UsuarioService.recoverPass(this.usuario).subscribe(
       response => {
         if (response) {
-          window.alert('Correo de recuperación enviado con exito');
-          //this.router.navigate(['/pagina-bienvenida'])
+          window.alert('Correo de recuperación enviado con exito');//mostramos una alerta si todo ha salido bien si el correo no exite la muestra también por como esta hecho en back el control de errores
+          
         }
       },
       error => {

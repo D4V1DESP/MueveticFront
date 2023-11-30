@@ -16,7 +16,7 @@ export class VehiculosClienteComponent {
   }
 
 
-  navegarAVehiculos() {
+  navegarAVehiculos() {//juan
     this.router.navigate(['/vehiculos-cliente']);
   }
 

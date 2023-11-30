@@ -17,7 +17,7 @@ export class ModificarContrasenaComponent implements OnInit {
 
   urlCompleta: string = window.location.href;
   urlSeparada: string[] = this.urlCompleta.split('/');
-  emailenc: string = this.urlSeparada.pop() ?? '';
+  emailenc: string = this.urlSeparada.pop() ?? '';//sacamos el token  de la url para luego enviar al back
 
 
   ngOnInit(): void {
@@ -50,13 +50,13 @@ export class ModificarContrasenaComponent implements OnInit {
 
 
     console.log('contraseña:', this.usuario.contrasena);
-    const token: TokenRecuperacion = {
+    const token: TokenRecuperacion = {//guardamos la informacion para enviarla al back
       email: this.emailenc,
       contrasena: this.usuario.contrasena,
       repetirContrasena: this.usuario.repetirContrasena
     };
 
-    this.UsuarioService.updatePass(token).subscribe(
+    this.UsuarioService.updatePass(token).subscribe(//enviamos la información de las contraseñas y el token a back
       response => {
         console.log('contraseña enviados con éxito:', response);
         this.UsuarioService.saveLoggedUser(response);
@@ -69,7 +69,7 @@ export class ModificarContrasenaComponent implements OnInit {
     )
   }
 
-  mostrarLabelMensaje(mensaje: string) {
+  mostrarLabelMensaje(mensaje: string) {//metodo para mostrar una label en caso de que necesites comunicar información a traves de la interfaz
     const mensajeResultado = document.getElementById('mensaje');
     if (mensajeResultado) {
       mensajeResultado.style.display = "none";

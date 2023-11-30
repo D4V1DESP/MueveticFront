@@ -25,7 +25,7 @@ export class ModificarManComponent implements OnInit {
     const email = this.route.snapshot.paramMap.get('email');
 
     if (email) {
-      this.usuarioServicio.obtenerMantenimientoPorEmail(email).subscribe((man: Mantenimiento) => {
+      this.usuarioServicio.obtenerMantenimientoPorEmail(email).subscribe((man: Mantenimiento) => {//llamamos a back y cargamos la informacion en nuestros objetos
         this.manData = man;
       });
     }
@@ -70,13 +70,13 @@ export class ModificarManComponent implements OnInit {
       console.log('La experiencia debe ser un número positivo.');
       this.mostrarLabelMensaje("La experiencia debe ser un número positivo");
       return;
-    }
+    }//controles de los campos
 
     if (this.manData) {
       this.usuarioServicio.modificarDatosMantenimiento(this.manData).subscribe(
         (response: any) => {
           this.router.navigate(['/usuarios']);
-          if (response.statusCode === 200) {
+          if (response.statusCode === 200) {//si todo sale bien volvemos a la tabla de usuarios
             this.mostrarAlerta('exito');
 
           } else {
@@ -104,7 +104,7 @@ export class ModificarManComponent implements OnInit {
     this.alertaAbierta = alerta;
   }
 
-  mostrarLabelMensaje(mensaje: string) {
+  mostrarLabelMensaje(mensaje: string) {//metodo para mostrar una label en caso de que necesites comunicar información a traves de la interfaz
     const mensajeResultado = document.getElementById("mensajeResultado");
     if (mensajeResultado) {
       mensajeResultado.style.display = "none";

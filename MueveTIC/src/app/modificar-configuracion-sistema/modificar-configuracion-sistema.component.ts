@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ModificarConfiguracionSistemaComponent {
   constructor(private configService: ConfigService, private router: Router) { }
   listaConfig: Config[] = [];
-  eurosViaje: Config = {
+  eurosViaje: Config = {//inicializamos los objetos para almacenar la información de configuración
     nombre: 'eurosViaje',
     valor: 1
   };
@@ -32,7 +32,7 @@ export class ModificarConfiguracionSistemaComponent {
 
   }
   obtenerConfiguracion() {
-    this.configService.obtenerInformacionConfiguracion().subscribe((data: Config[]) => {
+    this.configService.obtenerInformacionConfiguracion().subscribe((data: Config[]) => {//llamamos a back y cargamos la informacion en nuestros objetos
       this.listaConfig = data;
       console.log(this.listaConfig)
       this.eurosViaje = this.listaConfig.find(config => config.nombre === 'eurosViaje')!;
@@ -45,7 +45,7 @@ export class ModificarConfiguracionSistemaComponent {
 
 
 
-  modificarConfiguracion() {
+  modificarConfiguracion() {//llamamos al back para enviar la información que tiene que modificar en la base de datos
     console.log(this.eurosViaje.valor)
     this.configService.modificarInformacionConfiguracion(this.eurosViaje).subscribe(
       respuesta => {

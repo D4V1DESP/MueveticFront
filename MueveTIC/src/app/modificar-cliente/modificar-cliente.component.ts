@@ -10,7 +10,7 @@ import { Cliente } from '../usuario';
 })
 
 export class ModificarClienteComponent implements OnInit {
-  clienteData: Cliente = new Cliente(); // Objeto para almacenar los datos del administrador
+  clienteData: Cliente = new Cliente(); // Objeto para almacenar los datos del cliente
   openAlert: boolean = false;
   openAlert2: boolean = false;
   alertaAbierta: string | null = null;
@@ -21,12 +21,13 @@ export class ModificarClienteComponent implements OnInit {
     private router: Router
   ) { }
 
+  
   ngOnInit(): void {
-    const email = this.route.snapshot.paramMap.get('email');
+    const email = this.route.snapshot.paramMap.get('email');//sacamos el email de la ruta de la web
 
     if (email) {
       this.usuarioServicio.obtenerClientePorEmail(email).subscribe((cliente: Cliente) => {
-        this.clienteData = cliente;
+        this.clienteData = cliente;//cargamos los datos en nuestro en el objeto cliente data
       });
     }
   }
@@ -50,7 +51,7 @@ export class ModificarClienteComponent implements OnInit {
       !this.clienteData.fecha
     ) {
       this.mostrarLabelMensaje("Todos los campos son obligatorios");
-      return; // Detener el proceso de envío
+      return; 
     }
 
     if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.clienteData.nombre)) {
@@ -76,12 +77,12 @@ export class ModificarClienteComponent implements OnInit {
       console.log('El carnet solo puede contener una letra.');
       this.mostrarLabelMensaje("El carnet solo puede contener una letra");
       return;
-    }
+    }//controles de los campos
 
     if (this.clienteData) {
       this.usuarioServicio.modificarDatosCliente(this.clienteData).subscribe(
         (response: any) => {
-          this.router.navigate(['/usuarios']);
+          this.router.navigate(['/usuarios']);//si todo sale bien volvemos a la tabla de usuarios
           if (response.statusCode === 200) {
             this.mostrarAlerta('exito');
 
@@ -100,7 +101,7 @@ export class ModificarClienteComponent implements OnInit {
     }
   }
 
-  mostrarLabelMensaje(mensaje: string) {
+  mostrarLabelMensaje(mensaje: string) {//metodo para mostrar una label en caso de que necesites comunicar información a traves de la interfaz
     const mensajeResultado = document.getElementById("mensajeResultado");
     if (mensajeResultado) {
       mensajeResultado.style.display = "none";

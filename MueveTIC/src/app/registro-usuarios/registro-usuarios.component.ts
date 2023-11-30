@@ -108,6 +108,7 @@ export class RegistroUsuariosComponent {
       this.mostrarLabelMensaje('Las contraseñas no coinciden.')
       return;
     }
+    //comprobación de que los campos cumple todos los requisitos
     this.userData.carnet = this.userData.carnet.charAt(0)
     console.log(this.userData.mFaEnabled);
     this.usuarioService.saveRole("")
@@ -115,7 +116,7 @@ export class RegistroUsuariosComponent {
     this.usuarioService.anadirUsuario(this.userData).subscribe(
       response => {
         console.log("respuesta")
-        if (this.userData.mFaEnabled) {
+        if (this.userData.mFaEnabled) {//si se ha activado el doble factor de autenticación
           this.mfaEnabled = true;
           this.secretImageUri = response;
         } else {
@@ -132,7 +133,7 @@ export class RegistroUsuariosComponent {
       })
 
   };
-  mostrarLabelMensaje(mensaje: string) {
+  mostrarLabelMensaje(mensaje: string) {//metodo para mostrar una label en caso de que necesites comunicar información a traves de la interfaz
     const mensajeResultado = document.getElementById('mensaje');
     if (mensajeResultado) {
       mensajeResultado.style.display = "none";
