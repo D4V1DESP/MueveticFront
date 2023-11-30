@@ -36,8 +36,14 @@ export class AnadirManComponent {
       tipo: 'mantenimiento'
     };
   }
+
+  /**
+ * Maneja el envío de un formulario de registro de usuario. Realiza validaciones en los campos
+ * del formulario y envía los datos al servicio correspondiente. Muestra mensajes de error o éxito según sea necesario.
+ */
+
   submitRegistro() {
-    // Aquí puedes implementar la lógica para procesar los datos del formulario, como la validación y el envío al servidor.
+    // Verificar si algún campo del formulario está vacío.
     if (
       !this.manData.nombre ||
       !this.manData.apellidos ||
@@ -51,40 +57,45 @@ export class AnadirManComponent {
       this.mostrarLabelMensaje("Todos los campos son obligatorios");
       return; // Detener el proceso de envío
     }
+    // Validar que el nombre solo contenga letras.
     if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.manData.nombre)) {
       console.log('El nombre solo puede contener letras.');
       this.mostrarLabelMensaje("El nombre solo puede contener letras");
       return;
     }
+     // Validar que los apellidos solo contengan letras.
     if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.manData.apellidos)) {
       console.log('Los apellidos solo pueden contener letras.');
       this.mostrarLabelMensaje("Los apellidos solo pueden contener letras");
       return;
     }
+    // Validar el formato del DNI (8 números y una letra).
     const formatoDNI = /^\d{8}[a-zA-Z]$/;
     if (!formatoDNI.test(this.manData.dni)) {
       console.log('El DNI debe tener 8 números y una letra.');
       this.mostrarLabelMensaje("El DNI debe tener 8 números y una letra");
       return;
     }
+    // Validar el formato del email.
     if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(this.manData.email)) {
       console.log('El email no tiene el formato correcto.');
       this.mostrarLabelMensaje("El email no tiene el formato correcto");
       return;
     }
+    // Validar que la ciudad solo contenga letras.
     if (!/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/.test(this.manData.ciudad)) {
       console.log('La ciudad solo puede contener letras.');
       this.mostrarLabelMensaje("La ciudad solo puede contener letras");
       return;
     }
-
+    // Validar que la experiencia sea un número positivo.
     if (isNaN(Number(this.manData.experiencia))
       || Number(this.manData.experiencia) < 0) {
       console.log('La experiencia debe ser un número positivo.');
       this.mostrarLabelMensaje("La experiencia debe ser un número positivo");
       return;
     }
-
+    // Validar el formato de la contraseña.
     if (this.manData.contrasena.length < 8 ||
       !/\d/.test(this.manData.contrasena) || // al menos un número
       !/[A-Z]/.test(this.manData.contrasena) || // al menos una letra mayúscula
@@ -113,6 +124,11 @@ export class AnadirManComponent {
 
       })
   }
+/**
+ * Muestra un mensaje en un elemento HTML con el id "mensajeResultado".
+ * - El mensaje que se mostrará.
+ */
+
   mostrarLabelMensaje(mensaje: string) {
     const mensajeResultado = document.getElementById("mensajeResultado");
     if (mensajeResultado) {

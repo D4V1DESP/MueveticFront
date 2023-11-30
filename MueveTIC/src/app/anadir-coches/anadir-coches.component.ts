@@ -23,21 +23,27 @@ export class AnadirCochesComponent {
   }
 
 
-
+/**
+ * Maneja el evento de clic en el botón de enviar. Realiza validaciones en los campos del formulario
+ * y envía los datos del coche al servicio correspondiente. Muestra mensajes de error o éxito según sea necesario.
+ */
   onClickEnviar(): void {
     if (this.coche.matricula === "" || this.coche.nPlazas === "" || this.coche.direccion === "" || this.coche.modelo === "") {
       this.mostrarLabelMensaje("Ningún campo debe estar vacío")
       return;
     }
+    
+  // Validar que solo se introduzcan números en el campo de plazas.
     if (!/^\d{1}/.test(this.coche.nPlazas)) {
       this.mostrarLabelMensaje("Porfavor solo introduzca numeros en el campo plazas")
       return;
     }
-
+// Validar el formato de la matrícula (cuatro números seguidos de tres letras).
     if (!/^\d{4}[a-zA-Z]{3}/.test(this.coche.matricula)) {
       this.mostrarLabelMensaje("Formato de matricula erroneo, el formato debe ser 3333LLL")
       return;
     }
+    // Enviar los datos del coche al servicio
     this.VehiculoService.enviarVehiculo(this.coche).subscribe(
       response => {
         console.log('Datos enviados con éxito:', response);
@@ -57,6 +63,10 @@ export class AnadirCochesComponent {
     )
 
   }
+  /**
+ * Muestra un mensaje en un elemento HTML con el id "mensajeResultado".
+ *  El mensaje que se mostrará.
+ */
   mostrarLabelMensaje(mensaje: string) {
     const mensajeResultado = document.getElementById("mensajeResultado");
     if (mensajeResultado) {
