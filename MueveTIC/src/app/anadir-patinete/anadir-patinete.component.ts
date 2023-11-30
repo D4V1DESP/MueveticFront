@@ -22,16 +22,23 @@ export class AnadirPatineteComponent {
   }
 
 
-
+  /**
+ * Maneja el evento de clic en el botón de enviar para el formulario de registro de patinete.
+ * Realiza validaciones en los campos del formulario y envía los datos del patinete al servicio correspondiente.
+ * Muestra mensajes de error o éxito según sea necesario.
+ */
   onClickEnviar(): void {
+    // Verificar si algún campo del formulario está vacío.
     if (this.patinete.matricula === "" || this.patinete.modelo === "" || this.patinete.direccion === "") {
       this.mostrarLabelMensaje("Ningún campo debe estar vacío")
       return;
     }
+     // Validar el formato de la matrícula (cuatro números seguidos de tres letras).
     if (!this.regex.test(this.patinete.matricula)) {
       this.mostrarLabelMensaje("Formato de matricula erroneo, el formato debe ser 3333LLL")
       return;
     }
+    // Enviar los datos del patinete al servicio.
     this.VehiculoService.enviarVehiculo(this.patinete).subscribe(
       (response: any) => {
         console.log('Datos enviados con éxito:', response);
@@ -50,7 +57,10 @@ export class AnadirPatineteComponent {
     )
 
   }
-
+  /**
+ * Muestra un mensaje en un elemento HTML con el id "mensajeResultado".
+ *  El mensaje que se mostrará.
+ */
   mostrarLabelMensaje(mensaje: string) {
     const mensajeResultado = document.getElementById("mensajeResultado");
     if (mensajeResultado) {
